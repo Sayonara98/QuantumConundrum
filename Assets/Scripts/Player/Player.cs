@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour, IDamageable
 {
 
     [SerializeField] private float moveSpeed = 7f;
     [SerializeField] private GameInput gameInput;
+
+    private int hp = 10;
 
     private void Update()
     {
@@ -16,6 +18,15 @@ public class Player : MonoBehaviour
         transform.position += moveDir * moveSpeed * Time.deltaTime;
 
 
+    }
+
+    public void TakeDamage(int Damage)
+    {
+        hp -= Damage;
+        if (hp <= 0)
+        {
+            //Die
+        }
     }
 
 }
