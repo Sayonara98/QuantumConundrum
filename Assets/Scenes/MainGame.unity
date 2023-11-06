@@ -486,6 +486,7 @@ GameObject:
   m_Component:
   - component: {fileID: 421235354}
   - component: {fileID: 421235353}
+  - component: {fileID: 421235356}
   - component: {fileID: 421235355}
   m_Layer: 0
   m_Name: Map Grid
@@ -535,6 +536,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tileMap: {fileID: 897961779}
+  config: {fileID: 11400000, guid: 94d37f0675d55b5418b83bf88aceb7de, type: 2}
+--- !u!114 &421235356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 421235352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1fe77b4f81045dbbb82798addb5e229, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -855,7 +869,7 @@ Tilemap:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Origin: {x: 0, y: 0, z: 0}
   m_Size: {x: 0, y: 0, z: 1}
-  m_TileAnchor: {x: 0, y: 0.25, z: 0}
+  m_TileAnchor: {x: 0.25, y: 0.25, z: 0}
   m_TileOrientation: 0
   m_TileOrientationMatrix:
     e00: 1
