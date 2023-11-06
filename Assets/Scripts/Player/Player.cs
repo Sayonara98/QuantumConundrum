@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class Player : MonoBehaviour, IDamageable
 {
-
     [SerializeField] private float moveSpeed = 7f;
     [SerializeField] private GameInput gameInput;
-
+    
     private int hp = 10;
 
     private void Update()
@@ -15,9 +14,14 @@ public class Player : MonoBehaviour, IDamageable
         Vector2 inputVector = gameInput.GetMovementVectorNormalized();
 
         Vector3 moveDir = new Vector3(inputVector.x,inputVector.y, 0f);
-        transform.position += moveDir * moveSpeed * Time.deltaTime;
-
-
+        if (moveDir.sqrMagnitude > 0f)
+        {
+            Vector3 moveCheck = transform.position + moveDir * (moveSpeed * Time.deltaTime);
+            if (MapCollider.Instance.Check(moveCheck))
+            {
+                transform.position = moveCheck;
+            }
+        }
     }
 
     public void TakeDamage(int Damage)

@@ -5,40 +5,20 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 using Random = UnityEngine.Random;
 
-public class ILovePerlinNoise : MonoBehaviour
+public class MapGenerator : MonoBehaviour
 {
     [SerializeField] private Tilemap tileMap;
     [SerializeField] private TileMapConfig config;
 
-    private List<Tile> dirt1Tiles;
-    private List<Tile> dirt2Tiles;
+    private List<Tile> dirtDryTiles;
+    private List<Tile> dirtWetTiles;
     private List<Tile> grassTiles;
     private List<Tile> bushTiles;
     private List<Tile> iceTiles;
-    
+
     private void Awake()
     {
-        foreach (var category in config.TileCategories)
-        {
-            switch (category.Name)
-            {
-                case "dirtdry":
-                    dirt1Tiles = category.Tiles;
-                    break;
-                case "dirtwet":
-                    dirt2Tiles = category.Tiles;
-                    break;
-                case "grass":
-                    grassTiles = category.Tiles;
-                    break;
-                case "bush":
-                    bushTiles = category.Tiles;
-                    break;
-                case "ice":
-                    iceTiles = category.Tiles;
-                    break;
-            }
-        }
+        config.Init();
     }
 
     void Start()
@@ -53,29 +33,32 @@ public class ILovePerlinNoise : MonoBehaviour
                 float height = Mathf.PerlinNoise(x / frequency + seed1, y / frequency + seed1);
                 float moisture = Mathf.PerlinNoise(x / frequency + seed1, y / frequency + seed1);
 
+                TileType type;
                 if (moisture > 0.5 && height > 0.8)
                 {
-                    SetRandomTile(x, y, grassTiles);
+                    type = TileType.BUSH;
                 }
                 else if (height < 0.25)
                 {
-                    SetRandomTile(x, y, iceTiles);
+                    type = TileType.ICE;
                 }
                 else if (height < 0.4)
                 {
                     if (moisture < 0.5)
                     {
-                        SetRandomTile(x, y, dirt1Tiles);
+                        type = TileType.DIRT_DRY;
                     }
                     else
                     {
-                        SetRandomTile(x, y, dirt2Tiles);
+                        type = TileType.DIRT_WET;
                     }
                 }
                 else
                 {
-                    SetRandomTile(x, y, grassTiles);
+                    type = TileType.GRASS;
                 }
+                
+                SetRandomTile(x, y, config.TilesByType[type]);
             }
         }
     }
