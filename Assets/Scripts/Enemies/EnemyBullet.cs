@@ -8,6 +8,9 @@ public class EnemyBullet : MonoBehaviour
     private float bulletSpeed = 4f;
 
     [SerializeField]
+    private int bulletDamage = 1;
+
+    [SerializeField]
     private Rigidbody2D rb;
 
     private Vector2 direction;
@@ -21,6 +24,15 @@ public class EnemyBullet : MonoBehaviour
     {
         direction = dir;
         Destroy(gameObject, 3f);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.TryGetComponent<Player>(out Player player))
+        {
+            player.TakeDamage(bulletDamage);
+            Destroy(gameObject);
+        }
     }
 
 }

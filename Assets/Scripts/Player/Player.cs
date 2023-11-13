@@ -7,7 +7,7 @@ public class Player : MonoBehaviour, IDamageable
     [SerializeField] private float moveSpeed = 7f;
     [SerializeField] private GameInput gameInput;
     
-    private int hp = 10;
+    private int hp = 5;
 
     private void Update()
     {
@@ -29,7 +29,7 @@ public class Player : MonoBehaviour, IDamageable
         hp -= Damage;
         if (hp <= 0)
         {
-            //Die
+            Debug.Log("Die");
         }
     }
 
