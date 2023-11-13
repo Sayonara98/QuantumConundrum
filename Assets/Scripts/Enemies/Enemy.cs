@@ -17,6 +17,8 @@ public class Enemy : MonoBehaviour, IDamageable
     private float range = 5f;
     [SerializeField]
     private EnemyWeapon weapon;
+    [SerializeField]
+    private EnemyShield shield;
 
     private float scanTimer = 0.5f;
     private float reScan = 0.5f;
@@ -26,6 +28,7 @@ public class Enemy : MonoBehaviour, IDamageable
     {
         rb = GetComponent<Rigidbody2D>();
         target = GameObject.FindGameObjectWithTag("Player");
+        
     }
 
     private void Update()
@@ -57,6 +60,10 @@ public class Enemy : MonoBehaviour, IDamageable
         if (direction != Vector2.zero)
         {
             rb.velocity = speed * direction;
+            if (shield)
+            {
+                shield.Launch(direction);
+            }
         }
     }
 

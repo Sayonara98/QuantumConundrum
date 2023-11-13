@@ -135,6 +135,7 @@ MonoBehaviour:
   speed: 3
   range: 0.5
   weapon: {fileID: 0}
+  shield: {fileID: 0}
 --- !u!61 &2139324229592513175
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -181,4 +182,4 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
