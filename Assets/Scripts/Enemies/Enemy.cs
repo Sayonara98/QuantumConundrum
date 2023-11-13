@@ -13,6 +13,10 @@ public class Enemy : MonoBehaviour, IDamageable
     private int hp = 10;
     [SerializeField]
     private float speed = 2f;
+    [SerializeField]
+    private float range = 5f;
+    [SerializeField]
+    private EnemyWeapon weapon;
 
     private float scanTimer = 0.5f;
     private float reScan = 0.5f;
@@ -28,7 +32,7 @@ public class Enemy : MonoBehaviour, IDamageable
     {
         if (scanTimer <= 0)
         {
-            FollowTarget();
+            DetectTarget();
             scanTimer = reScan;
         }
         scanTimer -= Time.deltaTime;
@@ -36,7 +40,16 @@ public class Enemy : MonoBehaviour, IDamageable
 
     private void FixedUpdate()
     {
-        ChaseTarget();
+        if (target)
+        {
+            if (IsTargetInRange())
+            {
+                Attack();
+                rb.velocity = Vector2.zero;
+            }
+            else
+                ChaseTarget();
+        }
     }
 
     public void ChaseTarget()
@@ -47,8 +60,8 @@ public class Enemy : MonoBehaviour, IDamageable
         }
     }
 
-    // follow target
-    public void FollowTarget()
+    // Detect target
+    public void DetectTarget()
     {
         if (target)
         {
@@ -57,7 +70,21 @@ public class Enemy : MonoBehaviour, IDamageable
         }
     }
 
+    bool IsTargetInRange()
+    {
+        float distance = Vector3.Distance(transform.position, target.transform.position);
+        return distance < range;
+    }
+
     // attack when in range
+    public void Attack()
+    {
+        if (weapon)
+        {
+            DetectTarget();
+            weapon.Shoot(direction);
+        }
+    }
 
     public void TakeDamage(int Damage)
     {

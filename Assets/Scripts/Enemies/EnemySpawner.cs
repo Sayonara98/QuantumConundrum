@@ -13,6 +13,9 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField]
     private GameObject stronkEnemyPrefabs;
 
+    [SerializeField]
+    private GameObject rangeEnemyPrefabs;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,5 +41,8 @@ public class EnemySpawner : MonoBehaviour
     public void SpawnStronkEnemy()
     {
         GameObject enemy = Instantiate(stronkEnemyPrefabs, transform.position, Quaternion.identity);
+    }public void SpawnRangeEnemy()
+    {
+        GameObject enemy = Instantiate(rangeEnemyPrefabs, transform.position, Quaternion.identity);
     }
 }
