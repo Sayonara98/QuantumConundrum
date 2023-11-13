@@ -133,7 +133,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 10
   speed: 3
-  range: 1
+  range: 0.5
   weapon: {fileID: 0}
 --- !u!61 &2139324229592513175
 BoxCollider2D:

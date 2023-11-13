@@ -86,6 +86,14 @@ public class Enemy : MonoBehaviour, IDamageable
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.TryGetComponent<Player>(out Player player))
+        {
+            player.TakeDamage(1);
+        }
+    }
+
     public void TakeDamage(int Damage)
     {
         hp -= Damage;
