@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 14344165}
   - component: {fileID: 14344164}
   m_Layer: 5
-  m_Name: SpawnFastEnemy
+  m_Name: SpawnShieldEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -209,7 +209,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1970361221}
         m_TargetAssemblyTypeName: EnemySpawner, Assembly-CSharp
-        m_MethodName: SpawnFastEnemy
+        m_MethodName: SpawnShieldEnemy
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1557,7 +1557,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: FastEnemy
+  m_text: ShieldEnemy
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1775,6 +1775,10 @@ PrefabInstance:
       propertyPath: rangeEnemyPrefabs
       value: 
       objectReference: {fileID: 2199301529109550363, guid: 143b3d48372b6f241be72f3b01579089, type: 3}
+    - target: {fileID: 2902175251306376937, guid: bd11177055c7a974e84b30ae956e3d5c, type: 3}
+      propertyPath: shieldEnemyPrefabs
+      value: 
+      objectReference: {fileID: 2067732543416469990, guid: 0c6e367632fb4fa44ad646baf3eaef77, type: 3}
     - target: {fileID: 2902175251306376937, guid: bd11177055c7a974e84b30ae956e3d5c, type: 3}
       propertyPath: stronkEnemyPrefabs
       value: 
