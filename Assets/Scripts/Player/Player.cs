@@ -5,13 +5,41 @@ using System;
 
 public class Player : MonoBehaviour, IDamageable
 {
+    private static readonly int Running = Animator.StringToHash("Running");
+    private static readonly int Pickup = Animator.StringToHash("Pickup");
+    
+    [SerializeField] private Animator animator;
+    [SerializeField] private SpriteRenderer sprite;
     [SerializeField] private float moveSpeed = 7f;
     [SerializeField] private GameInput gameInput;
-    
+
     private int hp = 5;
 
     [HideInInspector]
     TurretController ClosestTurret = null;
+    
+    private bool isRunning = false;
+    private bool isFlipped = false;
+
+    private bool IsRunning
+    {
+        get => isRunning;
+        set
+        {
+            isRunning = value;
+            animator.SetBool(Running, value);
+        }
+    }
+
+    private bool IsFlipped
+    {
+        get => isFlipped;
+        set
+        {
+            isFlipped = value;
+            sprite.flipX = value;
+        }
+    }
 
     private void Update()
     {
@@ -25,8 +53,18 @@ public class Player : MonoBehaviour, IDamageable
             {
                 transform.position = moveCheck;
             }
-        }
 
+            IsFlipped = moveDir.x switch
+            {
+                < 0 when !IsFlipped => true,
+                > 0 when IsFlipped => false,
+                _ => IsFlipped
+            };
+
+            if (!IsRunning) IsRunning = true;
+        }
+        else if (IsRunning) IsRunning = false;
+        
         //check turret closest to equit
         TurretController[] turretControllers = GameObject.FindObjectsOfType<TurretController>();
         if(turretControllers != null)
