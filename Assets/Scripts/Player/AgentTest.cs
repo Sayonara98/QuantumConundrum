@@ -9,5 +9,6 @@ public class AgentTest : Agent
     public override void OnActionReceived(ActionBuffers actions)
     {
         Debug.Log(actions.DiscreteActions[0]);
+        //Debug.Log(actions.ContinuousActions[0]);
     }
 }

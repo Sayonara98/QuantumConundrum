@@ -1821,6 +1821,7 @@ GameObject:
   - component: {fileID: 1813567956}
   - component: {fileID: 1813567957}
   - component: {fileID: 1813567958}
+  - component: {fileID: 1813567959}
   m_Layer: 0
   m_Name: Character
   m_TagString: Player
@@ -1883,11 +1884,27 @@ MonoBehaviour:
   m_Model: {fileID: 0}
   m_InferenceDevice: 0
   m_BehaviorType: 0
-  m_BehaviorName: My Behavior
+  m_BehaviorName: MoveAgent
   TeamId: 0
   m_UseChildSensors: 1
   m_UseChildActuators: 1
   m_ObservableAttributeHandling: 0
+--- !u!114 &1813567959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1813567955}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b629350bf476dd04b9c26a2af654877e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agentParameters:
+    maxStep: 0
+  hasUpgradedFromAgentParameters: 1
+  MaxStep: 10000
 --- !u!114 &1970361221 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2902175251306376937, guid: bd11177055c7a974e84b30ae956e3d5c, type: 3}

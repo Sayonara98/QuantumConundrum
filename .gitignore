@@ -26,6 +26,10 @@
 # Visual Studio cache directory
 .vs/
 
+# python
+*.pyc
+env/
+
 # Gradle cache directory
 .gradle/
 
@@ -46,6 +50,7 @@ ExportedObj/
 *.mdb
 *.opendb
 *.VC.db
+*.pyc
 
 # Unity3D generated meta files
 *.pidb.meta
