@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -42,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -127,7 +127,448 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: RunningNormalMap_0
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 402
+        width: 23
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7f6ffebd7bb8e8449e08b8dcb24a2ee
+      internalID: -64668036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RunningNormalMap_1
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 402
+        width: 28
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ee590928ef5bdc488304546126df3ec
+      internalID: -1082093426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RunningNormalMap_2
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 402
+        width: 34
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a76c488c98ded84e9f88a4d0bf3cc7e
+      internalID: 1126590862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RunningNormalMap_3
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 404
+        width: 39
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36b87e8062f129a47aae5afd501e7cdf
+      internalID: -270793593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RunningNormalMap_4
+      rect:
+        serializedVersion: 2
+        x: 427
+        y: 405
+        width: 45
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0cc74e91d976b114eb4712c09716e165
+      internalID: 674489890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RunningNormalMap_5
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 305
+        width: 47
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00f9645510b920447b7a4aa283fd110c
+      internalID: -1280044854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RunningNormalMap_6
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 304
+        width: 46
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b12194a5ba099824cb488ecf1b24c5d1
+      internalID: -1105392439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RunningNormalMap_7
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 302
+        width: 42
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75434fb917faf1f4bb2d854f5bfaa83f
+      internalID: -1734912928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RunningNormalMap_8
+      rect:
+        serializedVersion: 2
+        x: 331
+        y: 302
+        width: 34
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14e71e3cd5e7bec43941646a7c2b56bd
+      internalID: -469472352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RunningNormalMap_9
+      rect:
+        serializedVersion: 2
+        x: 435
+        y: 302
+        width: 27
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 125ccb7e36fb00c41bf85575aac5fe81
+      internalID: -1961850191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RunningNormalMap_10
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 202
+        width: 24
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ed1a20313b9b9e449fff30f7eaa7def
+      internalID: 1652533778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RunningNormalMap_11
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 202
+        width: 28
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 221755c92644236488b1ab9d1b2e9fab
+      internalID: -818994431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RunningNormalMap_12
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 202
+        width: 34
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52947a1aa225a42439355e78cf6fd0d9
+      internalID: -1273791792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RunningNormalMap_13
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 202
+        width: 38
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 202ed2376d9669743b3d935d7f145128
+      internalID: -617863084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RunningNormalMap_14
+      rect:
+        serializedVersion: 2
+        x: 426
+        y: 204
+        width: 47
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3438276d0d91e534c91edce8d3ae24e5
+      internalID: 658067542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RunningNormalMap_15
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 106
+        width: 52
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37025d159d7684d458b6bcbd06723e7f
+      internalID: 1075274999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RunningNormalMap_16
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 105
+        width: 52
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0aa9472b36eabb4f86c86acabe1ec14
+      internalID: -605799653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RunningNormalMap_17
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 103
+        width: 48
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8221dfc8ab34de24ca46f0907d97e2ea
+      internalID: -576797255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RunningNormalMap_18
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 102
+        width: 41
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0ffd8c9aa6a9394dab9804ae00f5e79
+      internalID: 1214928534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RunningNormalMap_19
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 102
+        width: 32
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b23b0ba89145d064e95534069e345f97
+      internalID: -1843604023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RunningNormalMap_20
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 2
+        width: 27
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad58f4238908e684e8e07375f2f2ef47
+      internalID: 2124410675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -138,7 +579,28 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      RunningNormalMap_17: -576797255
+      RunningNormalMap_2: 1126590862
+      RunningNormalMap_19: -1843604023
+      RunningNormalMap_18: 1214928534
+      RunningNormalMap_7: -1734912928
+      RunningNormalMap_0: -64668036
+      RunningNormalMap_14: 658067542
+      RunningNormalMap_20: 2124410675
+      RunningNormalMap_1: -1082093426
+      RunningNormalMap_4: 674489890
+      RunningNormalMap_13: -617863084
+      RunningNormalMap_12: -1273791792
+      RunningNormalMap_9: -1961850191
+      RunningNormalMap_5: -1280044854
+      RunningNormalMap_3: -270793593
+      RunningNormalMap_6: -1105392439
+      RunningNormalMap_16: -605799653
+      RunningNormalMap_11: -818994431
+      RunningNormalMap_10: 1652533778
+      RunningNormalMap_15: 1075274999
+      RunningNormalMap_8: -469472352
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

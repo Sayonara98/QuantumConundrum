@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -42,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -127,7 +127,1414 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: PickUpNormalMap_0
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 801
+        width: 18
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06e30bf82f21cda4cafc33ff948fe87f
+      internalID: -963637049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PickUpNormalMap_1
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 801
+        width: 18
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c33071139dcd1e748b01a35c49ec51cd
+      internalID: -973185599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PickUpNormalMap_2
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 801
+        width: 18
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf9dbf17338f1e440b884cdd0b07b7f8
+      internalID: 1392074967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PickUpNormalMap_3
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 801
+        width: 17
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aecea58a356489946bfe3c2780cbe782
+      internalID: -1362374713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PickUpNormalMap_4
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 801
+        width: 17
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1cb78ab28534b2941a4697b4b234aa0f
+      internalID: -1223252901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PickUpNormalMap_5
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 801
+        width: 17
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46d3514e129ea4b40adc5cca5b92099f
+      internalID: 308266856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PickUpNormalMap_6
+      rect:
+        serializedVersion: 2
+        x: 644
+        y: 801
+        width: 17
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13b582db231617e4cab563e1903c3ece
+      internalID: 1535237482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PickUpNormalMap_7
+      rect:
+        serializedVersion: 2
+        x: 745
+        y: 801
+        width: 16
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86fee5e9ecb98d2499f97cb68965ae75
+      internalID: 859130227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PickUpNormalMap_8
+      rect:
+        serializedVersion: 2
+        x: 845
+        y: 801
+        width: 16
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d09e80239e2ce4341a4b55cfb58f743a
+      internalID: -237934026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PickUpNormalMap_9
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 701
+        width: 16
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4b8fd01d2fd9b840aa2ed13c1541f31
+      internalID: 1127512536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PickUpNormalMap_10
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 701
+        width: 16
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3925bd41b3df49408e4b3be6f8f9abc
+      internalID: -1233298040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PickUpNormalMap_11
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 701
+        width: 17
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a3baf0b4a59fd64e9359b397ed356eb
+      internalID: 1556688349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PickUpNormalMap_12
+      rect:
+        serializedVersion: 2
+        x: 345
+        y: 701
+        width: 17
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41cf4b0651257c14c8c8dfb08b1536b5
+      internalID: 1571211941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PickUpNormalMap_13
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 701
+        width: 18
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d2bbd474dd6116449bf938a57328e7f
+      internalID: 2010197378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PickUpNormalMap_14
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 701
+        width: 19
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49445afdd48c1c64ebf8107a736da16e
+      internalID: 1108059704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PickUpNormalMap_15
+      rect:
+        serializedVersion: 2
+        x: 643
+        y: 701
+        width: 21
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59f68ec760bd5ae4bbcdf5edb1c8b48e
+      internalID: 1875544267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PickUpNormalMap_16
+      rect:
+        serializedVersion: 2
+        x: 742
+        y: 701
+        width: 23
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fdfbae9d145085a4798f239a4caaa6f0
+      internalID: -1277410915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PickUpNormalMap_17
+      rect:
+        serializedVersion: 2
+        x: 842
+        y: 701
+        width: 25
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53d7b7fde9b13d54198142957452f91d
+      internalID: -996075763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PickUpNormalMap_18
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 601
+        width: 27
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b03b0eadb6c2c3e43bea5a429b8f4f57
+      internalID: -1213458622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PickUpNormalMap_19
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 601
+        width: 29
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2af757b2028ac9545b9fea4b52f5f199
+      internalID: -41634274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PickUpNormalMap_20
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 601
+        width: 30
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3a3e2c4c3efec94aa30db51c2025a7d
+      internalID: -2129320967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PickUpNormalMap_21
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 601
+        width: 32
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 843f98343ae49564995415105f2a461e
+      internalID: -850438549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PickUpNormalMap_22
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 601
+        width: 33
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b38c8f6319a3d124da5877989e95b69f
+      internalID: 1132658966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PickUpNormalMap_23
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 601
+        width: 33
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec133f256d36eb3419798be6671581f6
+      internalID: -377196789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PickUpNormalMap_24
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 601
+        width: 33
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 408ad001f1e122048838a74520d5ae1b
+      internalID: 1618527353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PickUpNormalMap_25
+      rect:
+        serializedVersion: 2
+        x: 740
+        y: 601
+        width: 34
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1395c9ae7a93dd45b1c2cc3d01ef14e
+      internalID: 1234038468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PickUpNormalMap_26
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 601
+        width: 34
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 796e9c72172e7714bbc0f727353f8535
+      internalID: -1263579194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PickUpNormalMap_27
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 501
+        width: 34
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f14815e82fd84c941b47f613589aeb6e
+      internalID: -390388183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PickUpNormalMap_28
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 501
+        width: 34
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ddc9d6d8f93f7b41b47b28bed5dda56
+      internalID: -464445189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PickUpNormalMap_29
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 502
+        width: 33
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 663f66f4d4d50c54c910f1664d6a26e9
+      internalID: -272306421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PickUpNormalMap_30
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 502
+        width: 33
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cfa062511626ba488088a73dc29677d
+      internalID: 258658611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PickUpNormalMap_31
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 502
+        width: 33
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71a7abce5ee1a8e4ea21f9b4d130624f
+      internalID: -223683995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PickUpNormalMap_32
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 502
+        width: 33
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da33002c20053f3449a9a24118eff185
+      internalID: -2027287010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PickUpNormalMap_33
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 502
+        width: 33
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca3a0d51eb7dc2e43964a470c5e474e6
+      internalID: -1934151383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PickUpNormalMap_34
+      rect:
+        serializedVersion: 2
+        x: 740
+        y: 502
+        width: 32
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f349e88e75b8fef4dab24a3c377f0e41
+      internalID: 73691926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PickUpNormalMap_35
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 502
+        width: 32
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9da62a22f85255a41aaf4c935d66c674
+      internalID: -1470263150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PickUpNormalMap_36
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 402
+        width: 32
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 571d6d3e109cf0142a4636049a62ee58
+      internalID: -78002877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PickUpNormalMap_37
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 401
+        width: 33
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f631da0f4bac6d84f929270f511c2a0f
+      internalID: 868000049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PickUpNormalMap_38
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 401
+        width: 33
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de688b7db4c558e498fcdb6eeb34ed59
+      internalID: 608541961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PickUpNormalMap_39
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 401
+        width: 33
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ea4514b231a2934aa5cea4b2367c495
+      internalID: -993552452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PickUpNormalMap_40
+      rect:
+        serializedVersion: 2
+        x: 439
+        y: 401
+        width: 33
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ce5b638586f32b49a805112b64d76b8
+      internalID: -144963357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PickUpNormalMap_41
+      rect:
+        serializedVersion: 2
+        x: 539
+        y: 401
+        width: 33
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d658c98081858248a18e991cb4b370e
+      internalID: 289994657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PickUpNormalMap_42
+      rect:
+        serializedVersion: 2
+        x: 639
+        y: 401
+        width: 33
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf566c638ea32e641af5d5330e58cc98
+      internalID: -661364062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PickUpNormalMap_43
+      rect:
+        serializedVersion: 2
+        x: 739
+        y: 401
+        width: 33
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a6748c36b0ea2e44aac679e49dcc418
+      internalID: -1299317891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PickUpNormalMap_44
+      rect:
+        serializedVersion: 2
+        x: 839
+        y: 401
+        width: 32
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01c45e92bc543af4bbd4e98cf2715469
+      internalID: -1604117189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PickUpNormalMap_45
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 301
+        width: 32
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 155820df4eecc964798f884151fb16a8
+      internalID: -1722287201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PickUpNormalMap_46
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 301
+        width: 31
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 529eaa09a2ad2a446b741273d16ca329
+      internalID: -772787400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PickUpNormalMap_47
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 301
+        width: 31
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9016cc5193c88a84c8b122c2239b37fe
+      internalID: 670520994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PickUpNormalMap_48
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 301
+        width: 30
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5be8f8ac4f440be4f91173c03d5e8c13
+      internalID: -1836636971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PickUpNormalMap_49
+      rect:
+        serializedVersion: 2
+        x: 439
+        y: 301
+        width: 30
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06f2f51a05308004c98b9326b94bbbac
+      internalID: 2092447719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PickUpNormalMap_50
+      rect:
+        serializedVersion: 2
+        x: 539
+        y: 301
+        width: 29
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7bc5b6d072b0b024c8fc8e1aea00e327
+      internalID: 548010782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PickUpNormalMap_51
+      rect:
+        serializedVersion: 2
+        x: 639
+        y: 301
+        width: 28
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24da6b97760a7d24cb9139340746fc56
+      internalID: 504100113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PickUpNormalMap_52
+      rect:
+        serializedVersion: 2
+        x: 740
+        y: 301
+        width: 26
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81fbf9016ecbdf843a9f984bcfa9ecd7
+      internalID: 302542557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PickUpNormalMap_53
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 301
+        width: 26
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26bab359389315b45812dca813d16dd8
+      internalID: 445999505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PickUpNormalMap_54
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 201
+        width: 25
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a09644f7184ac040987682389668949
+      internalID: 1027983123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PickUpNormalMap_55
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 201
+        width: 24
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b54a4273b7bebea41a2a3b744a2f424a
+      internalID: 1377024277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PickUpNormalMap_56
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 201
+        width: 24
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec7fd609f7bb2cc40930c4143f3403a3
+      internalID: 605033042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PickUpNormalMap_57
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 201
+        width: 23
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b9f360c79e9a7e4ab9a31ba73b46375
+      internalID: -197645740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PickUpNormalMap_58
+      rect:
+        serializedVersion: 2
+        x: 442
+        y: 201
+        width: 23
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8b137e57dedc0944a8bc56c6f5c3c13
+      internalID: -1619085373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PickUpNormalMap_59
+      rect:
+        serializedVersion: 2
+        x: 543
+        y: 201
+        width: 21
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d35e00ebf4f19d8449648bbad436d180
+      internalID: 1015289999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PickUpNormalMap_60
+      rect:
+        serializedVersion: 2
+        x: 643
+        y: 201
+        width: 21
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d925101580ca02a45a6bebcdac57b9e6
+      internalID: -1988966286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PickUpNormalMap_61
+      rect:
+        serializedVersion: 2
+        x: 743
+        y: 201
+        width: 21
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 813c57c9cf8c3e140a4362a2c2834065
+      internalID: 1061066088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PickUpNormalMap_62
+      rect:
+        serializedVersion: 2
+        x: 844
+        y: 201
+        width: 20
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f58c0cc9109cb6a4389c457834cce8fa
+      internalID: -1868346794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PickUpNormalMap_63
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 101
+        width: 20
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c5f020772801644b947e20e0a5f7fb4
+      internalID: 1549767505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PickUpNormalMap_64
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 101
+        width: 20
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e10bfe97f8a50054f92e5b76025766e4
+      internalID: -334209470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PickUpNormalMap_65
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 101
+        width: 20
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 542ba3dd362791f4491b6a4edd9ad3b3
+      internalID: 1991948363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PickUpNormalMap_66
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 101
+        width: 20
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f058c1a4d552bdf44879b6c8ad73aed5
+      internalID: -1556519744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -138,7 +1545,74 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      PickUpNormalMap_6: 1535237482
+      PickUpNormalMap_57: -197645740
+      PickUpNormalMap_39: -993552452
+      PickUpNormalMap_0: -963637049
+      PickUpNormalMap_34: 73691926
+      PickUpNormalMap_63: 1549767505
+      PickUpNormalMap_5: 308266856
+      PickUpNormalMap_56: 605033042
+      PickUpNormalMap_53: 445999505
+      PickUpNormalMap_7: 859130227
+      PickUpNormalMap_64: -334209470
+      PickUpNormalMap_51: 504100113
+      PickUpNormalMap_3: -1362374713
+      PickUpNormalMap_33: -1934151383
+      PickUpNormalMap_54: 1027983123
+      PickUpNormalMap_27: -390388183
+      PickUpNormalMap_46: -772787400
+      PickUpNormalMap_21: -850438549
+      PickUpNormalMap_55: 1377024277
+      PickUpNormalMap_14: 1108059704
+      PickUpNormalMap_61: 1061066088
+      PickUpNormalMap_17: -996075763
+      PickUpNormalMap_60: -1988966286
+      PickUpNormalMap_49: 2092447719
+      PickUpNormalMap_30: 258658611
+      PickUpNormalMap_15: 1875544267
+      PickUpNormalMap_25: 1234038468
+      PickUpNormalMap_2: 1392074967
+      PickUpNormalMap_19: -41634274
+      PickUpNormalMap_20: -2129320967
+      PickUpNormalMap_35: -1470263150
+      PickUpNormalMap_8: -237934026
+      PickUpNormalMap_24: 1618527353
+      PickUpNormalMap_26: -1263579194
+      PickUpNormalMap_1: -973185599
+      PickUpNormalMap_44: -1604117189
+      PickUpNormalMap_11: 1556688349
+      PickUpNormalMap_23: -377196789
+      PickUpNormalMap_41: 289994657
+      PickUpNormalMap_32: -2027287010
+      PickUpNormalMap_66: -1556519744
+      PickUpNormalMap_18: -1213458622
+      PickUpNormalMap_36: -78002877
+      PickUpNormalMap_37: 868000049
+      PickUpNormalMap_22: 1132658966
+      PickUpNormalMap_42: -661364062
+      PickUpNormalMap_45: -1722287201
+      PickUpNormalMap_48: -1836636971
+      PickUpNormalMap_40: -144963357
+      PickUpNormalMap_50: 548010782
+      PickUpNormalMap_58: -1619085373
+      PickUpNormalMap_59: 1015289999
+      PickUpNormalMap_38: 608541961
+      PickUpNormalMap_10: -1233298040
+      PickUpNormalMap_9: 1127512536
+      PickUpNormalMap_65: 1991948363
+      PickUpNormalMap_62: -1868346794
+      PickUpNormalMap_12: 1571211941
+      PickUpNormalMap_16: -1277410915
+      PickUpNormalMap_47: 670520994
+      PickUpNormalMap_52: 302542557
+      PickUpNormalMap_28: -464445189
+      PickUpNormalMap_13: 2010197378
+      PickUpNormalMap_29: -272306421
+      PickUpNormalMap_31: -223683995
+      PickUpNormalMap_4: -1223252901
+      PickUpNormalMap_43: -1299317891
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
