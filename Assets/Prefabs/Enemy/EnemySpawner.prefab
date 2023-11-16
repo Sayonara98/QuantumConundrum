@@ -44,4 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31e6defd42d255843994426f67cff2d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefabs: {fileID: 5039095010379706139, guid: 87c1dcd4eec86bc409bf88a2979ce73b, type: 3}
+  basicEnemyPrefabs: {fileID: 5039095010379706139, guid: 87c1dcd4eec86bc409bf88a2979ce73b, type: 3}
+  stronkEnemyPrefabs: {fileID: 5133731931170196344, guid: 6890ea7ac181ae340a9926729d14046e, type: 3}
+  rangeEnemyPrefabs: {fileID: 2199301529109550363, guid: 143b3d48372b6f241be72f3b01579089, type: 3}
+  shieldEnemyPrefabs: {fileID: 2067732543416469990, guid: 0c6e367632fb4fa44ad646baf3eaef77, type: 3}
+  player: {fileID: 0}
+  startSpawnBasicEnemy: 5
