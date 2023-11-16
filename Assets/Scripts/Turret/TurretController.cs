@@ -26,14 +26,23 @@ public class TurretController : MonoBehaviour
         OnUpdate();
     }
 
+    private void FixedUpdate()
+    {
+        OnFixedUpdate();
+    }
+
     private void Awake()
+    {
+        OnAwake();
+    }
+
+    protected virtual void OnAwake()
     {
         EquipText?.gameObject.SetActive(CanEquip);
     }
 
     protected virtual void OnStart()
     {
-        
     }
 
     protected virtual void OnUpdate()
@@ -46,6 +55,10 @@ public class TurretController : MonoBehaviour
                 inventoryManager.AddItem(TurretData);
             Destroy(gameObject);
         }
+    }
+
+    protected virtual void OnFixedUpdate()
+    {
     }
 
     public void EnableEquip()
