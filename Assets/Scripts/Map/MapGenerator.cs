@@ -7,8 +7,8 @@ using Random = UnityEngine.Random;
 
 public class MapGenerator : MonoBehaviour
 {
-    [SerializeField] private Tilemap tileMap;
-    [SerializeField] private TileMapConfig config;
+    public Tilemap tileMap;
+    public TileMapConfig config;
 
     private List<Tile> dirtDryTiles;
     private List<Tile> dirtWetTiles;

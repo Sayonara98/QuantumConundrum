@@ -7,8 +7,8 @@ using UnityEngine.Tilemaps;
 public class TileMapConfig : ScriptableObject
 {
     [SerializeField] private List<TileCategory> allTiles;
-    public Dictionary<string, TileData> TilesByName = new();
-    public Dictionary<TileType, List<Tile>> TilesByType = new();
+    public readonly Dictionary<string, TileData> TilesByName = new();
+    public readonly Dictionary<TileType, List<Tile>> TilesByType = new();
 
     public void Init()
     {

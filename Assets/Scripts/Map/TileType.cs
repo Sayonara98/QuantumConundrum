@@ -7,3 +7,11 @@
     GRASS,
     BUSH
 }
+
+public static class TileTypeExtensions
+{
+    public static bool IsPassable(this TileType type)
+    {
+        return type != TileType.ICE;
+    }
+}

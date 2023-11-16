@@ -17,7 +17,8 @@ public class Player : MonoBehaviour, IDamageable
 
     [HideInInspector]
     TurretController ClosestTurret = null;
-    
+
+    private Vector3 feetOffset;
     private bool isRunning = false;
     private bool isFlipped = false;
 
@@ -41,6 +42,11 @@ public class Player : MonoBehaviour, IDamageable
         }
     }
 
+    private void Awake()
+    {
+        feetOffset = new Vector3(0, sprite.bounds.size.y / 2);
+    }
+
     private void Update()
     {
         Vector2 inputVector = gameInput.GetMovementVectorNormalized();
@@ -49,7 +55,7 @@ public class Player : MonoBehaviour, IDamageable
         if (moveDir.sqrMagnitude > 0f)
         {
             Vector3 moveCheck = transform.position + moveDir * (moveSpeed * Time.deltaTime);
-            if (MapCollider.Instance.Check(moveCheck))
+            if (MapCollider.Instance.Check(moveCheck - feetOffset))
             {
                 transform.position = moveCheck;
             }

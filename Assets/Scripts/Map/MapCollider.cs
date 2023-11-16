@@ -18,15 +18,11 @@ public class MapCollider : MonoBehaviour
 
     public bool Check(Vector3 position)
     {
-        Vector3Int cell = tileMap.WorldToCell(position);
-        return Check(cell);
+        return MapManager.Instance.GetGroundType(position).IsPassable();
     }
 
     public bool Check(Vector3Int cell)
     {
-        string tileName = tileMap.GetTile(cell).name;
-        TileType type = config.TilesByName[tileName]?.type ?? TileType.NONE;
-
-        return type != TileType.ICE;
+        return MapManager.Instance.GetGroundType(cell).IsPassable();
     }
 }
