@@ -34,18 +34,23 @@ public class MapManager : MonoBehaviour
 
     public Biome GetBiomeConfig(Vector3Int cell)
     {
-        string tileName = biomeMap.tilemap.GetTile(cell).name;
-        return biomeMap.config.TilesByName[tileName]?.biome;
+        var tile = biomeMap.tilemap.GetTile(cell);
+        if (tile == null) return null;
+        return biomeMap.config.TilesByName[tile.name]?.biome;
     }
 
 
     public bool CheckPassable(Vector3 position)
     {
-        return GetBiomeConfig(position)?.passable ?? false;
+        var biome = GetBiomeConfig(position);
+        if (biome == null) return false;
+        return biome.passable;
     }
 
     public bool CheckPassable(Vector3Int cell)
     {
-        return GetBiomeConfig(cell)?.passable ?? false;
+        var biome = GetBiomeConfig(cell);
+        if (biome == null) return false;
+        return biome.passable;
     }
 }

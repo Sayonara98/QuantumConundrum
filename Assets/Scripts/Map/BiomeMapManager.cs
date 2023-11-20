@@ -20,7 +20,7 @@ public class BiomeMapManager : MonoBehaviour
         int seed1 = Random.Range(0, 10000);
         int seed2 = Random.Range(0, 10000);
         int seed3 = Random.Range(0, 10000);
-        float frequency = 20;
+        float frequency = 50;
 
         // Check zero
         while (Generate(0, 0) == BiomeType.WATER)
