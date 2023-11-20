@@ -11,7 +11,7 @@ public class MapManager : MonoBehaviour
         Instance = this;
     }
 
-    [SerializeField] private MapGenerator groundMap;
+    [SerializeField] private MapController groundMap;
 
     public TileType GetGroundType(Vector3 position)
     {

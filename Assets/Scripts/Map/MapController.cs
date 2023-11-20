@@ -5,16 +5,10 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 using Random = UnityEngine.Random;
 
-public class MapGenerator : MonoBehaviour
+public class MapController : MonoBehaviour
 {
     public Tilemap tileMap;
     public TileMapConfig config;
-
-    private List<Tile> dirtDryTiles;
-    private List<Tile> dirtWetTiles;
-    private List<Tile> grassTiles;
-    private List<Tile> bushTiles;
-    private List<Tile> iceTiles;
 
     private void Awake()
     {
@@ -23,15 +17,20 @@ public class MapGenerator : MonoBehaviour
 
     void Start()
     {
-        int seed1 = Random.Range(0, 1000);
-        int seed2 = Random.Range(0, 1000);
+        int seed1 = Random.Range(0, int.MaxValue);
+        int seed2 = Random.Range(0, int.MaxValue);
         float frequency = 20;
+        
+        // Check zero
+        
+        
+        
         for (int x = -200; x <= 200; x++)
         {
             for (int y = -200; y <= 200; y++)
             {
                 float height = Mathf.PerlinNoise(x / frequency + seed1, y / frequency + seed1);
-                float moisture = Mathf.PerlinNoise(x / frequency + seed1, y / frequency + seed1);
+                float moisture = Mathf.PerlinNoise(x / frequency + seed2, y / frequency + seed2);
 
                 TileType type;
                 if (moisture > 0.5 && height > 0.8)
@@ -63,7 +62,7 @@ public class MapGenerator : MonoBehaviour
         }
     }
 
-    private float AdvanedNoise(float x, float y, float frequency, float amplitude, float persistence, int octave, int seed)
+    private float AdvancedNoise(float x, float y, float frequency, float amplitude, float persistence, int octave, int seed)
     {
         float noise = 0.0f;
 
