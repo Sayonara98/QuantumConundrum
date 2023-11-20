@@ -47,7 +47,7 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         if (Item.CanDragIntoScene)
         {
             Vector2 worldPoint = Camera.main.ScreenToWorldPoint(transform.position);
-            if (MapCollider.Instance.Check(worldPoint))
+            if (MapManager.Instance.CheckPassable(worldPoint))
             {
                 if (Item.ItemPrefab)
                 {

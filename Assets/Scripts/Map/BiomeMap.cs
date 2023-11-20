@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-[CreateAssetMenu(fileName = "TileMapConfig", menuName = "GameConfig/TileMapConfig")]
-public class TileMapConfig : ScriptableObject
+[CreateAssetMenu(fileName = "BiomeMapConfig", menuName = "GameConfig/BiomeMapConfig")]
+public class BiomeMap : ScriptableObject
 {
     [SerializeField] private List<TileCategory> allTiles;
+    public readonly List<Biome> AllBiomes = new();
     public readonly Dictionary<string, TileData> TilesByName = new();
-    public readonly Dictionary<, List<Tile>> TilesByType = new();
+    public readonly Dictionary<BiomeType, List<Tile>> TilesByBiome = new();
 
     public void Init()
     {
@@ -16,9 +17,10 @@ public class TileMapConfig : ScriptableObject
         {
             foreach (var tile in category.tiles)
             {
-                TilesByName[tile.name] = new TileData(category.type, tile);
+                AllBiomes.Add(category.biome);
+                TilesByName[tile.name] = new TileData(category.biome, tile);
             }
-            TilesByType[category.type] = category.tiles;
+            TilesByBiome[category.biome.type] = category.tiles;
         }
 
     }
@@ -27,18 +29,18 @@ public class TileMapConfig : ScriptableObject
 [Serializable]
 public class TileCategory
 {
-    public TileType type;
+    public Biome biome;
     public List<Tile> tiles;
 }
 
 public class TileData
 {
-    public TileType type;
+    public Biome biome;
     public Tile tile;
 
-    public TileData(TileType type, Tile tile)
+    public TileData(Biome biome, Tile tile)
     {
-        this.type = type;
+        this.biome = biome;
         this.tile = tile;
     }
 }

@@ -11,17 +11,41 @@ public class MapManager : MonoBehaviour
         Instance = this;
     }
 
-    [SerializeField] private MapController groundMap;
+    [SerializeField] private BiomeMapManager biomeMap;
 
-    public TileType GetGroundType(Vector3 position)
+    public BiomeType GetBiomeType(Vector3 position)
     {
-        Vector3Int cell = groundMap.tileMap.WorldToCell(position);
-        return GetGroundType(cell);
+        Vector3Int cell = biomeMap.tilemap.WorldToCell(position);
+        return GetBiomeType(cell);
     }
-    
-    public TileType GetGroundType(Vector3Int cell)
+
+    public BiomeType GetBiomeType(Vector3Int cell)
     {
-        string tileName = groundMap.tileMap.GetTile(cell).name;
-        return groundMap.config.TilesByName[tileName]?.type ?? TileType.NONE;
+        string tileName = biomeMap.tilemap.GetTile(cell).name;
+        BiomeType type = biomeMap.config.TilesByName[tileName]?.biome.type ?? BiomeType.NONE;
+        return type;
+    }
+
+    public Biome GetBiomeConfig(Vector3 position)
+    {
+        Vector3Int cell = biomeMap.tilemap.WorldToCell(position);
+        return GetBiomeConfig(cell);
+    }
+
+    public Biome GetBiomeConfig(Vector3Int cell)
+    {
+        string tileName = biomeMap.tilemap.GetTile(cell).name;
+        return biomeMap.config.TilesByName[tileName]?.biome;
+    }
+
+
+    public bool CheckPassable(Vector3 position)
+    {
+        return GetBiomeConfig(position)?.passable ?? false;
+    }
+
+    public bool CheckPassable(Vector3Int cell)
+    {
+        return GetBiomeConfig(cell)?.passable ?? false;
     }
 }
