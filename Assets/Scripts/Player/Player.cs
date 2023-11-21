@@ -55,7 +55,7 @@ public class Player : MonoBehaviour, IDamageable
         if (moveDir.sqrMagnitude > 0f)
         {
             Vector3 moveCheck = transform.position + moveDir * (moveSpeed * Time.deltaTime);
-            if (MapCollider.Instance.Check(moveCheck - feetOffset))
+            if (MapManager.Instance.CheckPassable(moveCheck - feetOffset))
             {
                 transform.position = moveCheck;
             }

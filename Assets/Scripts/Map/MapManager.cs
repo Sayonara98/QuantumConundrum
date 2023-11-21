@@ -11,17 +11,46 @@ public class MapManager : MonoBehaviour
         Instance = this;
     }
 
-    [SerializeField] private MapGenerator groundMap;
+    [SerializeField] private BiomeMapManager biomeMap;
 
-    public TileType GetGroundType(Vector3 position)
+    public BiomeType GetBiomeType(Vector3 position)
     {
-        Vector3Int cell = groundMap.tileMap.WorldToCell(position);
-        return GetGroundType(cell);
+        Vector3Int cell = biomeMap.tilemap.WorldToCell(position);
+        return GetBiomeType(cell);
     }
-    
-    public TileType GetGroundType(Vector3Int cell)
+
+    public BiomeType GetBiomeType(Vector3Int cell)
     {
-        string tileName = groundMap.tileMap.GetTile(cell).name;
-        return groundMap.config.TilesByName[tileName]?.type ?? TileType.NONE;
+        string tileName = biomeMap.tilemap.GetTile(cell).name;
+        BiomeType type = biomeMap.config.TilesByName[tileName]?.biome.type ?? BiomeType.NONE;
+        return type;
+    }
+
+    public Biome GetBiomeConfig(Vector3 position)
+    {
+        Vector3Int cell = biomeMap.tilemap.WorldToCell(position);
+        return GetBiomeConfig(cell);
+    }
+
+    public Biome GetBiomeConfig(Vector3Int cell)
+    {
+        var tile = biomeMap.tilemap.GetTile(cell);
+        if (tile == null) return null;
+        return biomeMap.config.TilesByName[tile.name]?.biome;
+    }
+
+
+    public bool CheckPassable(Vector3 position)
+    {
+        var biome = GetBiomeConfig(position);
+        if (biome == null) return false;
+        return biome.passable;
+    }
+
+    public bool CheckPassable(Vector3Int cell)
+    {
+        var biome = GetBiomeConfig(cell);
+        if (biome == null) return false;
+        return biome.passable;
     }
 }
