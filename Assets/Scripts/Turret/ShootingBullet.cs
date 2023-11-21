@@ -5,11 +5,13 @@ using UnityEngine;
 public class ShootingBullet : MonoBehaviour
 {
     [SerializeField]
-    float Speed = 10.0f;
+    protected float Speed = 10.0f;
     [SerializeField]
-    int Damage = 2;
+    protected int Damage = 2;
     [SerializeField]
-    private Rigidbody2D rb;
+    protected Rigidbody2D rb;
+    [SerializeField]
+    protected float LifeTime = 0.5f;
 
     [HideInInspector]
     public Vector2 Direction;
@@ -17,16 +19,13 @@ public class ShootingBullet : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(SelfDestroy(0.5f));
+        OnStart();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(rb)
-        {
-            rb.velocity = Direction * Speed;
-        }
+        OnUpdate();
     }
 
     IEnumerator SelfDestroy(float LifeTime)
@@ -37,10 +36,32 @@ public class ShootingBullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        OnTriggerEnter2DEvent(collision);
+    }
+
+    protected virtual void OnStart()
+    {
+        StartCoroutine(SelfDestroy(LifeTime));
+    }
+
+    protected virtual void OnUpdate()
+    {
+        if (rb)
+        {
+            rb.velocity = Direction * Speed;
+        }
+    }
+
+    protected virtual void OnFixedUpdate()
+    {
+    }
+
+    protected virtual void OnTriggerEnter2DEvent(Collider2D collision)
+    {
         if (collision.TryGetComponent<Enemy>(out Enemy enemy))
         {
             enemy.TakeDamage(Damage);
             Destroy(gameObject);
         }
-    }
+    }    
 }

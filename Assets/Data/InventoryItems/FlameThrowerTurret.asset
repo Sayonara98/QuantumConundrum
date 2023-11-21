@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: FlameThrowerTurret
   ItemType: 0
-  ItemPrefab: {fileID: 0}
+  ItemPrefab: {fileID: 3223728139868795886, guid: 645a10ab628642c4fb174fd58e5bb314, type: 3}
   Range: {x: 2, y: 2}
-  CanDragIntoScene: 0
+  CanDragIntoScene: 1
   stackable: 1
   MaxItems: 1
-  Image: {fileID: 0}
+  Image: {fileID: 21300000, guid: 6b3442ef36d40704fab4affa55b1534a, type: 3}

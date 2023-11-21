@@ -599,7 +599,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1731629535}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: DemoScript, Assembly-CSharp
         m_MethodName: SpawnResouceItem
         m_Mode: 1
@@ -2782,7 +2782,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1731629535}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: DemoScript, Assembly-CSharp
         m_MethodName: SpawnBlueprintItem
         m_Mode: 1
@@ -2936,6 +2936,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 414520409237698983, guid: a456846e94196054c926814e21e63b85, type: 3}
+      propertyPath: orthographic size
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 414520409529931787, guid: a456846e94196054c926814e21e63b85, type: 3}
       propertyPath: m_Name
       value: Character
@@ -2991,6 +2995,10 @@ PrefabInstance:
     - target: {fileID: 414520409529931788, guid: a456846e94196054c926814e21e63b85, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 797048973832539827, guid: a456846e94196054c926814e21e63b85, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a456846e94196054c926814e21e63b85, type: 3}
@@ -3403,7 +3411,7 @@ RectTransform:
   - {fileID: 60395684}
   - {fileID: 1826043976}
   m_Father: {fileID: 1705730030}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -3690,7 +3698,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1731629535}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: DemoScript, Assembly-CSharp
         m_MethodName: SpawnTurretItem
         m_Mode: 1
@@ -4726,8 +4734,9 @@ GameObject:
   - component: {fileID: 1705730029}
   - component: {fileID: 1705730028}
   - component: {fileID: 1705730027}
+  - component: {fileID: 1705730031}
   m_Layer: 5
-  m_Name: TestEnemyCanvas
+  m_Name: UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4813,7 +4822,6 @@ RectTransform:
   - {fileID: 1452291337}
   - {fileID: 1106675351}
   - {fileID: 1787040943}
-  - {fileID: 1731629534}
   - {fileID: 1252614303}
   m_Father: {fileID: 0}
   m_RootOrder: 4
@@ -4823,59 +4831,25 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!1 &1731629533
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1731629534}
-  - component: {fileID: 1731629535}
-  m_Layer: 5
-  m_Name: DemoScript
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1731629534
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1731629533}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1705730030}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1731629535
+--- !u!114 &1705730031
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1731629533}
+  m_GameObject: {fileID: 1705730026}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b09e5fae64c2428479ea756e7ee00b4e, type: 3}
+  m_Script: {fileID: 11500000, guid: bbf22ef71c6559a4aa42b38933c15cc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Items:
   - {fileID: 11400000, guid: 65fc5596b51a00e419f874e0acdceed8, type: 2}
   - {fileID: 11400000, guid: 0ace3e9c00900ab419c6a5d7c8fb5ca2, type: 2}
+  - {fileID: 11400000, guid: c7d18794f5fedcc40b6f67f6c5948586, type: 2}
+  - {fileID: 11400000, guid: c9402f5c2637d5c40905162fcf43b2aa, type: 2}
   - {fileID: 11400000, guid: e52579962b5c07a47b217daf30bc7508, type: 2}
+  - {fileID: 11400000, guid: 77d13aea1b1a6094eacfe7eff021ff0e, type: 2}
   - {fileID: 11400000, guid: fab25987329927e4bb8d053d28adaa5a, type: 2}
   - {fileID: 11400000, guid: 3f2aa0d00b5248f4ca109ee393f311f0, type: 2}
   inventoryManager: {fileID: 1379613672}

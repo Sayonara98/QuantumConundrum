@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cef4dc64c53e9047b9312d4700dd830, type: 3}
   m_Name: LightningTurret
   m_EditorClassIdentifier: 
-  Name: 
+  Name: LightningTurret
   ItemType: 0
-  ItemPrefab: {fileID: 0}
+  ItemPrefab: {fileID: 586841177953964037, guid: 8e642b5bd33d0a848966cf17ee5dc637, type: 3}
   Range: {x: 2, y: 2}
-  CanDragIntoScene: 0
+  CanDragIntoScene: 1
   stackable: 1
   MaxItems: 1
-  Image: {fileID: 0}
+  Image: {fileID: 21300000, guid: 640b9c344396986428a8b44b5fd8d826, type: 3}

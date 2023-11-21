@@ -43,16 +43,16 @@ public class Enemy : MonoBehaviour, IDamageable
 
     private void FixedUpdate()
     {
-        if (target)
-        {
-            if (IsTargetInRange())
-            {
-                Attack();
-                rb.velocity = Vector2.zero;
-            }
-            else
-                ChaseTarget();
-        }
+        //if (target)
+        //{
+        //    if (IsTargetInRange())
+        //    {
+        //        Attack();
+        //        rb.velocity = Vector2.zero;
+        //    }
+        //    else
+        //        ChaseTarget();
+        //}
     }
 
     public void ChaseTarget()
@@ -109,5 +109,10 @@ public class Enemy : MonoBehaviour, IDamageable
             // Die
             Destroy(gameObject);
         }
+    }
+
+    public void TakeEffect()
+    {
+
     }
 }
