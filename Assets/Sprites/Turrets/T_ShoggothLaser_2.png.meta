@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ec1ebc30294551a418da37ec755d83fb
+guid: 000b060d0bee7d744b4b782d9395d131
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -42,17 +42,17 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 0
-  spritePivot: {x: 0.5, y: 0.5}
+  alignment: 2
+  spritePivot: {x: 0.5, y: 1}
   spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
-  spriteTessellationDetail: 0
+  spriteTessellationDetail: -1
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
@@ -103,45 +103,29 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
-    outline:
-    - - {x: -343, y: 410}
-      - {x: -317, y: 379}
-      - {x: -297, y: 316}
-      - {x: -111, y: 323}
-      - {x: -27, y: 322}
-      - {x: 72, y: 281}
-      - {x: 144, y: 256}
-      - {x: 272, y: 242}
-      - {x: 302, y: 244}
-      - {x: 293, y: 265}
-      - {x: 345, y: 300}
-      - {x: 407, y: 297}
-      - {x: 434, y: 278}
-      - {x: 450, y: 247}
-      - {x: 426, y: 32}
-      - {x: 427, y: -71}
-      - {x: 437, y: -222}
-      - {x: 438, y: -281}
-      - {x: 423, y: -343}
-      - {x: 400, y: -384}
-      - {x: 381, y: -376}
-      - {x: 337, y: -392}
-      - {x: 266, y: -394}
-      - {x: -15, y: -345}
-      - {x: -213, y: -323}
-      - {x: -236, y: -342}
-      - {x: -283, y: -362}
-      - {x: -345, y: -355}
-      - {x: -362, y: -335}
-      - {x: -421, y: -211}
-      - {x: -426, y: -97}
-      - {x: -417, y: 118}
-      - {x: -411, y: 182}
-      - {x: -423, y: 284}
-      - {x: -447, y: 369}
-      - {x: -438, y: 386}
-      - {x: -389, y: 408}
+    sprites:
+    - serializedVersion: 2
+      name: T_ShoggothLaser_2_0
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 8
+        width: 14
+        height: 296
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b20bc23472f932548bb6d7e62dfd2bc7
+      internalID: 306639810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
@@ -151,7 +135,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      T_ShoggothLaser_2_0: 306639810
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
