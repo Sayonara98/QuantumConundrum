@@ -2,80 +2,92 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class LightningChain : MonoBehaviour
 {
-    [HideInInspector]
-    public int AmountToChain = 1;
-    GameObject StartObject;
-    [HideInInspector]
-    public GameObject EndObject;
-    CircleCollider2D colli;
-    Animator ani;
-    public ParticleSystem parti;
-    [SerializeField]
-    GameObject LightningPrefab;
-
-    int SingleSpawns = 0;
+    public int AmountToChain;
+    public GameObject endObject;
+    ParticleSystem parti;
+    [SerializeField] LightningChain LightningPrefab;
+    Enemy Target;
+    public float searchRange;
+    public float secondarySearchRange=8f;
 
     private void Start()
     {
-        if (AmountToChain == 0)
-            Destroy(gameObject);
-
-        colli = GetComponent<CircleCollider2D>();
-        ani = GetComponent<Animator>();
-
-        StartObject = gameObject;
-
-        SingleSpawns = 1;
-
-        StartCoroutine(SelfDestroy(5.0f));
+        if (AmountToChain == 0) Destroy(gameObject);
+        parti = GetComponent<ParticleSystem>();
+        DetectTarget();
+        Destroy(gameObject, .4f);
     }
 
-    private void Update()
-    {
-    }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    void DetectTarget()
     {
-        if (collision.gameObject.TryGetComponent<Enemy>(out Enemy player))
+        if (Target && !IsTargetInRange(Target))
         {
-            Debug.Log("Ene");
-            if(SingleSpawns != 0)
+            return;
+        }
+
+        Target = null;
+
+        //get all target 
+        Enemy[] enemies = GameObject.FindObjectsOfType<Enemy>();
+        if (enemies != null)
+        {
+            List<Enemy> nearEnemies = new List<Enemy>();
+            foreach(Enemy e in enemies)
             {
-                EndObject = collision.gameObject;
-                AmountToChain--;
-                ani.StopPlayback();
-                colli.enabled = false;
+                if (IsTargetInRange(e)&& e.GetComponentInChildren<LightningChain>() == null)
+                {
+                    nearEnemies.Add(e);
+                }
+            }
 
-                parti.Play();
-                GameObject chain = Instantiate(LightningPrefab, collision.gameObject.transform.position, Quaternion.identity);
+            if (nearEnemies != null && nearEnemies.Count > 0)
+            {
+                Enemy enemy= nearEnemies[0];
+                for (int i = 0; i < nearEnemies.Count; i++)
+                {
+                    
+                    float distance = Vector2.Distance(nearEnemies[i].transform.position, transform.position);
+                    float current = Vector2.Distance(enemy.transform.position, transform.position);
+                    if (distance < current)
+                    {
+                        enemy = nearEnemies[i];
+                    }
+                }
 
-                chain.GetComponent<LightningChain>().AmountToChain = AmountToChain;
-
-                SingleSpawns--;
-
-                var emitParams = new ParticleSystem.EmitParams();
-                emitParams.position = StartObject.transform.position;
-
-                parti.Emit(emitParams, 1);
-
-                emitParams.position = EndObject.transform.position;
-
-                parti.Emit(emitParams, 1);
-
-                emitParams.position = (StartObject.transform.position + EndObject.transform.position) / 2;
-
-                parti.Emit(emitParams, 1);
-
-                Destroy(gameObject, 1.0f);
+                Target = enemy;
+                Chain();
             }
         }
     }
-    IEnumerator SelfDestroy(float LifeTime)
+    void Chain() {
+        if (Target==null) return;
+        endObject = Target.gameObject;
+
+        LightningChain nextTarget =  Instantiate(LightningPrefab, Target.gameObject.transform);
+        nextTarget.AmountToChain = AmountToChain - 1;
+        nextTarget.searchRange = secondarySearchRange;
+        parti.Play();
+
+        var emitParams = new ParticleSystem.EmitParams();
+
+        emitParams.position = gameObject.transform.position;
+
+        parti.Emit(emitParams, 1);
+
+        emitParams.position = endObject.transform.position;
+
+        parti.Emit(emitParams, 1);
+    }
+
+    bool IsTargetInRange(Enemy enemy)
     {
-        yield return new WaitForSeconds(LifeTime);
-        Destroy(gameObject);
+
+        return Vector2.Distance(enemy.transform.position, transform.position) <= searchRange;
+        
     }
 }
