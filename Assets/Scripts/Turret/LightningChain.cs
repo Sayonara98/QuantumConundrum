@@ -2,55 +2,92 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class LightningChain : MonoBehaviour
 {
-    [HideInInspector]
-    public int AmountToChain = 1;
-    GameObject StartObject;
-    [HideInInspector]
-    public GameObject EndObject;
-    CircleCollider2D colli;
-    Animator ani;
-    public ParticleSystem parti;
-    [SerializeField]
-    GameObject LightningPrefab;
+    public int AmountToChain;
+    public GameObject endObject;
+    ParticleSystem parti;
+    [SerializeField] LightningChain LightningPrefab;
+    Enemy Target;
+    public float searchRange;
+    public float secondarySearchRange=8f;
 
     private void Start()
     {
-        colli = GetComponent<CircleCollider2D>();
-        ani = GetComponent<Animator>();
-
-        StartObject = gameObject;
+        if (AmountToChain == 0) Destroy(gameObject);
+        parti = GetComponent<ParticleSystem>();
+        DetectTarget();
+        Destroy(gameObject, .4f);
     }
 
-    private void Update()
-    {
-    }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    void DetectTarget()
     {
-        if (collision.gameObject.TryGetComponent<Enemy>(out Enemy player))
+        if (Target && !IsTargetInRange(Target))
         {
-            Debug.Log("Ene");
-            EndObject = collision.gameObject;
-            AmountToChain--;
-            ani.StopPlayback();
-            colli.enabled = false;
+            return;
+        }
 
-            parti.Play();
-            Instantiate(LightningPrefab, collision.gameObject.transform);
+        Target = null;
 
-            var emitParams = new ParticleSystem.EmitParams();
-            emitParams.position = StartObject.transform.position;
+        //get all target 
+        Enemy[] enemies = GameObject.FindObjectsOfType<Enemy>();
+        if (enemies != null)
+        {
+            List<Enemy> nearEnemies = new List<Enemy>();
+            foreach(Enemy e in enemies)
+            {
+                if (IsTargetInRange(e)&& e.GetComponentInChildren<LightningChain>() == null)
+                {
+                    nearEnemies.Add(e);
+                }
+            }
 
-            parti.Emit(emitParams, 1);
+            if (nearEnemies != null && nearEnemies.Count > 0)
+            {
+                Enemy enemy= nearEnemies[0];
+                for (int i = 0; i < nearEnemies.Count; i++)
+                {
+                    
+                    float distance = Vector2.Distance(nearEnemies[i].transform.position, transform.position);
+                    float current = Vector2.Distance(enemy.transform.position, transform.position);
+                    if (distance < current)
+                    {
+                        enemy = nearEnemies[i];
+                    }
+                }
 
-            emitParams.position = EndObject.transform.position;
+                Target = enemy;
+                Chain();
+            }
+        }
+    }
+    void Chain() {
+        if (Target==null) return;
+        endObject = Target.gameObject;
 
-            parti.Emit(emitParams, 1);
+        LightningChain nextTarget =  Instantiate(LightningPrefab, Target.gameObject.transform);
+        nextTarget.AmountToChain = AmountToChain - 1;
+        nextTarget.searchRange = secondarySearchRange;
+        parti.Play();
 
-            Destroy(gameObject, 1f);
-        }    
+        var emitParams = new ParticleSystem.EmitParams();
+
+        emitParams.position = gameObject.transform.position;
+
+        parti.Emit(emitParams, 1);
+
+        emitParams.position = endObject.transform.position;
+
+        parti.Emit(emitParams, 1);
+    }
+
+    bool IsTargetInRange(Enemy enemy)
+    {
+
+        return Vector2.Distance(enemy.transform.position, transform.position) <= searchRange;
+        
     }
 }

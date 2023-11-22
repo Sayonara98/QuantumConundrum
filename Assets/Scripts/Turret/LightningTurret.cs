@@ -11,9 +11,11 @@ public class LightningTurret : TurretController
     GameObject Barrel;
     [SerializeField]
     LightningChain LightningChainPrefab;
-
     [HideInInspector]
     Enemy Target;
+    public bool CanShoot = true;
+    [SerializeField]
+    float FireRate = 0.5f;
 
     protected override void OnUpdate()
     {
@@ -28,7 +30,7 @@ public class LightningTurret : TurretController
 
     void DetectTarget()
     {
-        if (Target && IsTargetInRange(Target))
+        if (Target && !IsTargetInRange(Target))
         {
             return;
         }
@@ -61,14 +63,20 @@ public class LightningTurret : TurretController
 
     protected virtual void Shoot()
     {
-        if (Target)
+        if (Target && CanShoot)
         {
-            Vector2 tdirection = Barrel.transform.position - Target.transform.position;
-            Barrel.transform.rotation = Quaternion.FromToRotation(Vector2.right, tdirection);
-
-            LightningChain lightningChain = Instantiate(LightningChainPrefab, Barrel.transform.position, Quaternion.identity);
+            LightningChain lightningChain = Instantiate(LightningChainPrefab, Barrel.transform);
             lightningChain.AmountToChain = 3;
+            lightningChain.searchRange = AttackRange;
+            StartCoroutine(Reload(FireRate));
         }
+    }
+
+    private IEnumerator Reload(float fireRate)
+    {
+        CanShoot = false;
+        yield return new WaitForSeconds(fireRate);
+        CanShoot = true;
     }
 
     bool IsTargetInRange(Enemy enemy)
