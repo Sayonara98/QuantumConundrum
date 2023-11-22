@@ -13,7 +13,7 @@ public class Biome : ScriptableObject
 
     public bool passable;
 
-    public Blueprint blueprint;
+    public List<ItemData> Items;
 }
 
 public enum BiomeType

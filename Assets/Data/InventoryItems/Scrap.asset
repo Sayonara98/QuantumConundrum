@@ -10,13 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8cef4dc64c53e9047b9312d4700dd830, type: 3}
-  m_Name: BladeBlueprintItem
+  m_Name: Scrap
   m_EditorClassIdentifier: 
-  Name: 
-  ItemType: 0
-  ItemPrefab: {fileID: 0}
-  Range: {x: 2, y: 2}
+  Name: Scrap
+  ItemType: 2
+  ItemPrefab: {fileID: 4284309470452781518, guid: 08891356a4a794f4ca732e42b47a1e26, type: 3}
   CanDragIntoScene: 0
   stackable: 1
-  MaxItems: 1
-  Image: {fileID: 0}
+  MaxItems: 128
+  Image: {fileID: 21300000, guid: 907b5d38a36c39b498d3f1bbb26c7de4, type: 3}

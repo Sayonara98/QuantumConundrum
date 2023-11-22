@@ -9,14 +9,12 @@ public class ScanningTurret : TurretController
     Slider slider;
     [SerializeField]
     float ScanTime = 30.0f;
-    [SerializeField]
-    BlueprintController BlueprintPrefab;
 
     float scanningTime = 0;
 
     bool isScanned = false;
 
-    Blueprint IncommingBlueprint;
+    List<ItemData> IncommingItems;
 
     protected override void OnAwake()
     {
@@ -30,9 +28,9 @@ public class ScanningTurret : TurretController
         }
 
         Biome biome = MapManager.Instance.GetBiomeConfig(gameObject.transform.position);
-        if (biome && biome.blueprint)
+        if (biome && biome.Items.Count > 0)
         {
-            IncommingBlueprint = biome.blueprint;
+            IncommingItems = biome.Items;
         }
         else
         {
@@ -58,13 +56,24 @@ public class ScanningTurret : TurretController
                 if (scanningTime > ScanTime)
                 {
                     isScanned = true;
-                    Vector2 randomPoint = RandomPointInAnnulus(gameObject.transform.position, 2.0f, 5.0f);
 
                     Vector2 vector = new Vector2(gameObject.transform.position.x, gameObject.transform.position.y + 1.5f);
 
-                    BlueprintController blueprint = Instantiate(BlueprintPrefab, vector, Quaternion.identity);
-                    blueprint.blueprint = IncommingBlueprint;
-
+                    int index = 0;
+                    foreach(ItemData data in IncommingItems)
+                    {
+                        if(data != null)
+                        {
+                            GameObject gameObject = Instantiate(data.Info.ItemPrefab, vector, Quaternion.identity);
+                            ResourceController resourceController = gameObject.GetComponent<ResourceController>();
+                            if(resourceController)
+                            {
+                                resourceController.Data = data;
+                                resourceController.DelayTime = index * 0.25f;
+                            }
+                        }
+                        index++;
+                    }
                     slider.gameObject.SetActive(false);
                 }
             }

@@ -53,7 +53,13 @@ public class TurretController : MonoBehaviour
             CanEquip = false;
             InventoryManager inventoryManager = FindObjectOfType<InventoryManager>();
             if (inventoryManager)
-                inventoryManager.AddItem(TurretData);
+            {
+                ItemData data = new ItemData();
+                data.Info = TurretData;
+                data.Ammount = 1;
+
+                inventoryManager.AddItem(data);
+            }
             Destroy(gameObject);
         }
     }
