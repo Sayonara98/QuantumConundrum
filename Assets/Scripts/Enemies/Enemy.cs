@@ -110,4 +110,9 @@ public class Enemy : MonoBehaviour, IDamageable
             Destroy(gameObject);
         }
     }
+
+    public void TakeEffect()
+    {
+
+    }
 }

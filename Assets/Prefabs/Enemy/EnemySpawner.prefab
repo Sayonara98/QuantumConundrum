@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2902175251306376938}
   - component: {fileID: 2902175251306376937}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EnemySpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,3 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefabs: {fileID: 5039095010379706139, guid: 87c1dcd4eec86bc409bf88a2979ce73b, type: 3}
+  fastEnemyPrefabs: {fileID: 0}
+  stronkEnemyPrefabs: {fileID: 0}
+  rangeEnemyPrefabs: {fileID: 0}
+  shieldEnemyPrefabs: {fileID: 0}
+  player: {fileID: 0}

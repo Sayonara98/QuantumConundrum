@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6447582176375318469}
   - component: {fileID: 5003202893385437495}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 588504823123331777}
   - component: {fileID: 4133959284939976934}
   - component: {fileID: 6654981216746143126}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EnemyBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -132,6 +132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeed: 8
+  bulletDamage: 1
   rb: {fileID: 6654981216746143126}
 --- !u!58 &4133959284939976934
 CircleCollider2D:

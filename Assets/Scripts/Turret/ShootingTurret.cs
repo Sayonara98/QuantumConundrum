@@ -6,9 +6,10 @@ using UnityEngine;
 public class ShootingTurret : TurretController
 {
     [SerializeField]
-    GameObject Barrel;
+    protected GameObject Barrel;
     [SerializeField]
-    GameObject Leg;
+    protected GameObject Leg;
+
     [SerializeField]
     float FireRate = 0.1f;
     [SerializeField]
@@ -16,7 +17,7 @@ public class ShootingTurret : TurretController
     [SerializeField]
     ShootingBullet ShootingBulletPrefab;
 
-    Enemy Target;
+    protected Enemy Target;
 
     bool CanShoot = true;
 
@@ -28,6 +29,10 @@ public class ShootingTurret : TurretController
     protected override void OnUpdate()
     {
         base.OnUpdate();
+        if(Target && !IsTargetInRange(Target))
+        {
+            Target = null;
+        }
         DetectTarget();
     }
 
@@ -62,7 +67,7 @@ public class ShootingTurret : TurretController
         }
     }   
 
-    void Shoot()
+    protected virtual void Shoot()
     {
         if (Target && CanShoot)
         {

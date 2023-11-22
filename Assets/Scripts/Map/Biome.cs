@@ -12,6 +12,8 @@ public class Biome : ScriptableObject
     public float precipitation;
 
     public bool passable;
+
+    public Blueprint blueprint;
 }
 
 public enum BiomeType

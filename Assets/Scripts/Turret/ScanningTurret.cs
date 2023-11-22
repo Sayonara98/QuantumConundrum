@@ -16,6 +16,8 @@ public class ScanningTurret : TurretController
 
     bool isScanned = false;
 
+    Blueprint IncommingBlueprint;
+
     protected override void OnAwake()
     {
         base.OnAwake();
@@ -25,6 +27,16 @@ public class ScanningTurret : TurretController
             slider.minValue = 0;
             slider.value = scanningTime;
             slider.maxValue = ScanTime;
+        }
+
+        Biome biome = MapManager.Instance.GetBiomeConfig(gameObject.transform.position);
+        if (biome && biome.blueprint)
+        {
+            IncommingBlueprint = biome.blueprint;
+        }
+        else
+        {
+            isScanned = true;
         }
     }
 
@@ -48,7 +60,10 @@ public class ScanningTurret : TurretController
                     isScanned = true;
                     Vector2 randomPoint = RandomPointInAnnulus(gameObject.transform.position, 2.0f, 5.0f);
 
-                    BlueprintController blueprint = Instantiate(BlueprintPrefab, randomPoint, Quaternion.identity);
+                    Vector2 vector = new Vector2(gameObject.transform.position.x, gameObject.transform.position.y + 1.5f);
+
+                    BlueprintController blueprint = Instantiate(BlueprintPrefab, vector, Quaternion.identity);
+                    blueprint.blueprint = IncommingBlueprint;
 
                     slider.gameObject.SetActive(false);
                 }
