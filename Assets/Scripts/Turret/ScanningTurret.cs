@@ -36,7 +36,7 @@ public class ScanningTurret : TurretController
         }
         else
         {
-            isScanned = true;
+            //isScanned = true;
         }
     }
 

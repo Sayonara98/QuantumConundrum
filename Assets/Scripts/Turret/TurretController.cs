@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 using UnityEngine.UI;
 
 public class TurretController : MonoBehaviour
@@ -9,7 +10,7 @@ public class TurretController : MonoBehaviour
     public Item TurretData;
 
     [SerializeField]
-    Text EquipText;
+    TMP_Text EquipText;
 
     [HideInInspector]
     public bool CanEquip = false;
