@@ -6,7 +6,6 @@ public class InventoryManager : MonoBehaviour
 {
     public InventorySlot[] InventorySlots;
     public GameObject InventoryItemPrefab;
-    int selectedSlot = -1;
 
     private void Awake()
     {
@@ -14,15 +13,6 @@ public class InventoryManager : MonoBehaviour
 
     private void Start()
     {
-        //ChangeSelectedSlot(0);
-    }
-
-    void ChangeSelectedSlot(int newValue)
-    {
-        if (selectedSlot >= 0)
-            InventorySlots[selectedSlot].Deselect();
-        InventorySlots[newValue].Select();
-        selectedSlot = newValue;
     }
 
     public bool AddItem(Item item)

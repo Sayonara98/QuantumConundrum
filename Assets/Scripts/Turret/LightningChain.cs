@@ -16,12 +16,21 @@ public class LightningChain : MonoBehaviour
     [SerializeField]
     GameObject LightningPrefab;
 
+    int SingleSpawns = 0;
+
     private void Start()
     {
+        if (AmountToChain == 0)
+            Destroy(gameObject);
+
         colli = GetComponent<CircleCollider2D>();
         ani = GetComponent<Animator>();
 
         StartObject = gameObject;
+
+        SingleSpawns = 1;
+
+        StartCoroutine(SelfDestroy(5.0f));
     }
 
     private void Update()
@@ -33,24 +42,40 @@ public class LightningChain : MonoBehaviour
         if (collision.gameObject.TryGetComponent<Enemy>(out Enemy player))
         {
             Debug.Log("Ene");
-            EndObject = collision.gameObject;
-            AmountToChain--;
-            ani.StopPlayback();
-            colli.enabled = false;
+            if(SingleSpawns != 0)
+            {
+                EndObject = collision.gameObject;
+                AmountToChain--;
+                ani.StopPlayback();
+                colli.enabled = false;
 
-            parti.Play();
-            Instantiate(LightningPrefab, collision.gameObject.transform);
+                parti.Play();
+                GameObject chain = Instantiate(LightningPrefab, collision.gameObject.transform.position, Quaternion.identity);
 
-            var emitParams = new ParticleSystem.EmitParams();
-            emitParams.position = StartObject.transform.position;
+                chain.GetComponent<LightningChain>().AmountToChain = AmountToChain;
 
-            parti.Emit(emitParams, 1);
+                SingleSpawns--;
 
-            emitParams.position = EndObject.transform.position;
+                var emitParams = new ParticleSystem.EmitParams();
+                emitParams.position = StartObject.transform.position;
 
-            parti.Emit(emitParams, 1);
+                parti.Emit(emitParams, 1);
 
-            Destroy(gameObject, 1f);
-        }    
+                emitParams.position = EndObject.transform.position;
+
+                parti.Emit(emitParams, 1);
+
+                emitParams.position = (StartObject.transform.position + EndObject.transform.position) / 2;
+
+                parti.Emit(emitParams, 1);
+
+                Destroy(gameObject, 1.0f);
+            }
+        }
+    }
+    IEnumerator SelfDestroy(float LifeTime)
+    {
+        yield return new WaitForSeconds(LifeTime);
+        Destroy(gameObject);
     }
 }
