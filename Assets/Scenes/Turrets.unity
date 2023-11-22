@@ -4832,13 +4832,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Items:
-  - {fileID: 11400000, guid: 65fc5596b51a00e419f874e0acdceed8, type: 2}
   - {fileID: 11400000, guid: 0ace3e9c00900ab419c6a5d7c8fb5ca2, type: 2}
   - {fileID: 11400000, guid: c7d18794f5fedcc40b6f67f6c5948586, type: 2}
   - {fileID: 11400000, guid: c9402f5c2637d5c40905162fcf43b2aa, type: 2}
   - {fileID: 11400000, guid: e52579962b5c07a47b217daf30bc7508, type: 2}
   - {fileID: 11400000, guid: 77d13aea1b1a6094eacfe7eff021ff0e, type: 2}
-  - {fileID: 11400000, guid: fab25987329927e4bb8d053d28adaa5a, type: 2}
   - {fileID: 11400000, guid: 3f2aa0d00b5248f4ca109ee393f311f0, type: 2}
   inventoryManager: {fileID: 1379613672}
 --- !u!1 &1761961410
