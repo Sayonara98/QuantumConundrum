@@ -18,8 +18,9 @@ MonoBehaviour:
   CanDragIntoScene: 0
   stackable: 0
   MaxItems: 1
-  Image: {fileID: 21300000, guid: ec1ebc30294551a418da37ec755d83fb, type: 3}
+  Image: {fileID: 21300000, guid: 0c78bf0ef81080146ad20f565752a515, type: 3}
   Turret: {fileID: 11400000, guid: 3f2aa0d00b5248f4ca109ee393f311f0, type: 2}
   RequireItem:
   - Info: {fileID: 11400000, guid: e52579962b5c07a47b217daf30bc7508, type: 2}
     Ammount: 5
+  CanCraft: 0

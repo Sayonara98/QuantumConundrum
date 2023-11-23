@@ -14,8 +14,11 @@ public class InventoryManager : MonoBehaviour
     [SerializeField]
     GameObject ToolBar;
 
-    Dictionary<Item, int> Items = new Dictionary<Item, int>();
+    public Dictionary<Item, int> Items = new Dictionary<Item, int>();
     int NumberOfInventorySlots = 0;
+
+    public delegate void OnItemChangedDelegate(ItemData data);
+    public OnItemChangedDelegate OnItemChanged;
 
     private void Awake()
     {
@@ -55,9 +58,31 @@ public class InventoryManager : MonoBehaviour
         }    
     }
 
+    public bool CraftTurret(ItemData data)
+    {
+        UseItem(data);
+        BlueprintItem blueprintItem = (BlueprintItem)data.Info;
+        foreach (ItemData item in blueprintItem.RequireItem)
+        {
+            if (GetItemAmount(item.Info) < item.Ammount)
+            {
+                return false;
+            }
+            UseItem(item);
+        }
+
+        ItemData newTurret = new ItemData();
+        newTurret.Ammount = 1;
+        newTurret.Info = blueprintItem.Turret;
+        AddSlot();
+        return AddItem(newTurret);
+    }
+
     public bool AddItem(ItemData data)
     {
-        if(data.Info.ItemType != ItemType.Turret)
+        bool isResult = false;
+
+        if (data.Info.ItemType != ItemType.Turret)
         {
             if(!Items.ContainsKey(data.Info))
             {
@@ -67,9 +92,16 @@ public class InventoryManager : MonoBehaviour
             {
                 Items[data.Info] += data.Ammount;
             }
-            return true;
+            isResult = true;
         }
-        return AddTurret(data);
+        else
+        {
+            isResult = AddTurret(data);
+        }
+
+        OnItemChanged?.Invoke(data);
+        
+        return isResult;
     }
 
     private bool AddTurret(ItemData data)
@@ -128,6 +160,21 @@ public class InventoryManager : MonoBehaviour
         foreach(InventorySlot inventorySlot in InventorySlots)
         {
             Destroy(inventorySlot.gameObject);
+        }    
+    }
+
+    public int GetItemAmount(Item item)
+    {
+        if (Items.ContainsKey(item))
+            return Items[item];
+        return 0;
+    }
+
+    public void UseItem(ItemData data)
+    {
+        if(Items.ContainsKey(data.Info))
+        {
+            Items[data.Info] = Mathf.Max(0, Items[data.Info] - data.Ammount);
         }    
     }    
 }

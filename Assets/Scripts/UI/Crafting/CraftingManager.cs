@@ -14,10 +14,14 @@ public class CraftingManager : MonoBehaviour
     [SerializeField]
     CraftingItem CraftingItemPrefab;
 
+    InventoryManager InventoryManager;
+
     // Start is called before the first frame update
     void Start()
     {
-        foreach(CraftingItemData data in Items)
+        InventoryManager = GameObject.FindObjectOfType<InventoryManager>();
+        InventoryManager.OnItemChanged += OnInventoryItemChanged;
+        foreach (CraftingItemData data in Items)
         {
             CraftingItem item = Instantiate(CraftingItemPrefab, ItemList.transform);
             item.Data = data;
@@ -32,7 +36,32 @@ public class CraftingManager : MonoBehaviour
 
     public void ShowItemList()
     {
+        NoticeIcon.gameObject.SetActive(false);
         bool isActive = !ItemList.gameObject.activeSelf;
         ItemList.gameObject.SetActive(isActive);
+        RefeshItemList();
+    }
+
+    void RefeshItemList()
+    {
+        CraftingItem[] craftingItems = ItemList.GetComponentsInChildren<CraftingItem>();
+        foreach (CraftingItem item in craftingItems)
+        {
+            item.RefeshUI();
+        }
+    }
+
+    public void OnInventoryItemChanged(ItemData data)
+    {
+        RefeshItemList();
+        if(data.Info.ItemType == ItemType.TurretBlueprint)
+        {
+            NoticeIcon.gameObject.SetActive(!ItemList.gameObject.activeSelf);
+        }
+    }
+
+    private void OnDestroy()
+    {
+        InventoryManager.OnItemChanged -= OnInventoryItemChanged;
     }
 }

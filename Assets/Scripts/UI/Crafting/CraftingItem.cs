@@ -11,17 +11,20 @@ public class CraftingItem : MonoBehaviour
     GameObject Required;
     [SerializeField]
     CraftingRequireItem RequireItemPrefab;
+    [SerializeField]
+    GameObject CraftButton;
 
     [HideInInspector]
     public CraftingItemData Data;
 
+    InventoryManager InventoryManager;
+
     // Start is called before the first frame update
     void Start()
     {
-        if(Data != null)
+        InventoryManager = GameObject.FindObjectOfType<InventoryManager>();
+        if (Data != null)
         {
-            
-
             float sizeX = 0;
 
             //Icon
@@ -39,14 +42,19 @@ public class CraftingItem : MonoBehaviour
             blueprint.Data.Info = item;
             RectTransform blueprintRect = blueprint.GetComponent<RectTransform>();
             requirtedX += blueprintRect.rect.width + 5;
-
+            bool isEnoughRequired = true;
             foreach (ItemData itemData in item.RequireItem)
             {
                 CraftingRequireItem resource = Instantiate(RequireItemPrefab, Required.transform);
                 resource.Data = itemData;
                 RectTransform resourceRect = blueprint.GetComponent<RectTransform>();
                 requirtedX += resourceRect.rect.width + 5;
+                if(InventoryManager.GetItemAmount(itemData.Info) < itemData.Ammount)
+                {
+                    isEnoughRequired = false;
+                }
             }
+            CraftButton.gameObject.SetActive(isEnoughRequired);
 
             RectTransform requiredRect = Required.GetComponent<RectTransform>();
             if(requiredRect)
@@ -65,11 +73,29 @@ public class CraftingItem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
     }
 
     public void Craft()
     {
+        ItemData data = new ItemData();
+        data.Ammount = 1;
+        data.Info = Data.Blueprint;
+        InventoryManager?.CraftTurret(data);
+        RefeshUI();
+    }
 
+    public void RefeshUI()
+    {
+        bool isEnoughRequired = true;
+        CraftingRequireItem[] craftingRequireItems = Required.gameObject.GetComponentsInChildren<CraftingRequireItem>();
+        foreach (CraftingRequireItem item in craftingRequireItems)
+        {
+            item.RefreshUI();
+            if (InventoryManager.GetItemAmount(item.Data.Info) < item.Data.Ammount)
+            {
+                isEnoughRequired = false;
+            }
+        }
+        CraftButton.gameObject.SetActive(isEnoughRequired);
     }
 }
