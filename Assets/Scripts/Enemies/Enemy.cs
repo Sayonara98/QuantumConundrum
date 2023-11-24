@@ -26,9 +26,10 @@ public class Enemy : MonoBehaviour, IDamageable
     private float scanTimer = 0.5f;
     private readonly float reScan = 0.5f;
 
-    private List<Vector3> foundPath = new();
+    private List<Vector3Int> foundPath = new();
     private float pathTimer = 2.0f;
     private readonly float pathResetTime = 2.0f;
+    private bool hasPath => foundPath.Count > 0;
 
     private void Start()
     {
@@ -38,7 +39,7 @@ public class Enemy : MonoBehaviour, IDamageable
 
     private void Update()
     {
-        if (foundPath.Count > 0)
+        if (hasPath)
         {
             if (pathTimer <= 0)
             {
@@ -91,13 +92,17 @@ public class Enemy : MonoBehaviour, IDamageable
         {
             Vector3 current = transform.position;
             Vector3 destination;
-            if (foundPath.Count == 0)
+            if (hasPath)
             {
-                destination = target.transform.position;
+                destination = foundPath.Last();
+                if (Vector3.Distance(current, destination) < 1)
+                {
+                    foundPath.Remove(foundPath.Last());
+                }
             }
             else
             {
-                destination = foundPath.First();
+                destination = target.transform.position;
             }
                 
             direction = destination - current;
@@ -106,46 +111,49 @@ public class Enemy : MonoBehaviour, IDamageable
             var check = current + new Vector3(direction.x, direction.y);
             if (MapManager.Instance.GetBiomeType(check) == BiomeType.WATER)
             {
-                foundPath.AddRange(FindPathAroundWater());
+                foundPath.AddRange(PathFinder.FindPath(current, destination));
             }
         }
     }
 
-    private List<Vector3> FindPathAroundWater()
+    private List<Vector3Int> FindPathAroundWater()
     {
-        Vector3 destination = target.transform.position;
+        Vector3Int destination = Vector3Int.RoundToInt(target.transform.position);
+        Vector3Int start = Vector3Int.RoundToInt(transform.position);
 
-        var road = new List<Vector3> { transform.position };
+        var road = new List<Vector3Int> { start };
 
-        for (int p = 1 ; p < 100; p++)
+        for (int p = 1 ; p < 10000; p++)
         {
-            Vector3 current = road.Last();
-            if (Vector3.Distance(current, destination) < range)
-            {
-                return road;
-            }
-            
+            Vector3Int current = road.Last();
+
             float minDistance = float.MaxValue;
-            Vector3 minPos = Vector3.zero;
+            Vector3Int minPos = Vector3Int.zero;
+            bool found = false;
         
             for (int i = 45; i < 360; i += 45)
             {
-                Vector3 check = Quaternion.AngleAxis(i, Vector3.forward) * Vector3.one + current;
-                Debug.Log(check);
-                var dist = Vector3.Distance(check, destination);
-                if (MapManager.Instance.CheckPassable(check) && dist < minDistance)
+                Vector3 rawCheck = Quaternion.AngleAxis(i, Vector3.forward) * Vector2.one + current;
+                Vector3Int check = Vector3Int.RoundToInt(rawCheck);
+                var dist = Vector3Int.Distance(check, destination);
+                //Debug.Log($"check {check} : dist {dist} : pass {MapManager.Instance.CheckPassable(rawCheck)}");
+
+                if (MapManager.Instance.CheckPassable(rawCheck) && dist < minDistance && !road.Exists(c => c == check))
                 {
                     minDistance = dist;
                     minPos = check;
+                    found = true;
                 }
             }
 
-            if (minPos == Vector3.zero || Vector3.Distance(minPos, destination) < range)
+            if (!found || Vector3Int.Distance(minPos, destination) < range)
             {
+                Debug.Log("spec done!");
                 return road;
             }
             road.Add(minPos);
-            Debug.DrawLine(current, minPos);
+            Debug.Log(minPos);
+            Debug.DrawLine(current, minPos, Color.red, 2.0f);
         }
 
         return road;
