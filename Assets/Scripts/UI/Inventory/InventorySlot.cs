@@ -3,27 +3,36 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using TMPro;
 
 public class InventorySlot : MonoBehaviour, IDropHandler
 {
     [SerializeField]
-    Image image;
+    public GameObject SlotInfo;
+
     [SerializeField]
-    Color selectedColor, notSelectedColor;
+    TMP_Text SlotIndexText;
+
+    int index = -1;
+
+    public int Index { 
+        get => index; 
+        set { 
+            index = value;
+            SlotIndexText.text = index.ToString();
+        }
+    }
 
     private void Awake()
     {
-        //Deselect();
     }
 
     public void Select()
     {
-        image.color = selectedColor;
     }
 
     public void Deselect()
     {
-        image.color = notSelectedColor;
     }
 
     public void OnDrop(PointerEventData eventData)
@@ -31,7 +40,12 @@ public class InventorySlot : MonoBehaviour, IDropHandler
         if(transform.childCount == 0)
         {
             InventoryItem inventoryItem = eventData.pointerDrag.GetComponent<InventoryItem>();
-            inventoryItem.parentAfterDrag = transform;
+            inventoryItem.parentAfterDrag = SlotInfo.transform;
         }
     }
+
+    public InventoryItem GetItem()
+    {
+        return gameObject.GetComponentInChildren<InventoryItem>();
+    }    
 }

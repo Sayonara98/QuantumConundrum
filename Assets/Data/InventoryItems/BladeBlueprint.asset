@@ -9,14 +9,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8cef4dc64c53e9047b9312d4700dd830, type: 3}
+  m_Script: {fileID: 11500000, guid: 925cd97254972914e97dd6027b9241b0, type: 3}
   m_Name: BladeBlueprint
   m_EditorClassIdentifier: 
-  Name: BladeTurret
+  Name: BladeBlueprint
   ItemType: 1
-  ItemPrefab: {fileID: 0}
-  Range: {x: 2, y: 2}
+  ItemPrefab: {fileID: 4284309470452781518, guid: 08891356a4a794f4ca732e42b47a1e26, type: 3}
   CanDragIntoScene: 0
-  stackable: 1
-  MaxItems: 5
-  Image: {fileID: 21300000, guid: ec1ebc30294551a418da37ec755d83fb, type: 3}
+  stackable: 0
+  MaxItems: 1
+  Image: {fileID: 21300000, guid: aab9e3e4b4c3a154f866ffae58817d93, type: 3}
+  Turret: {fileID: 11400000, guid: 0ace3e9c00900ab419c6a5d7c8fb5ca2, type: 2}
+  RequireItem:
+  - Info: {fileID: 11400000, guid: e52579962b5c07a47b217daf30bc7508, type: 2}
+    Ammount: 10

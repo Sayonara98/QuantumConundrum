@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4046394831148901359}
   - component: {fileID: 1241758463009566754}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Shield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54,7 +54,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7732831527894758057}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RotatePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50e68f10450833744b9010012e918e0a, type: 3}
+  m_Name: ScanningTurret
+  m_EditorClassIdentifier: 
+  Name: ScanningTurret
+  ItemType: 0
+  ItemPrefab: {fileID: 1675226292524357128, guid: b6ee980f7ba57114881c9508fc228fa5, type: 3}
+  CanDragIntoScene: 1
+  stackable: 0
+  MaxItems: 1
+  Image: {fileID: -1651283365, guid: 23c5b5e8e1c6873449782ee409512b45, type: 3}
+  Range: {x: 2, y: 2}

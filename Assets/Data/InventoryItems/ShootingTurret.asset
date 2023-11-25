@@ -9,14 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8cef4dc64c53e9047b9312d4700dd830, type: 3}
+  m_Script: {fileID: 11500000, guid: 50e68f10450833744b9010012e918e0a, type: 3}
   m_Name: ShootingTurret
   m_EditorClassIdentifier: 
   Name: ShootingTurret
   ItemType: 0
   ItemPrefab: {fileID: 6062911578398885221, guid: ab712c182da0bec48894e7e2226a5eb9, type: 3}
-  Range: {x: 2, y: 2}
   CanDragIntoScene: 1
-  stackable: 1
+  stackable: 0
   MaxItems: 1
   Image: {fileID: 21300000, guid: f89c01234026f6642b767a88bd252f23, type: 3}
+  Range: {x: 2, y: 2}
