@@ -46,17 +46,21 @@ public class Enemy : MonoBehaviour, IDamageable
                 pathTimer = pathResetTime;
                 foundPath.Clear();
             }
-            pathTimer -= Time.deltaTime;
-        }
-        else
-        {
-            if (scanTimer <= 0)
+            else
             {
-                DetectTarget();
-                scanTimer = reScan;
+                FollowPath();
+                pathTimer -= Time.deltaTime;
             }
-            scanTimer -= Time.deltaTime;
+
+            return;
         }
+        
+        if (scanTimer <= 0)
+        {
+            DetectTarget();
+            scanTimer = reScan;
+        }
+        scanTimer -= Time.deltaTime;
     }
 
     private void FixedUpdate()
@@ -91,19 +95,7 @@ public class Enemy : MonoBehaviour, IDamageable
         if (target)
         {
             Vector3 current = transform.position;
-            Vector3 destination;
-            if (hasPath)
-            {
-                destination = foundPath.Last();
-                if (Vector3.Distance(current, destination) < 1)
-                {
-                    foundPath.Remove(foundPath.Last());
-                }
-            }
-            else
-            {
-                destination = target.transform.position;
-            }
+            Vector3 destination = target.transform.position;
                 
             direction = destination - current;
             direction.Normalize();
@@ -112,51 +104,23 @@ public class Enemy : MonoBehaviour, IDamageable
             if (MapManager.Instance.GetBiomeType(check) == BiomeType.WATER)
             {
                 foundPath.AddRange(PathFinder.FindPath(current, destination));
+                direction = Vector3.zero;
             }
         }
     }
 
-    private List<Vector3Int> FindPathAroundWater()
+    public void FollowPath()
     {
-        Vector3Int destination = Vector3Int.RoundToInt(target.transform.position);
-        Vector3Int start = Vector3Int.RoundToInt(transform.position);
-
-        var road = new List<Vector3Int> { start };
-
-        for (int p = 1 ; p < 10000; p++)
-        {
-            Vector3Int current = road.Last();
-
-            float minDistance = float.MaxValue;
-            Vector3Int minPos = Vector3Int.zero;
-            bool found = false;
+        Vector3Int current = Vector3Int.RoundToInt(transform.position);
+        Vector3Int destination = foundPath.Last();
         
-            for (int i = 45; i < 360; i += 45)
-            {
-                Vector3 rawCheck = Quaternion.AngleAxis(i, Vector3.forward) * Vector2.one + current;
-                Vector3Int check = Vector3Int.RoundToInt(rawCheck);
-                var dist = Vector3Int.Distance(check, destination);
-                //Debug.Log($"check {check} : dist {dist} : pass {MapManager.Instance.CheckPassable(rawCheck)}");
-
-                if (MapManager.Instance.CheckPassable(rawCheck) && dist < minDistance && !road.Exists(c => c == check))
-                {
-                    minDistance = dist;
-                    minPos = check;
-                    found = true;
-                }
-            }
-
-            if (!found || Vector3Int.Distance(minPos, destination) < range)
-            {
-                Debug.Log("spec done!");
-                return road;
-            }
-            road.Add(minPos);
-            Debug.Log(minPos);
-            Debug.DrawLine(current, minPos, Color.red, 2.0f);
+        if (current == destination)
+        {
+            foundPath.RemoveAt(foundPath.Count - 1);
         }
 
-        return road;
+        Vector3 diff = (destination - current);
+        direction = diff.normalized;
     }
 
     bool IsTargetInRange()

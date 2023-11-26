@@ -12,6 +12,7 @@ public class Player : MonoBehaviour, IDamageable
     [SerializeField] private SpriteRenderer sprite;
     [SerializeField] private float moveSpeed = 7f;
     [SerializeField] private GameInput gameInput;
+    [SerializeField] private Transform shadow;
 
     private int hp = 5;
 
@@ -44,7 +45,7 @@ public class Player : MonoBehaviour, IDamageable
 
     private void Awake()
     {
-        feetOffset = new Vector3(0, sprite.bounds.size.y / 2);
+        feetOffset = shadow.localPosition;
     }
 
     private void Update()
@@ -55,7 +56,7 @@ public class Player : MonoBehaviour, IDamageable
         if (moveDir.sqrMagnitude > 0f)
         {
             Vector3 moveCheck = transform.position + moveDir * (moveSpeed * Time.deltaTime);
-            if (MapManager.Instance.CheckPassable(moveCheck - feetOffset))
+            if (MapManager.Instance.CheckPassable(moveCheck + feetOffset))
             {
                 transform.position = moveCheck;
             }
