@@ -10,7 +10,7 @@ public class Enemy : MonoBehaviour, IDamageable
     private Vector2 direction;
 
     [SerializeField]
-    private int hp = 10;
+    private float hp = 10;
     [SerializeField]
     private float speed = 2f;
     [SerializeField]
@@ -103,7 +103,7 @@ public class Enemy : MonoBehaviour, IDamageable
         }
     }
 
-    public void TakeDamage(int Damage)
+    public void TakeDamage(float Damage)
     {
         hp -= Damage;
         if (hp <= 0)

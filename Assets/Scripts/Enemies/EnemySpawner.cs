@@ -36,26 +36,32 @@ public class EnemySpawner : MonoBehaviour
 
     public void SpawnBasicEnemy()
     {
-        GameObject enemy = Instantiate(enemyPrefabs, transform.position, Quaternion.identity);
+        GameObject enemy = Instantiate(enemyPrefabs, RandomPointOnCircleEdge(14), Quaternion.identity);
     }
 
     public void SpawnFastEnemy()
     {
-        GameObject enemy = Instantiate(fastEnemyPrefabs, transform.position, Quaternion.identity);
+        GameObject enemy = Instantiate(fastEnemyPrefabs, RandomPointOnCircleEdge(14), Quaternion.identity);
     }
 
     public void SpawnStronkEnemy()
     {
-        GameObject enemy = Instantiate(stronkEnemyPrefabs, transform.position, Quaternion.identity);
+        GameObject enemy = Instantiate(stronkEnemyPrefabs, RandomPointOnCircleEdge(14), Quaternion.identity);
     }
     
     public void SpawnRangeEnemy()
     {
-        GameObject enemy = Instantiate(rangeEnemyPrefabs, transform.position, Quaternion.identity);
+        GameObject enemy = Instantiate(rangeEnemyPrefabs, RandomPointOnCircleEdge(14), Quaternion.identity);
     }
 
     public void SpawnShieldEnemy()
     {
-        GameObject enemy = Instantiate(shieldEnemyPrefabs, transform.position, Quaternion.identity);
+        GameObject enemy = Instantiate(shieldEnemyPrefabs, RandomPointOnCircleEdge(14), Quaternion.identity);
+    }
+
+    Vector3 RandomPointOnCircleEdge(float radius)
+    {
+        var vector2 = UnityEngine.Random.insideUnitCircle.normalized * radius;
+        return new Vector3(vector2.x, vector2.y, 0);
     }
 }

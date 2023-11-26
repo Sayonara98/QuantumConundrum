@@ -12,7 +12,7 @@ TagManager:
   - Water
   - UI
   - Crafting
-  - 
+  - Enemy
   - 
   - 
   - 
@@ -43,4 +43,7 @@ TagManager:
     locked: 0
   - name: Crafting
     uniqueID: 511327065
+    locked: 0
+  - name: Turret
+    uniqueID: 1363068863
     locked: 0

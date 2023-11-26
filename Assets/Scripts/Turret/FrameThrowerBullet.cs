@@ -15,23 +15,19 @@ public class FrameThrowerBullet : MonoBehaviour
         
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Fire!");
         if (collision.TryGetComponent<Enemy>(out Enemy enemy))
         {
-            //enemy.TakeDamage(1);
+            enemy.TakeDamage(0.5f);
         }
     }
 
-    private void OnParticleTrigger()
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        ParticleSystem ps = GetComponent<ParticleSystem>();
-        Component component = ps.trigger.GetCollider(0);
-        Enemy enemy = component.GetComponent<Enemy>();
-        if(enemy)
+        if (collision.TryGetComponent<Enemy>(out Enemy enemy))
         {
-            Debug.Log("aaaaaaaaaaaaaa");
+            enemy.TakeDamage(0.1f);
         }
     }
 }

@@ -13,7 +13,7 @@ public class Player : MonoBehaviour, IDamageable
     [SerializeField] private float moveSpeed = 7f;
     [SerializeField] private GameInput gameInput;
 
-    private int hp = 5;
+    private float hp = 5;
 
     [HideInInspector]
     TurretController ClosestTurret = null;
@@ -111,7 +111,7 @@ public class Player : MonoBehaviour, IDamageable
             ClosestTurret = null;
     }
 
-    public void TakeDamage(int Damage)
+    public void TakeDamage(float Damage)
     {
         hp -= Damage;
         if (hp <= 0)
