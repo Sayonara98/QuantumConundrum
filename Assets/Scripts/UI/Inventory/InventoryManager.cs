@@ -176,5 +176,17 @@ public class InventoryManager : MonoBehaviour
         {
             Items[data.Info] = Mathf.Max(0, Items[data.Info] - data.Ammount);
         }    
-    }    
+    }
+    
+    public Item GetItem(string itemName)
+    {
+        foreach(var item in Items)
+        {
+            if(item.Key.Name == itemName)
+            {
+                return item.Key;
+            }
+        }
+        return null;
+    }
 }

@@ -76,7 +76,7 @@ public class Player : MonoBehaviour, IDamageable
         if(turretControllers != null)
         {
             TurretController closestTurret = null;
-            TurretController[] turrets = Array.FindAll<TurretController>(turretControllers, x => Vector2.Distance(x.gameObject.transform.position, gameObject.transform.position) <= 5.0f);
+            TurretController[] turrets = Array.FindAll<TurretController>(turretControllers, x => Vector2.Distance(x.gameObject.transform.position, gameObject.transform.position) <= 1.0f);
             if(turrets != null && turrets.Length > 0)
             {
                 closestTurret = turrets[0];
@@ -107,6 +107,8 @@ public class Player : MonoBehaviour, IDamageable
                 ClosestTurret = null;
             }
         }
+        else
+            ClosestTurret = null;
     }
 
     public void TakeDamage(int Damage)
@@ -117,5 +119,4 @@ public class Player : MonoBehaviour, IDamageable
             Debug.Log("Die");
         }
     }
-
 }

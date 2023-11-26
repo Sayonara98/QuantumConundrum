@@ -23,6 +23,8 @@ public class Enemy : MonoBehaviour, IDamageable
     private float scanTimer = 0.5f;
     private float reScan = 0.5f;
 
+    [HideInInspector]
+    public bool IsDead = false;
 
     private void Start()
     {
@@ -106,6 +108,7 @@ public class Enemy : MonoBehaviour, IDamageable
         hp -= Damage;
         if (hp <= 0)
         {
+            IsDead = true;
             // Die
             Destroy(gameObject);
         }
@@ -113,6 +116,5 @@ public class Enemy : MonoBehaviour, IDamageable
 
     public void TakeEffect()
     {
-
     }
 }
