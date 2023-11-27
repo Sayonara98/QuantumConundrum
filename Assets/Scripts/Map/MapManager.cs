@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
+using UnityEngine.WSA;
 
 public class MapManager : MonoBehaviour
 {

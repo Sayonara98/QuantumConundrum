@@ -7,8 +7,6 @@ public class EnemyStruck : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Destroy(gameObject,.4f);
+        Destroy(gameObject, 0.4f);
     }
-
-
 }

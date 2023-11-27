@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 using UnityEngine.UI;
+using System;
 
 public class TurretController : MonoBehaviour
 {
@@ -9,7 +11,7 @@ public class TurretController : MonoBehaviour
     public Item TurretData;
 
     [SerializeField]
-    Text EquipText;
+    TMP_Text EquipText;
 
     [HideInInspector]
     public bool CanEquip = false;
@@ -52,7 +54,13 @@ public class TurretController : MonoBehaviour
             CanEquip = false;
             InventoryManager inventoryManager = FindObjectOfType<InventoryManager>();
             if (inventoryManager)
-                inventoryManager.AddItem(TurretData);
+            {
+                ItemData data = new ItemData();
+                data.Info = TurretData;
+                data.Ammount = 1;
+
+                inventoryManager.AddItem(data);
+            }
             Destroy(gameObject);
         }
     }

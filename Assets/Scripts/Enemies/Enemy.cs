@@ -13,7 +13,7 @@ public class Enemy : MonoBehaviour, IDamageable
     private Vector2 direction;
 
     [SerializeField]
-    private int hp = 10;
+    private float hp = 10;
     [SerializeField]
     private float speed = 2f;
     [SerializeField]
@@ -30,6 +30,9 @@ public class Enemy : MonoBehaviour, IDamageable
     private float pathTimer = 2.0f;
     private readonly float pathResetTime = 2.0f;
     private bool hasPath => foundPath.Count > 0;
+    
+    [HideInInspector]
+    public bool IsDead = false;
 
     private void Start()
     {
@@ -147,11 +150,12 @@ public class Enemy : MonoBehaviour, IDamageable
         }
     }
 
-    public void TakeDamage(int Damage)
+    public void TakeDamage(float Damage)
     {
         hp -= Damage;
         if (hp <= 0)
         {
+            IsDead = true;
             // Die
             Destroy(gameObject);
         }
@@ -159,6 +163,5 @@ public class Enemy : MonoBehaviour, IDamageable
 
     public void TakeEffect()
     {
-
     }
 }

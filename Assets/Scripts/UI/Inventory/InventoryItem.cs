@@ -47,21 +47,8 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         if (Item.CanDragIntoScene)
         {
             Vector2 worldPoint = Camera.main.ScreenToWorldPoint(transform.position);
-            if (MapManager.Instance.CheckPassable(worldPoint))
-            {
-                if (Item.ItemPrefab)
-                {
-                    GameObject game = Instantiate(Item.ItemPrefab, worldPoint, Quaternion.identity);
-                    if(Item.ItemType == ItemType.Turret)
-                    {
-                        TurretController turret = game.GetComponent<TurretController>();
-                        if (turret)
-                            turret.TurretData = Item;
-                    }
-                    Destroy(gameObject);
-                    return;
-                }
-            }
+            if(DragToWorld(worldPoint))
+                return;
         }
         
         transform.SetParent(parentAfterDrag);
@@ -71,4 +58,24 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     {
         Debug.Log("OnTriggerEnter2D");
     }
+
+    public bool DragToWorld(Vector3 position)
+    {
+        if (MapManager.Instance.CheckPassable(position))
+        {
+            if (Item.ItemPrefab)
+            {
+                GameObject game = Instantiate(Item.ItemPrefab, position, Quaternion.identity);
+                if (Item.ItemType == ItemType.Turret)
+                {
+                    TurretController turret = game.GetComponent<TurretController>();
+                    if (turret)
+                        turret.TurretData = Item;
+                }
+                Destroy(gameObject);
+                return true;
+            }
+        }
+        return false;
+    }    
 }
