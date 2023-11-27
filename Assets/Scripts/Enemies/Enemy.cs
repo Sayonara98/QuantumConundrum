@@ -1,5 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using System.Security.Cryptography;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour, IDamageable
@@ -21,8 +24,13 @@ public class Enemy : MonoBehaviour, IDamageable
     private EnemyShield shield;
 
     private float scanTimer = 0.5f;
-    private float reScan = 0.5f;
+    private readonly float reScan = 0.5f;
 
+    private List<Vector3Int> foundPath = new();
+    private float pathTimer = 2.0f;
+    private readonly float pathResetTime = 2.0f;
+    private bool hasPath => foundPath.Count > 0;
+    
     [HideInInspector]
     public bool IsDead = false;
 
@@ -30,11 +38,26 @@ public class Enemy : MonoBehaviour, IDamageable
     {
         rb = GetComponent<Rigidbody2D>();
         target = GameObject.FindGameObjectWithTag("Player");
-        
     }
 
     private void Update()
     {
+        if (hasPath)
+        {
+            if (pathTimer <= 0)
+            {
+                pathTimer = pathResetTime;
+                foundPath.Clear();
+            }
+            else
+            {
+                FollowPath();
+                pathTimer -= Time.deltaTime;
+            }
+
+            return;
+        }
+        
         if (scanTimer <= 0)
         {
             DetectTarget();
@@ -74,9 +97,33 @@ public class Enemy : MonoBehaviour, IDamageable
     {
         if (target)
         {
-            direction = target.transform.position - transform.position;
+            Vector3 current = transform.position;
+            Vector3 destination = target.transform.position;
+                
+            direction = destination - current;
             direction.Normalize();
+
+            var check = current + new Vector3(direction.x, direction.y);
+            if (MapManager.Instance.GetBiomeType(check) == BiomeType.WATER)
+            {
+                foundPath.AddRange(PathFinder.FindPath(current, destination));
+                direction = Vector3.zero;
+            }
         }
+    }
+
+    public void FollowPath()
+    {
+        Vector3Int current = Vector3Int.RoundToInt(transform.position);
+        Vector3Int destination = foundPath.Last();
+        
+        if (current == destination)
+        {
+            foundPath.RemoveAt(foundPath.Count - 1);
+        }
+
+        Vector3 diff = (destination - current);
+        direction = diff.normalized;
     }
 
     bool IsTargetInRange()
