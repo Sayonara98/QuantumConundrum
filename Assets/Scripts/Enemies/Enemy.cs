@@ -106,8 +106,8 @@ public class Enemy : MonoBehaviour, IDamageable
             var check = current + new Vector3(direction.x, direction.y);
             if (MapManager.Instance.GetBiomeType(check) == BiomeType.WATER)
             {
-                foundPath.AddRange(PathFinder.FindPath(current, destination));
                 direction = Vector3.zero;
+                foundPath.AddRange(PathFinder.FindPath(current, destination));
             }
         }
     }

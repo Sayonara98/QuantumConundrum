@@ -8,10 +8,13 @@ public class PathFinder
 {
     private static readonly List<(int, int)> Neighbours = new()
     {
-        (-1, -1), (-1, 0), (-1, 1),
-        (0, -1),           (0, 1),
-        (1, -1),  (1, 0),  (1, 1),
+        (-2, -2), (-2, 0), (-2, 2),
+        (0, -2),           (0, 2),
+        (2, -2),  (2, 0),  (2, 2),
     };
+
+    private const int MaxVisitedCount = 250;
+    private const int SqrChaseDistance = 25;
     
     public static List<Vector3Int> FindPath(Vector3 startPosition, Vector3 targetPosition)
     {
@@ -38,12 +41,12 @@ public class PathFinder
 
         // set starting search point
         Vector2Int current = start;
-
-        while (searching.Count > 0)
+        
+        while (searching.Count > 0 && visited.Count < MaxVisitedCount)
         {
             // get current nearest searching cell
             current = searching.Min.Cell;
-            if (current == target) break;
+            if ((current - target).sqrMagnitude < SqrChaseDistance) break;
             searching.Remove(searching.Min);
 
             // check all adjacent tiles
