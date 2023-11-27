@@ -1,9 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemySpawner : MonoBehaviour
+public class EnemySpawnerEvents : MonoBehaviour
 {
+    public static EnemySpawnerEvents Instance;
+
     [SerializeField]
     private GameObject basicEnemyPrefabs;
 
@@ -26,16 +29,31 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField]
     private float startSpawnShieldEnemy = 180f;
 
-    private bool canSpawningBasicEnemy = true;
-    private bool canSpawningRangeEnemy = false;
-    private bool canSpawningShieldEnemy = false;
-
     private float timer = 0f;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        
+        Instance = this;
+    }
+
+    public event Action onBasicEnemySpawn;
+    public event Action onRangeEnemySpawn;
+    public event Action onShieldEnemySpawn;
+
+    public void BasicEnemySpawn()
+    {
+        onBasicEnemySpawn?.Invoke();
+    }
+
+    public void RangeEnemySpawn()
+    {
+        onRangeEnemySpawn?.Invoke();
+    }
+
+    public void ShieldEnemySpawn()
+    {
+        onShieldEnemySpawn?.Invoke();
     }
 
     // Update is called once per frame
@@ -44,42 +62,18 @@ public class EnemySpawner : MonoBehaviour
         timer += Time.deltaTime;
         if (timer > startSpawnBasicEnemy)
         {
-            if (canSpawningBasicEnemy)
-            {
-                StartCoroutine(SpawnWaveEnemy(basicEnemyPrefabs));
-            }
+            BasicEnemySpawn();
         }
-        //// MC unlock Shooting turret? don't care let spawn to test first
-        //if (timer > startSpawnRangeEnemy)
-        //{
-        //    if (canSpawningRangeEnemy)
-        //    {
-        //        StartCoroutine(SpawnWaveEnemy(basicEnemyPrefabs));
-        //    }
-        //}
-        //// MC unlock Fire turret? don't care let spawn to test first
-        //if (timer > startSpawnShieldEnemy)
-        //{
-            
-        //    if (canSpawningShieldEnemy)
-        //    {
-        //        StartCoroutine(SpawnWaveEnemy(basicEnemyPrefabs));
-        //    }
-        //}
-    }
 
-    private IEnumerator SpawnWaveEnemy(GameObject enemyPrf)
-    {
-        canSpawningBasicEnemy = false;
-        GameObject enemy = Instantiate(enemyPrf, transform.position, Quaternion.identity);
-        int numPerWave = enemy.GetComponent<Enemy>().NumSpawnPerWave;
-        float spawnCD = enemy.GetComponent<Enemy>().SpawnCD;
-        for (int i = 0; i < numPerWave; i++)
+        if (timer > startSpawnRangeEnemy)
         {
-            enemy = Instantiate(enemyPrf, transform.position, Quaternion.identity);
+            RangeEnemySpawn();
         }
-        yield return new WaitForSeconds(spawnCD);
-        canSpawningBasicEnemy = true;
+
+        if (timer > startSpawnShieldEnemy)
+        {
+            ShieldEnemySpawn();
+        }
     }
 
     public void SpawnBasicEnemy()
