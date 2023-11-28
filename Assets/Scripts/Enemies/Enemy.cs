@@ -27,8 +27,8 @@ public class Enemy : MonoBehaviour, IDamageable
     private readonly float reScan = 0.5f;
 
     private List<Vector3Int> foundPath = new();
-    private float pathTimer = 2.0f;
-    private readonly float pathResetTime = 2.0f;
+    private float pathTimer = 4.0f;
+    private readonly float pathResetTime = 4.0f;
     private bool hasPath => foundPath.Count > 0;
     
     [HideInInspector]

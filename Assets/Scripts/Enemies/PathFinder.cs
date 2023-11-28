@@ -42,12 +42,23 @@ public class PathFinder
         // set starting search point
         Vector2Int current = start;
         
-        while (searching.Count > 0 && visited.Count < MaxVisitedCount)
+        while (searching.Count > 0)
         {
+            // Max search exceeded, we need to cut our loss...
+            if (visited.Count > MaxVisitedCount)
+            {
+                Vector2Int nearest = visited.OrderBy(kvp => kvp.Value).First().Key;
+                current = nearest;
+                Debug.Log(current);
+                break;
+            }
+
             // get current nearest searching cell
             current = searching.Min.Cell;
-            if ((current - target).sqrMagnitude < SqrChaseDistance) break;
             searching.Remove(searching.Min);
+
+            // if inside chase radius then we're done
+            if ((current - target).sqrMagnitude < SqrChaseDistance) break;
 
             // check all adjacent tiles
             foreach (var relative in Neighbours)
