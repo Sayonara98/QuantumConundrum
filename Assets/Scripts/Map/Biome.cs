@@ -11,7 +11,14 @@ public class Biome : ScriptableObject
     public float temperature;
     public float precipitation;
 
-    public bool passable;
+    public Tile baseTile;
+    public float groundRate;
+    public bool groundPassable;
+    public List<Tile> groundTiles;
+
+    public float decorationRate;
+    public bool decorationPassable;
+    public List<Tile> decorationTiles;
 
     public List<ItemData> Items;
 }

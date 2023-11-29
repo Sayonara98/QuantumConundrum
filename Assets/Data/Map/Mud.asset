@@ -16,7 +16,25 @@ MonoBehaviour:
   height: 0.5
   temperature: 0.7
   precipitation: 1
-  passable: 1
+  baseTile: {fileID: 11400000, guid: 97688241fcc28314a8b696719addc2aa, type: 2}
+  groundRate: 0.25
+  groundPassable: 1
+  groundTiles:
+  - {fileID: 11400000, guid: 12654de913b6c984dbf09de0fdc4a533, type: 2}
+  - {fileID: 11400000, guid: 9e1d543479dd18b4d87c88f70f5cd572, type: 2}
+  - {fileID: 11400000, guid: 698c8de6661a2584d92934f552e1bb09, type: 2}
+  - {fileID: 11400000, guid: 6c5e7181b0d88dc4baa5c65f17628fdb, type: 2}
+  decorationRate: 0.2
+  decorationPassable: 0
+  decorationTiles:
+  - {fileID: 11400000, guid: 77678f1491d309b45ae03553af8fb993, type: 2}
+  - {fileID: 11400000, guid: cdbc6afd8a7cddc46b772b0047e4b706, type: 2}
+  - {fileID: 11400000, guid: 38b2b0647bdb78446b62276260033da1, type: 2}
+  - {fileID: 11400000, guid: e2bd7325fdb619d46b453b788d917a87, type: 2}
+  - {fileID: 11400000, guid: 0583a8b5c9b98754598c43573278bd98, type: 2}
+  - {fileID: 11400000, guid: e46c10a4a79e2c74e9c1318fb0489bb8, type: 2}
+  - {fileID: 11400000, guid: ea2a574f12b767543ad7a8fe031970fc, type: 2}
+  - {fileID: 11400000, guid: a861905b17602844a8c09120d69692a0, type: 2}
   Items:
   - Info: {fileID: 11400000, guid: f745a6471e0bb1e45a0d0033ab62309a, type: 2}
     Ammount: 1

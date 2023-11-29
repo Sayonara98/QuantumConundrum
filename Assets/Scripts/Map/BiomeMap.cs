@@ -6,31 +6,25 @@ using UnityEngine.Tilemaps;
 [CreateAssetMenu(fileName = "BiomeMapConfig", menuName = "GameConfig/BiomeMapConfig")]
 public class BiomeMap : ScriptableObject
 {
-    [SerializeField] private List<TileCategory> allTiles;
-    public readonly List<Biome> AllBiomes = new();
-    public readonly Dictionary<string, TileData> TilesByName = new();
-    public readonly Dictionary<BiomeType, List<Tile>> TilesByBiome = new();
+    public List<Biome> AllBiomes;
+    public Dictionary<string, TileData> TilesByName = new();
 
     public void Init()
     {
-        foreach (var category in allTiles)
+        foreach (var biome in AllBiomes)
         {
-            foreach (var tile in category.tiles)
+            TilesByName[biome.baseTile.name] = new TileData(biome, biome.baseTile);
+            foreach (var tile in biome.groundTiles)
             {
-                AllBiomes.Add(category.biome);
-                TilesByName[tile.name] = new TileData(category.biome, tile);
+                TilesByName[tile.name] = new TileData(biome, tile);
             }
-            TilesByBiome[category.biome.type] = category.tiles;
+            foreach (var tile in biome.decorationTiles)
+            {
+                TilesByName[tile.name] = new TileData(biome, tile);
+            }
         }
 
     }
-}
-
-[Serializable]
-public class TileCategory
-{
-    public Biome biome;
-    public List<Tile> tiles;
 }
 
 public class TileData

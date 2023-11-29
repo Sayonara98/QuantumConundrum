@@ -17,7 +17,7 @@ public class MapManager : MonoBehaviour
 
     public Vector3Int GetCell(Vector3 position)
     {
-        return biomeMap.tilemap.WorldToCell(position);
+        return biomeMap.groundTilemap.WorldToCell(position);
     }
 
     public Biome GetBiomeConfig(Vector3 position)
@@ -28,7 +28,7 @@ public class MapManager : MonoBehaviour
 
     public Biome GetBiomeConfig(Vector3Int cell)
     {
-        var tile = biomeMap.tilemap.GetTile(cell);
+        var tile = biomeMap.groundTilemap.GetTile(cell);
         if (tile == null) return null;
 
         var data = biomeMap.config.TilesByName[tile.name];
@@ -54,14 +54,11 @@ public class MapManager : MonoBehaviour
     public bool CheckPassable(Vector3 position)
     {
         Vector3Int cell = GetCell(position);
-        return CheckPassable(cell);
+        return !biomeMap.collisions.Contains(cell);
     }
 
     public bool CheckPassable(Vector3Int cell)
     {
-        var biome = GetBiomeConfig(cell);
-        if (biome == null) return false;
-
-        return biome.passable;
+        return !biomeMap.collisions.Contains(cell);
     }
 }

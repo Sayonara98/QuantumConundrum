@@ -7,7 +7,9 @@ using Random = UnityEngine.Random;
 
 public class BiomeMapManager : MonoBehaviour
 {
-    public Tilemap tilemap;
+    public Tilemap groundTilemap;
+    public Tilemap decorationTileMap;
+    public List<Vector3Int> collisions;
     public BiomeMap config;
 
     private void Awake()
@@ -20,26 +22,29 @@ public class BiomeMapManager : MonoBehaviour
         int seed1 = Random.Range(0, 10000);
         int seed2 = Random.Range(0, 10000);
         int seed3 = Random.Range(0, 10000);
+        int seed4 = Random.Range(0, 10000);
         float frequency = 50;
 
         // Check zero
-        while (Generate(0, 0) == BiomeType.WATER)
+        while (Generate(0, 0).type == BiomeType.WATER)
         {
             seed1 = Random.Range(0, 10000);
             seed2 = Random.Range(0, 10000);
             seed3 = Random.Range(0, 10000);
+            seed4 = Random.Range(0, 10000);
         }
 
         for (int x = -200; x <= 200; x++)
         {
             for (int y = -200; y <= 200; y++)
             {
-                BiomeType type = Generate(x, y);
-                SetRandomTile(x, y, config.TilesByBiome[type]);
+                Biome biome = Generate(x, y);
+                float decoration = Mathf.PerlinNoise(x * 10 / frequency + seed4, y * 10 / frequency + seed4);
+                SetRandomTile(x, y, biome, decoration);
             }
         }
 
-        BiomeType Generate(int x, int y)
+        Biome Generate(int x, int y)
         {
             float height = Mathf.PerlinNoise(x / frequency + seed1, y / frequency + seed1);
             float temperature = Mathf.PerlinNoise(x / frequency + seed2, y / frequency + seed2);
@@ -49,10 +54,10 @@ public class BiomeMapManager : MonoBehaviour
             {
                 if (height < biome.height & temperature < biome.temperature && precipitation < biome.precipitation)
                 {
-                    return biome.type;
+                    return biome;
                 }
             }
-            return BiomeType.WATER;
+            return null;
         };
     }
 
@@ -72,9 +77,38 @@ public class BiomeMapManager : MonoBehaviour
     }
 
 
-    private void SetRandomTile(int x, int y, List<Tile> tileList)
+    private void SetRandomTile(int x, int y, Biome biome, float decoration)
     {
-        Tile tile = tileList[Random.Range(0, tileList.Count)];
-        tilemap.SetTile(new Vector3Int(x, y), tile);
+        if (biome == null) return;
+
+        Vector3Int cell = new Vector3Int(x, y);
+        Tile tile;
+
+        if (Random.value < biome.groundRate)
+        {
+            tile = biome.groundTiles[Random.Range(0, biome.groundTiles.Count)];
+            groundTilemap.SetTile(cell, tile);
+        }
+        // base tile with decorations
+        else
+        {
+            groundTilemap.SetTile(cell, biome.baseTile);
+
+            if (decoration < biome.decorationRate)
+            {
+                tile = biome.decorationTiles[Random.Range(0, biome.decorationTiles.Count)];
+                decorationTileMap.SetTile(new Vector3Int(x, y), tile);
+                if (!biome.decorationPassable)
+                {
+                    collisions.Add(cell);
+                }
+            }
+        }
+
+        // include decorations anyway
+        if (!biome.groundPassable)
+        {
+            collisions.Add(cell);
+        }
     }
 }

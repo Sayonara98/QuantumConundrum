@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: df84e100c00aeb64da7d351f4d3c3121, type: 3}
-  m_Name: Water
+  m_Name: Void
   m_EditorClassIdentifier: 
-  type: 1
-  height: 0.2
-  temperature: 1
-  precipitation: 1
+  type: 0
+  height: -1
+  temperature: -1
+  precipitation: -1
   passable: 0
-  baseTile: {fileID: 11400000, guid: 51de25f11c098c14382230bef44016c0, type: 2}
+  baseTile: {fileID: 11400000, guid: 9dcf674e5f261934cb7bfba11211de0f, type: 2}
   groundRate: -1
   groundTiles: []
   decorationRate: -1

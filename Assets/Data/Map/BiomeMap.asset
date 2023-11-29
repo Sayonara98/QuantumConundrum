@@ -12,50 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6a6fca1396e00a4f9da904eeb7d5818, type: 3}
   m_Name: BiomeMap
   m_EditorClassIdentifier: 
-  allTiles:
-  - biome: {fileID: 11400000, guid: bf14a75c4f7ef3d46b64c65f6d718108, type: 2}
-    tiles:
-    - {fileID: 11400000, guid: 51de25f11c098c14382230bef44016c0, type: 2}
-  - biome: {fileID: 11400000, guid: 0b8688170a535b14a8e7ec5e081af8d9, type: 2}
-    tiles:
-    - {fileID: 11400000, guid: 6ad7940396736834fb339f0df1fa1e64, type: 2}
-    - {fileID: 11400000, guid: 380ed910680078a4b9ae0f8a5c0cbd73, type: 2}
-    - {fileID: 11400000, guid: 4ceec9701452580469e32601d9782295, type: 2}
-    - {fileID: 11400000, guid: bba852acd7338f94382dc1f25d569ac1, type: 2}
-    - {fileID: 11400000, guid: 2342015be54f3d0418b3a47760dabc08, type: 2}
-    - {fileID: 11400000, guid: 70ecd5e8a44ab9c4fb9a6a7663da1cb7, type: 2}
-    - {fileID: 11400000, guid: b50022d34ce32b34a894dd553f2f0686, type: 2}
-    - {fileID: 11400000, guid: 50dcf347a825f534cb24025b1e23afa3, type: 2}
-    - {fileID: 11400000, guid: e625268e16927dc4894f6666c3fe976b, type: 2}
-    - {fileID: 11400000, guid: 2211d55fc6125134cb99f48f1c5d3b0c, type: 2}
-  - biome: {fileID: 11400000, guid: f7da86c84101a6d4c8a7a9943483e63b, type: 2}
-    tiles:
-    - {fileID: 11400000, guid: 12654de913b6c984dbf09de0fdc4a533, type: 2}
-    - {fileID: 11400000, guid: 9e1d543479dd18b4d87c88f70f5cd572, type: 2}
-    - {fileID: 11400000, guid: 698c8de6661a2584d92934f552e1bb09, type: 2}
-    - {fileID: 11400000, guid: 6c5e7181b0d88dc4baa5c65f17628fdb, type: 2}
-    - {fileID: 11400000, guid: 97688241fcc28314a8b696719addc2aa, type: 2}
-  - biome: {fileID: 11400000, guid: 0b8688170a535b14a8e7ec5e081af8d9, type: 2}
-    tiles:
-    - {fileID: 11400000, guid: 12a6896af45e6d14481ac7dc886272fc, type: 2}
-    - {fileID: 11400000, guid: 2270fbdea11d7414a8318776dd484c1b, type: 2}
-    - {fileID: 11400000, guid: 16a9959828c7ccf469ade909bc15d314, type: 2}
-    - {fileID: 11400000, guid: e305d2e75c892464e80549c300c1f3e8, type: 2}
-    - {fileID: 11400000, guid: 78d5f2bdea6ef4148a677765eea3991f, type: 2}
-    - {fileID: 11400000, guid: 151bc4ed0dfccb7459a60c57cdaf5322, type: 2}
-  - biome: {fileID: 11400000, guid: f49aaee3f61053d4e87752f2f429c3ab, type: 2}
-    tiles:
-    - {fileID: 11400000, guid: f933832fa6e917440920dc88410cdb4e, type: 2}
-    - {fileID: 11400000, guid: b61a07b134162994c86be92379bd511a, type: 2}
-    - {fileID: 11400000, guid: 446e6133c12a6654fa2219ad1a676e93, type: 2}
-    - {fileID: 11400000, guid: 13181c2539debfa41b900d5e0f5fc2ef, type: 2}
-    - {fileID: 11400000, guid: 0c0de780a64e7784a9c50bc5601524f8, type: 2}
-    - {fileID: 11400000, guid: 08d812c09b74efa4dacd9f04b66e8a05, type: 2}
-    - {fileID: 11400000, guid: 7ad27a84e30f0b34ba676e37dbfad9f4, type: 2}
-    - {fileID: 11400000, guid: 9daa71f669dbb704a883445f4d0aea0c, type: 2}
-    - {fileID: 11400000, guid: 72f252d9cd677624e8938d1bae3a1aa3, type: 2}
-    - {fileID: 11400000, guid: 3f7d7b61669d8c74ebbc1be6f2e97264, type: 2}
-  - biome: {fileID: 11400000, guid: 6c04590874b383b45b7ae8d18c33b788, type: 2}
-    tiles:
-    - {fileID: 11400000, guid: 440615229f7777143854ab5b05efa15e, type: 2}
-    - {fileID: 11400000, guid: 68af20e334b6fda498a4ea6b06d6485c, type: 2}
+  AllBiomes:
+  - {fileID: 11400000, guid: 08a34cc5afbe7094fb1317d0a52451d2, type: 2}
+  - {fileID: 11400000, guid: bf14a75c4f7ef3d46b64c65f6d718108, type: 2}
+  - {fileID: 11400000, guid: 0b8688170a535b14a8e7ec5e081af8d9, type: 2}
+  - {fileID: 11400000, guid: f7da86c84101a6d4c8a7a9943483e63b, type: 2}
+  - {fileID: 11400000, guid: f49aaee3f61053d4e87752f2f429c3ab, type: 2}
+  - {fileID: 11400000, guid: 6c04590874b383b45b7ae8d18c33b788, type: 2}

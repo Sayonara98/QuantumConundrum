@@ -16,7 +16,18 @@ MonoBehaviour:
   height: 1
   temperature: 1
   precipitation: 1
-  passable: 1
+  baseTile: {fileID: 11400000, guid: 68af20e334b6fda498a4ea6b06d6485c, type: 2}
+  groundRate: 0.25
+  groundPassable: 1
+  groundTiles:
+  - {fileID: 11400000, guid: 440615229f7777143854ab5b05efa15e, type: 2}
+  decorationRate: 0.2
+  decorationPassable: 0
+  decorationTiles:
+  - {fileID: 11400000, guid: b7b99f238a55c0541814721b7b42176f, type: 2}
+  - {fileID: 11400000, guid: eaedc3403537e144d8b2a083c4bd6b11, type: 2}
+  - {fileID: 11400000, guid: 71d52f63c6b51ee46abd5706d8fa492a, type: 2}
+  - {fileID: 11400000, guid: 71d52f63c6b51ee46abd5706d8fa492a, type: 2}
   Items:
   - Info: {fileID: 11400000, guid: 49f40d06e172ce6429b7dcb5ae2064f9, type: 2}
     Ammount: 1
