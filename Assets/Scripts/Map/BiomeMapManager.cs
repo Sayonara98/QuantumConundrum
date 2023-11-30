@@ -12,6 +12,8 @@ public class BiomeMapManager : MonoBehaviour
     public List<Vector3Int> collisions;
     public BiomeMap config;
 
+    public int radius = 200;
+
     private void Awake()
     {
         config.Init();
@@ -34,9 +36,9 @@ public class BiomeMapManager : MonoBehaviour
             seed4 = Random.Range(0, 10000);
         }
 
-        for (int x = -200; x <= 200; x++)
+        for (int x = -radius; x <= radius; x++)
         {
-            for (int y = -200; y <= 200; y++)
+            for (int y = -radius; y <= radius; y++)
             {
                 Biome biome = Generate(x, y);
                 float decoration = Mathf.PerlinNoise(x * 10 / frequency + seed4, y * 10 / frequency + seed4);

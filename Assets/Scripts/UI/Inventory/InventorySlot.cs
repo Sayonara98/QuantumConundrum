@@ -35,6 +35,11 @@ public class InventorySlot : MonoBehaviour, IDropHandler
     {
     }
 
+    private void OnMouseOver()
+    {
+        
+    }
+
     public void OnDrop(PointerEventData eventData)
     {
         if(transform.childCount == 0)

@@ -52,11 +52,13 @@ public class MapManager : MonoBehaviour
     public bool CheckPassable(Vector3 position)
     {
         Vector3Int cell = GetCell(position);
-        return !biomeMap.collisions.Contains(cell);
+        bool outOfBounds = Math.Abs(cell.x) > biomeMap.radius || Math.Abs(cell.y) > biomeMap.radius;
+        return !outOfBounds && !biomeMap.collisions.Contains(cell);
     }
 
     public bool CheckPassable(Vector3Int cell)
     {
-        return !biomeMap.collisions.Contains(cell);
+        bool outOfBounds = Math.Abs(cell.x) > biomeMap.radius || Math.Abs(cell.y) > biomeMap.radius;
+        return !outOfBounds && !biomeMap.collisions.Contains(cell);
     }
 }
