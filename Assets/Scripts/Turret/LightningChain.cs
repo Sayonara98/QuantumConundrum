@@ -6,17 +6,23 @@ using static UnityEngine.GraphicsBuffer;
 
 public class LightningChain : MonoBehaviour
 {
-    public int AmountToChain;
-    public GameObject endObject;
+    [NonSerialized]public int AmountToChain;
+    [NonSerialized]public GameObject endObject;
     ParticleSystem parti;
     [SerializeField] LightningChain LightningPrefab;
     Enemy Target;
-    public float searchRange;
+    [NonSerialized] public float searchRange;
     public float secondarySearchRange=8f;
+    [SerializeField] float damage = 4f;
 
     private void Start()
     {
         if (AmountToChain == 0) Destroy(gameObject);
+        if(gameObject.transform.parent.TryGetComponent<Enemy>(out Enemy enemy))
+        {
+            enemy.TakeDamage(damage);
+        }
+        
         parti = GetComponent<ParticleSystem>();
         DetectTarget();
         Destroy(gameObject, .4f);
