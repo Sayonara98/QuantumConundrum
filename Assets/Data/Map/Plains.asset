@@ -30,9 +30,8 @@ MonoBehaviour:
   decorationTiles:
   - {fileID: 11400000, guid: 24ac77e3b7e9d2a419e8f8785e856e93, type: 2}
   - {fileID: 11400000, guid: b835ece22ccc350469337e4270d99be1, type: 2}
-  - {fileID: 11400000, guid: 73ea8bc994b0c0e498ee37db590492f3, type: 2}
-  - {fileID: 11400000, guid: 5fa58c56512254c43bcd33c75b949188, type: 2}
   - {fileID: 11400000, guid: 26ef3f922e82fda44a659586647eb859, type: 2}
+  - {fileID: 11400000, guid: 39f017fa42799934a9bc8f3153e1ae6b, type: 2}
   Items:
   - Info: {fileID: 11400000, guid: fe6dac09e6e317341b918746d2ac5637, type: 2}
     Ammount: 1
