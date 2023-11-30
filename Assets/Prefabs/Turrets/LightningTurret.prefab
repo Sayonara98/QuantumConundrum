@@ -54,8 +54,8 @@ MonoBehaviour:
   AttackRange: 10
   Barrel: {fileID: 4398810010938968696}
   LightningChainPrefab: {fileID: 191786644248590083, guid: c0183cb1c5802464d83fdd95a9733721, type: 3}
-  CanShoot: 1
   FireRate: 1
+  chainAmount: 5
 --- !u!1 &4398810010938968696
 GameObject:
   m_ObjectHideFlags: 0

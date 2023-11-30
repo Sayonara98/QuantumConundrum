@@ -120,6 +120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duration: 5
   tickTime: 1
+  currentDamge: 0
   damage: 2
-  hitBonus: 1
+  hitDamage: 4
   triggering: 0

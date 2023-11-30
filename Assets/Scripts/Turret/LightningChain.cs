@@ -1,51 +1,51 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.UI;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
 public class LightningChain : MonoBehaviour
 {
-    [NonSerialized]public int AmountToChain;
-    [NonSerialized]public GameObject endObject;
+    [NonSerialized] public int AmountToChain;
+    [NonSerialized] public GameObject endObject;
     ParticleSystem parti;
     [SerializeField] LightningChain LightningPrefab;
     Enemy Target;
     [NonSerialized] public float searchRange;
-    public float secondarySearchRange=8f;
+    public float secondarySearchRange = 8f;
     [SerializeField] float damage = 4f;
+
 
     private void Start()
     {
-        if (AmountToChain == 0) Destroy(gameObject);
-        if(gameObject.transform.parent.TryGetComponent<Enemy>(out Enemy enemy))
+        Target = null;
+        if (gameObject.transform.parent.TryGetComponent<Enemy>(out Enemy enemy))
         {
             enemy.TakeDamage(damage);
         }
-        
         parti = GetComponent<ParticleSystem>();
         DetectTarget();
-        Destroy(gameObject, .4f);
     }
 
 
     void DetectTarget()
     {
-        if (Target && !IsTargetInRange(Target))
-        {
-            return;
-        }
+        //if (Target || !IsTargetInRange(Target))
+        //{
+        //    return;
+        //}
 
-        Target = null;
+        
 
         //get all target 
         Enemy[] enemies = GameObject.FindObjectsOfType<Enemy>();
         if (enemies != null)
         {
             List<Enemy> nearEnemies = new List<Enemy>();
-            foreach(Enemy e in enemies)
+            foreach (Enemy e in enemies)
             {
-                if (IsTargetInRange(e)&& e.GetComponentInChildren<LightningChain>() == null)
+                if (IsTargetInRange(e) && e.GetComponentInChildren<LightningChain>() == null)
                 {
                     nearEnemies.Add(e);
                 }
@@ -53,10 +53,10 @@ public class LightningChain : MonoBehaviour
 
             if (nearEnemies != null && nearEnemies.Count > 0)
             {
-                Enemy enemy= nearEnemies[0];
+                Enemy enemy = nearEnemies[0];
                 for (int i = 0; i < nearEnemies.Count; i++)
                 {
-                    
+
                     float distance = Vector2.Distance(nearEnemies[i].transform.position, transform.position);
                     float current = Vector2.Distance(enemy.transform.position, transform.position);
                     if (distance < current)
@@ -70,30 +70,40 @@ public class LightningChain : MonoBehaviour
             }
         }
     }
-    void Chain() {
-        if (Target==null) return;
-        endObject = Target.gameObject;
+    void Chain()
+    {
+        if (AmountToChain > 0)
+        {
 
-        LightningChain nextTarget =  Instantiate(LightningPrefab, Target.gameObject.transform);
-        nextTarget.AmountToChain = AmountToChain - 1;
-        nextTarget.searchRange = secondarySearchRange;
-        parti.Play();
+            if (Target == null) return;
+            endObject = Target.gameObject;
 
-        var emitParams = new ParticleSystem.EmitParams();
+            LightningChain nextTarget = Instantiate(LightningPrefab, Target.gameObject.transform);
+            Destroy(nextTarget.gameObject, .9f);
+            nextTarget.AmountToChain = AmountToChain - 1;
+            nextTarget.searchRange = secondarySearchRange;
+            parti.Play();
 
-        emitParams.position = gameObject.transform.position;
+            var emitParams = new ParticleSystem.EmitParams();
 
-        parti.Emit(emitParams, 1);
+            emitParams.position = gameObject.transform.position;
 
-        emitParams.position = endObject.transform.position;
+            parti.Emit(emitParams, 1);
 
-        parti.Emit(emitParams, 1);
+            emitParams.position = endObject.transform.position;
+
+            parti.Emit(emitParams, 1);
+        }
+        //else
+        //{
+        //    Destroy(gameObject);
+        //}
     }
 
     bool IsTargetInRange(Enemy enemy)
     {
 
         return Vector2.Distance(enemy.transform.position, transform.position) <= searchRange;
-        
+
     }
 }

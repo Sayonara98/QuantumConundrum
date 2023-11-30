@@ -131,7 +131,6 @@ public class Enemy : MonoBehaviour, IDamageable
                 ChaseTarget();
                 IsAttacking = false;
                 IsRunning = true;
-                Debug.Log(direction.x);
             }
         }
     }
