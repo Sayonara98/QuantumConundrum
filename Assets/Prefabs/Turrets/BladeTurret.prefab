@@ -307,7 +307,7 @@ MonoBehaviour:
   EquipText: {fileID: 2537498261426697605}
   CanEquip: 0
   AttackRange: 3
-  Damage: 2
+  Damage: 5
   attkCd: 1
 --- !u!1 &6656955765144944673
 GameObject:
