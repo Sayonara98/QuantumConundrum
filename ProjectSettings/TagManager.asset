@@ -44,15 +44,18 @@ TagManager:
   - name: Environment
     uniqueID: 1185717227
     locked: 0
-  - name: Character
-    uniqueID: 705209583
-    locked: 0
   - name: Enemy
     uniqueID: 2025846505
     locked: 0
   - name: Crafting
     uniqueID: 511327065
     locked: 0
+  - name: Enemy
+    uniqueID: 115029741
+    locked: 0
   - name: Turret
     uniqueID: 1363068863
+    locked: 0
+  - name: Character
+    uniqueID: 705209583
     locked: 0

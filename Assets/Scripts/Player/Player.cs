@@ -20,19 +20,20 @@ public class Player : MonoBehaviour, IDamageable
     TurretController ClosestTurret = null;
 
     private Vector3 feetOffset;
-    private bool isRunning = false;
-    private bool isFlipped = false;
 
+    private bool isRunning = false;
     private bool IsRunning
     {
         get => isRunning;
         set
         {
+            if (value == isRunning) return;
             isRunning = value;
             animator.SetBool(Running, value);
         }
     }
 
+    private bool isFlipped = false;
     private bool IsFlipped
     {
         get => isFlipped;
@@ -68,9 +69,9 @@ public class Player : MonoBehaviour, IDamageable
                 _ => IsFlipped
             };
 
-            if (!IsRunning) IsRunning = true;
+            IsRunning = true;
         }
-        else if (IsRunning) IsRunning = false;
+        else IsRunning = false;
         
         //check turret closest to equit
         TurretController[] turretControllers = GameObject.FindObjectsOfType<TurretController>();

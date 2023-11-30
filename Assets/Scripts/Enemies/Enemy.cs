@@ -7,6 +7,44 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour, IDamageable
 {
+    private const string AnimIsRunning = "IsRunning";
+    private const string AnimIsAttacking = "IsAttacking";
+
+    private bool _isRunning;
+    private bool IsRunning
+    {
+        get => _isRunning;
+        set
+        {
+            if (value == _isRunning) return;
+            _isRunning = value;
+            animator.SetBool(AnimIsRunning, value);
+        }
+    }
+
+    private bool _isAttacking;
+    private bool IsAttacking
+    {
+        get => _isAttacking;
+        set
+        {
+            if (value == _isAttacking) return;
+            _isAttacking = value;
+            animator.SetBool(AnimIsAttacking, value);
+        }
+    }
+
+    private bool _isFlipped;
+    private bool IsFlipped
+    {
+        get => _isFlipped;
+        set
+        {
+            _isFlipped = value;
+            sprite.flipX = value;
+        }
+    }
+
     private GameObject target;
     private Rigidbody2D rb;
 
@@ -22,6 +60,10 @@ public class Enemy : MonoBehaviour, IDamageable
     private EnemyWeapon weapon;
     [SerializeField]
     private EnemyShield shield;
+    [SerializeField]
+    private Animator animator;
+    [SerializeField]
+    private SpriteRenderer sprite;
 
     private float scanTimer = 0.5f;
     private readonly float reScan = 0.5f;
@@ -64,6 +106,13 @@ public class Enemy : MonoBehaviour, IDamageable
             scanTimer = reScan;
         }
         scanTimer -= Time.deltaTime;
+
+        IsFlipped = direction.x switch
+        {
+            < 0 when IsFlipped => false,
+            > 0 when !IsFlipped => true,
+            _ => IsFlipped
+        };
     }
 
     private void FixedUpdate()
@@ -74,9 +123,16 @@ public class Enemy : MonoBehaviour, IDamageable
             {
                 Attack();
                 rb.velocity = Vector2.zero;
+                IsAttacking = true;
+                IsRunning = false;
             }
             else
+            {
                 ChaseTarget();
+                IsAttacking = false;
+                IsRunning = true;
+                Debug.Log(direction.x);
+            }
         }
     }
 
@@ -139,6 +195,10 @@ public class Enemy : MonoBehaviour, IDamageable
         {
             DetectTarget();
             weapon.Shoot(direction);
+        }
+        else
+        {
+            // do stuff i guess
         }
     }
 
