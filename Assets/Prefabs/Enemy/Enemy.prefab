@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b338780f58994043b2bee12ca4f56c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 10
+  hp: 20
   speed: 3
   range: 0.5
   weapon: {fileID: 0}

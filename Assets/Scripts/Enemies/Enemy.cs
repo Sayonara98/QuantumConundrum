@@ -161,7 +161,4 @@ public class Enemy : MonoBehaviour, IDamageable
         }
     }
 
-    public void TakeEffect()
-    {
-    }
 }

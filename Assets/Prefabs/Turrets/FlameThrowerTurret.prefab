@@ -48,7 +48,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -2, y: 0}
+  m_Offset: {x: -1.9866151, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -59,7 +59,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.8, y: 0.5}
+  m_Size: {x: 1.7732317, y: 0.5}
   m_EdgeRadius: 0
 --- !u!50 &1006613796214449854
 Rigidbody2D:
@@ -94,6 +94,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba5b6415dab9fbe42b11b9449b63a302, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  duration: 5
+  tickTime: 1
+  flamePref: {fileID: 1652806485365038737, guid: 992a4e07bb4311647a8eaef027a18759, type: 3}
 --- !u!1 &755331157965188900
 GameObject:
   m_ObjectHideFlags: 0
@@ -611,6 +614,46 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2366057285638015010}
     m_Modifications:
+    - target: {fileID: 2885260664271138005, guid: b29169ac3aea9214eb93ada59ee98f6a, type: 3}
+      propertyPath: ShapeModule.angle
+      value: 19.236275
+      objectReference: {fileID: 0}
+    - target: {fileID: 2885260664271138005, guid: b29169ac3aea9214eb93ada59ee98f6a, type: 3}
+      propertyPath: InitialModule.size3D
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2885260664271138005, guid: b29169ac3aea9214eb93ada59ee98f6a, type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 1.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 2885260664271138005, guid: b29169ac3aea9214eb93ada59ee98f6a, type: 3}
+      propertyPath: ShapeModule.radiusThickness
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2885260664271138005, guid: b29169ac3aea9214eb93ada59ee98f6a, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2885260664271138005, guid: b29169ac3aea9214eb93ada59ee98f6a, type: 3}
+      propertyPath: InitialModule.startSize.minScalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2885260664271138005, guid: b29169ac3aea9214eb93ada59ee98f6a, type: 3}
+      propertyPath: InitialModule.startSize.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2885260664271138005, guid: b29169ac3aea9214eb93ada59ee98f6a, type: 3}
+      propertyPath: InitialModule.startSizeY.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2885260664271138005, guid: b29169ac3aea9214eb93ada59ee98f6a, type: 3}
+      propertyPath: InitialModule.startSizeZ.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2885260664271138005, guid: b29169ac3aea9214eb93ada59ee98f6a, type: 3}
+      propertyPath: ShapeModule.sphericalDirectionAmount
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4434653122985526143, guid: b29169ac3aea9214eb93ada59ee98f6a, type: 3}
       propertyPath: m_Name
       value: FlameThrowerBullet
@@ -618,6 +661,14 @@ PrefabInstance:
     - target: {fileID: 6137927501850753471, guid: b29169ac3aea9214eb93ada59ee98f6a, type: 3}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6137927501850753471, guid: b29169ac3aea9214eb93ada59ee98f6a, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6137927501850753471, guid: b29169ac3aea9214eb93ada59ee98f6a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 6137927501850753471, guid: b29169ac3aea9214eb93ada59ee98f6a, type: 3}
       propertyPath: m_LocalPosition.x
