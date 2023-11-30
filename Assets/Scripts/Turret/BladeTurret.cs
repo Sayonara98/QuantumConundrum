@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,37 +6,26 @@ using UnityEngine;
 public class BladeTurret : WeaponTurret
 {
     [SerializeField]
-    int Damage = 5;
-
-    bool isAttack = false;
+    float Damage = 5f;
+    Animator anim;
+    [SerializeField] float attkCd =1f;
+    float attkTimer;
+    bool attking;
 
     protected override void OnStart()
     {
         base.OnStart();
     }
-
+    private void Start()
+    {
+        attkTimer = attkCd;
+        anim = gameObject.GetComponent<Animator>();
+        Debug.Log(anim.GetType().ToString());
+    }
     protected override void OnUpdate()
     {
         base.OnUpdate();
-        if (Target && !IsTargetInRange(Target))
-        {
-            Target = null;
-            isAttack = false;
-            Animator animator = gameObject.GetComponent<Animator>();
-            if (animator)
-            {
-                animator.SetBool("IsAttack", false);
-            }
-        }
-        else if(isAttack && !Target)
-        {
-            isAttack = false;
-            Animator animator = gameObject.GetComponent<Animator>();
-            if (animator)
-            {
-                animator.SetBool("IsAttack", false);
-            }
-        }    
+
     }
 
     protected override void OnFixedUpdate()
@@ -44,25 +34,32 @@ public class BladeTurret : WeaponTurret
         DetectTarget();
         Attack();
     }
-
     private void Attack()
     {
-        if(!isAttack && Target)
+        attkTimer -= Time.fixedDeltaTime;
+        if (attkTimer <= 0 && Target != null)
         {
-            isAttack = true;
-            Animator animator = gameObject.GetComponent<Animator>();
-            if(animator)
+            Enemy[] enemies = GameObject.FindObjectsOfType<Enemy>();
+            Enemy[] nearEnemies = Array.FindAll(enemies, x => IsTargetInRange(x));
+            foreach(Enemy enemy in nearEnemies)
             {
-                animator.SetBool("IsAttack", true);
+                enemy.TakeDamage(Damage);
             }
+            if(!attking)
+            {
+            StartCoroutine(PlayAttackAnim());
+            }
+            attkTimer = attkCd;
         }
+    }
+    IEnumerator PlayAttackAnim()
+    {
+        attking = true;
+        anim.SetBool("IsAttack", true);
+        Debug.Log("ABC");
+        yield return new WaitForSeconds(.5f);
+        anim.SetBool("IsAttack", false);
+        attking = false;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.TryGetComponent<Enemy>(out Enemy enemy))
-        {
-            enemy.TakeDamage(Damage);
-        }
-    }
 }
