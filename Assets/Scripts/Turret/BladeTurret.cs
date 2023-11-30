@@ -16,12 +16,6 @@ public class BladeTurret : WeaponTurret
     {
         base.OnStart();
     }
-    private void Start()
-    {
-        attkTimer = attkCd;
-        anim = gameObject.GetComponent<Animator>();
-        Debug.Log(anim.GetType().ToString());
-    }
     protected override void OnUpdate()
     {
         base.OnUpdate();
@@ -31,6 +25,16 @@ public class BladeTurret : WeaponTurret
     protected override void OnFixedUpdate()
     {
         base.OnFixedUpdate();
+        
+    }
+    private void Start()
+    {
+        attkTimer = attkCd;
+        anim = gameObject.GetComponent<Animator>();
+        Debug.Log(anim.GetType().ToString());
+    }
+    private void FixedUpdate()
+    {
         DetectTarget();
         Attack();
     }
