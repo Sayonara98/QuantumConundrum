@@ -60,7 +60,7 @@ public class ScanningTurret : TurretController
                     Vector2 vector = new Vector2(gameObject.transform.position.x, gameObject.transform.position.y + 1.5f);
 
                     int index = 0;
-                    InventoryManager inventoryManager = GameObject.FindObjectOfType<InventoryManager>();
+                    InventoryManager inventoryManager = InventoryManager.Instance;
                     foreach(ItemData data in IncommingItems)
                     {
                         if(data != null)

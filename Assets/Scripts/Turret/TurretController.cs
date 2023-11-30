@@ -52,7 +52,7 @@ public class TurretController : MonoBehaviour
         if(CanEquip && Input.GetKey(KeyCode.E))
         {
             CanEquip = false;
-            InventoryManager inventoryManager = FindObjectOfType<InventoryManager>();
+            InventoryManager inventoryManager = InventoryManager.Instance;
             if (inventoryManager)
             {
                 ItemData data = new ItemData();

@@ -22,7 +22,7 @@ public class CraftingItem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InventoryManager = GameObject.FindObjectOfType<InventoryManager>();
+        InventoryManager = InventoryManager.Instance;
         if (Data != null)
         {
             float sizeX = 0;

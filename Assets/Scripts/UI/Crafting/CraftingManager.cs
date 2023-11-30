@@ -19,7 +19,7 @@ public class CraftingManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InventoryManager = GameObject.FindObjectOfType<InventoryManager>();
+        InventoryManager = InventoryManager.Instance;
         InventoryManager.OnItemChanged += OnInventoryItemChanged;
         foreach (CraftingItemData data in Items)
         {
