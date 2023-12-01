@@ -832,7 +832,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 280, y: 110}
+  m_AnchoredPosition: {x: 254, y: -10}
   m_SizeDelta: {x: 500, y: 510}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &837655441
@@ -945,6 +945,14 @@ PrefabInstance:
     - target: {fileID: 797048973832539827, guid: a456846e94196054c926814e21e63b85, type: 3}
       propertyPath: m_IsTrigger
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6756567200158934816, guid: a456846e94196054c926814e21e63b85, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6756567200158934816, guid: a456846e94196054c926814e21e63b85, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a456846e94196054c926814e21e63b85, type: 3}
@@ -1227,6 +1235,9 @@ MonoBehaviour:
   InventorySlotPrefab: {fileID: 701918058949410358, guid: 2af74a1e42197824a9b8a74778b49711, type: 3}
   InventoryItemPrefab: {fileID: 150554277787960844, guid: 48c9889a60981b141a0864d972da03dd, type: 3}
   ToolBar: {fileID: 1252614302}
+  ScrapNumber: {fileID: 0}
+  BlueprintLayout: {fileID: 0}
+  BlueprintUIImage: {fileID: 0}
 --- !u!4 &1379613673
 Transform:
   m_ObjectHideFlags: 0
@@ -1723,6 +1734,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbf22ef71c6559a4aa42b38933c15cc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pauseMenu: {fileID: 0}
+  gameOver: {fileID: 0}
 --- !u!1 &1761961410
 GameObject:
   m_ObjectHideFlags: 0

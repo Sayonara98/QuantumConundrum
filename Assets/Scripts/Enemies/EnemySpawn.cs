@@ -112,8 +112,8 @@ public class EnemySpawn : MonoBehaviour
         x *= modifyX;
         y *= modifyY;
         spawnPosition = new Vector3(player.transform.position.x + x, player.transform.position.y + y, 0);
-        Debug.Log("Player position " + player.transform.position);
-        Debug.Log("Spawn position " + spawnPosition);
+        //Debug.Log("Player position " + player.transform.position);
+        //Debug.Log("Spawn position " + spawnPosition);
         return spawnPosition;
     }
 

@@ -9,7 +9,7 @@ public class DamageIndicator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Destroy(gameObject,0.2f);
+        Destroy(gameObject,0.3f);
     }
 
     // Update is called once per frame

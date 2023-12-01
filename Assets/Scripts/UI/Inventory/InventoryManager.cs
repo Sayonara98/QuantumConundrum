@@ -206,10 +206,10 @@ public class InventoryManager : MonoBehaviour
     }
     void UpdateUI()
     {
-        foreach(Transform child in BlueprintLayout.transform)
-        {
-            Destroy(child.gameObject);
-        }
+        //foreach(Transform child in BlueprintLayout.transform)
+        //{
+        //    Destroy(child.gameObject);
+        //}
         foreach (var item in Items)
         {
             if (item.Key.ItemType == ItemType.Resouce)
@@ -218,11 +218,11 @@ public class InventoryManager : MonoBehaviour
             }
 
             
-            if(item.Key.ItemType== ItemType.TurretBlueprint)
-            {
-                UnityEngine.UI.Image obj = Instantiate(BlueprintUIImage,BlueprintLayout.transform);
-                obj.sprite = item.Key.Image;
-            }
+            //if(item.Key.ItemType== ItemType.TurretBlueprint)
+            //{
+            //    UnityEngine.UI.Image obj = Instantiate(BlueprintUIImage,BlueprintLayout.transform);
+            //    obj.sprite = item.Key.Image;
+            //}
         }
     }
 }

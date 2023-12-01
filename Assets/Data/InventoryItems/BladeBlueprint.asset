@@ -23,3 +23,6 @@ MonoBehaviour:
   RequireItem:
   - Info: {fileID: 11400000, guid: e52579962b5c07a47b217daf30bc7508, type: 2}
     Ammount: 10
+  - Info: {fileID: 11400000, guid: e52579962b5c07a47b217daf30bc7508, type: 2}
+    Ammount: 10
+  CanCraft: 0
