@@ -7,7 +7,7 @@ public class MainMenuController : MonoBehaviour
 {
     public void OnPlayClick()
     {
-        SceneManager.LoadScene("MainGame");
+        SceneManager.LoadScene("Tutorial");
     }
 
     public void OnQuitClick()
