@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
+using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class InventoryManager : MonoBehaviour
 {
@@ -20,6 +23,12 @@ public class InventoryManager : MonoBehaviour
     GameObject InventoryItemPrefab;
     [SerializeField]
     GameObject ToolBar;
+    [SerializeField]
+    TextMeshProUGUI ScrapNumber;
+    [SerializeField]
+    GameObject BlueprintLayout;
+    [SerializeField]
+    UnityEngine.UI.Image BlueprintUIImage;
 
     public Dictionary<Item, int> Items = new Dictionary<Item, int>();
     int NumberOfInventorySlots = 0;
@@ -81,6 +90,7 @@ public class InventoryManager : MonoBehaviour
         return AddItem(newTurret);
     }
 
+    //Add item to player's inventory called Items
     public bool AddItem(ItemData data)
     {
         bool isResult = false;
@@ -103,7 +113,7 @@ public class InventoryManager : MonoBehaviour
         }
 
         OnItemChanged?.Invoke(data);
-        
+        UpdateUI();
         return isResult;
     }
 
@@ -173,12 +183,14 @@ public class InventoryManager : MonoBehaviour
         return 0;
     }
 
+    //Minus the item from the inventory
     public void UseItem(ItemData data)
     {
         if(Items.ContainsKey(data.Info))
         {
             Items[data.Info] = Mathf.Max(0, Items[data.Info] - data.Ammount);
-        }    
+        }
+        UpdateUI();
     }
     
     public Item GetItem(string itemName)
@@ -191,5 +203,26 @@ public class InventoryManager : MonoBehaviour
             }
         }
         return null;
+    }
+    void UpdateUI()
+    {
+        foreach(Transform child in BlueprintLayout.transform)
+        {
+            Destroy(child.gameObject);
+        }
+        foreach (var item in Items)
+        {
+            if (item.Key.ItemType == ItemType.Resouce)
+            {
+                ScrapNumber.text = "Scraps: "+item.Value.ToString();
+            }
+
+            
+            if(item.Key.ItemType== ItemType.TurretBlueprint)
+            {
+                UnityEngine.UI.Image obj = Instantiate(BlueprintUIImage,BlueprintLayout.transform);
+                obj.sprite = item.Key.Image;
+            }
+        }
     }
 }

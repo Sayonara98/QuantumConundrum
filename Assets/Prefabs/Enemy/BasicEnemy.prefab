@@ -246,8 +246,9 @@ MonoBehaviour:
   animator: {fileID: 5450877768399857740}
   sprite: {fileID: 8125391205097967381}
   damageIndicator: {fileID: 7086331587215119984, guid: 56860c0e977e60544b8d91cf24e9aac9, type: 3}
-  numSpawnPerWave: 5
-  spawnCD: 10
+  data:
+    Info: {fileID: 11400000, guid: e52579962b5c07a47b217daf30bc7508, type: 2}
+    Ammount: 1
   IsDead: 0
 --- !u!61 &2139324229592513175
 BoxCollider2D:

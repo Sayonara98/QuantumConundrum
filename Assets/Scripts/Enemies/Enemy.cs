@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Security.Cryptography;
 using TMPro;
 using Unity.VisualScripting;
@@ -49,7 +51,7 @@ public class Enemy : MonoBehaviour, IDamageable
     private GameObject target;
     private Rigidbody2D rb;
 
-    private Vector2 direction;
+    private UnityEngine.Vector2 direction;
 
     [SerializeField]
     private float hp = 10;
@@ -67,6 +69,7 @@ public class Enemy : MonoBehaviour, IDamageable
     private SpriteRenderer sprite;
     [SerializeField]
     private GameObject damageIndicator;
+    [SerializeField] ItemData data;
 
     private float scanTimer = 0.5f;
     private readonly float reScan = 0.5f;
@@ -75,7 +78,7 @@ public class Enemy : MonoBehaviour, IDamageable
     private float pathTimer = 4.0f;
     private readonly float pathResetTime = 4.0f;
     private bool hasPath => foundPath.Count > 0;
-    
+
     [HideInInspector]
     public bool IsDead = false;
 
@@ -102,7 +105,7 @@ public class Enemy : MonoBehaviour, IDamageable
 
             return;
         }
-        
+
         if (scanTimer <= 0)
         {
             DetectTarget();
@@ -125,7 +128,7 @@ public class Enemy : MonoBehaviour, IDamageable
             if (IsTargetInRange())
             {
                 Attack();
-                rb.velocity = Vector2.zero;
+                rb.velocity = UnityEngine.Vector2.zero;
                 IsAttacking = true;
                 IsRunning = false;
             }
@@ -140,7 +143,7 @@ public class Enemy : MonoBehaviour, IDamageable
 
     public void ChaseTarget()
     {
-        if (direction != Vector2.zero)
+        if (direction != UnityEngine.Vector2.zero)
         {
             rb.velocity = speed * direction;
             if (shield)
@@ -155,16 +158,16 @@ public class Enemy : MonoBehaviour, IDamageable
     {
         if (target)
         {
-            Vector3 current = transform.position;
-            Vector3 destination = target.transform.position;
-                
+            UnityEngine.Vector3 current = transform.position;
+            UnityEngine.Vector3 destination = target.transform.position;
+
             direction = destination - current;
             direction.Normalize();
 
-            var check = current + new Vector3(direction.x, direction.y);
+            var check = current + new UnityEngine.Vector3(direction.x, direction.y);
             if (!MapManager.Instance.CheckPassable(check))
             {
-                direction = Vector3.zero;
+                direction = UnityEngine.Vector3.zero;
                 foundPath.AddRange(PathFinder.FindPath(current, destination));
             }
         }
@@ -174,19 +177,19 @@ public class Enemy : MonoBehaviour, IDamageable
     {
         Vector3Int current = Vector3Int.RoundToInt(transform.position);
         Vector3Int destination = foundPath.Last();
-        
+
         if (current == destination)
         {
             foundPath.RemoveAt(foundPath.Count - 1);
         }
 
-        Vector3 diff = (destination - current);
+        UnityEngine.Vector3 diff = (destination - current);
         direction = diff.normalized;
     }
 
     bool IsTargetInRange()
     {
-        float distance = Vector3.Distance(transform.position, target.transform.position);
+        float distance = UnityEngine.Vector3.Distance(transform.position, target.transform.position);
         return distance < range;
     }
 
@@ -217,13 +220,21 @@ public class Enemy : MonoBehaviour, IDamageable
 
         GameObject DI = Instantiate(damageIndicator, gameObject.transform);
         DI.transform.SetParent(gameObject.GetComponentInChildren<Canvas>().transform);
-        DI.GetComponent<TextMeshProUGUI>().text= Damage.ToString();
+        DI.GetComponent<TextMeshProUGUI>().text = Damage.ToString();
         hp -= Damage;
         if (hp <= 0)
         {
             IsDead = true;
             // Die
-            Destroy(gameObject,0.1f);
+            GameObject go = Instantiate(data.Info.ItemPrefab, transform.position, UnityEngine.Quaternion.identity);
+            ResourceController resourceController = go.GetComponent<ResourceController>();
+            if (resourceController)
+            {
+                resourceController.Data = data;
+                resourceController.DelayTime = 1;
+            }
+            Destroy(gameObject, 0.1f);
+
         }
     }
 
