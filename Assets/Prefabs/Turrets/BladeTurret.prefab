@@ -306,7 +306,7 @@ MonoBehaviour:
   TurretData: {fileID: 0}
   EquipText: {fileID: 2537498261426697605}
   CanEquip: 0
-  AttackRange: 4
+  AttackRange: 3
   Damage: 15
   attkCd: 1
   biomeEffect: {fileID: 2331870233514269907, guid: d2320512839709646b28603becbb2c6a, type: 3}

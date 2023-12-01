@@ -55,12 +55,12 @@ public class InventorySlot : MonoBehaviour, IDropHandler
     {
         return gameObject.GetComponentInChildren<InventoryItem>();
     }
-    public void Disassemble()
-    {
-        if(GetComponentInChildren<InventoryItem>()!= null)
-        {
+    //public void Disassemble()
+    //{
+    //    if(GetComponentInChildren<InventoryItem>()!= null)
+    //    {
 
-        Destroy(gameObject);
-        }
-    }
+    //    Destroy(gameObject);
+    //    }
+    //}
 }

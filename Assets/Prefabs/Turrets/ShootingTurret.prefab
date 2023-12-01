@@ -371,10 +371,10 @@ MonoBehaviour:
   TurretData: {fileID: 0}
   EquipText: {fileID: 1453550947214967333}
   CanEquip: 0
-  AttackRange: 8
+  AttackRange: 12
   Barrel: {fileID: 1748402505744562396}
   Leg: {fileID: 7885216162528982447}
-  FireRate: 0.5
+  FireRate: 2.5
   ShootingBulletPrefab: {fileID: 1392576823190759270, guid: e81ae42673b3b8f46b6ddbe175e9d49f, type: 3}
   biomeEffect: {fileID: 2331870233514269907, guid: d2320512839709646b28603becbb2c6a, type: 3}
 --- !u!1 &7885216162528982447

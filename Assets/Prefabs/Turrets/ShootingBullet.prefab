@@ -85,7 +85,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 15
-  Damage: 25
+  Damage: 50
   rb: {fileID: 6069805396512337245}
   LifeTime: 0.5
   Direction: {x: 0, y: 0}
