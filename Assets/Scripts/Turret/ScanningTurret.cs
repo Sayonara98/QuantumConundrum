@@ -8,7 +8,7 @@ public class ScanningTurret : TurretController
     [SerializeField]
     Slider slider;
     [SerializeField]
-    float ScanTime = 30.0f;
+    float ScanTime = 10.0f;
 
     float scanningTime = 0;
 
