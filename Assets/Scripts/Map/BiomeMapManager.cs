@@ -130,7 +130,14 @@ public class BiomeMapManager : MonoBehaviour
         return noise / octave;
     }
 
-
+    public void SetVoid(int x, int y)
+    {
+        Vector3Int cell = new Vector3Int(x, y);
+        Biome voidBiome = config.VoidBiome;
+        groundTilemap.SetTile(cell, voidBiome.baseTile);
+        decorationTileMap.SetTile(cell, null);
+    }
+    
     private void SetRandomTile(int x, int y, Biome biome, float decoration)
     {
         if (biome == null) return;

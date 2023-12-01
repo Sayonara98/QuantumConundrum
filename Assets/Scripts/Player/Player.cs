@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.UIElements;
+using Slider = UnityEngine.UI.Slider;
 
 public class Player : MonoBehaviour, IDamageable
 {
@@ -13,7 +15,7 @@ public class Player : MonoBehaviour, IDamageable
     [SerializeField] private float moveSpeed = 7f;
     [SerializeField] private GameInput gameInput;
     [SerializeField] private Transform shadow;
-    [SerializeField] private GameObject HPbar;
+    [SerializeField] private Slider slider;
 
     private float hp = 30;
 
@@ -125,8 +127,7 @@ public class Player : MonoBehaviour, IDamageable
     }
     void UpdateHPUI()
     {
-        
         float currentHPratio = hp / 30;
-        HPbar.GetComponent<RectTransform>().sizeDelta = new Vector2(currentHPratio*274, 100);
+        slider.value = currentHPratio;
     }
 }

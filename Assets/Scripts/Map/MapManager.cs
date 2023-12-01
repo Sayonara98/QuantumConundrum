@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class MapManager : MonoBehaviour
 {
@@ -11,11 +12,16 @@ public class MapManager : MonoBehaviour
         Instance = this;
     }
 
-    [SerializeField] private BiomeMapManager biomeMap;
+    public BiomeMapManager biomeMap;
 
     public Vector3Int GetCell(Vector3 position)
     {
         return biomeMap.groundTilemap.WorldToCell(position);
+    }
+
+    public Vector3 GetWorld(Vector3Int cell)
+    {
+        return biomeMap.groundTilemap.GetCellCenterWorld(cell);
     }
 
     public Vector3 SnapToCell(Vector3 position)
@@ -58,13 +64,25 @@ public class MapManager : MonoBehaviour
     public bool CheckPassable(Vector3 position)
     {
         Vector3Int cell = GetCell(position);
-        bool outOfBounds = Math.Abs(cell.x) > biomeMap.radius || Math.Abs(cell.y) > biomeMap.radius;
-        return !outOfBounds && !biomeMap.collisions.Contains(cell);
+
+        Biome biome = GetBiomeConfig(cell);
+        if (biome == null) return false;
+        bool groundPassable = biome.groundPassable;
+        bool decoPassable = biomeMap.decorationTileMap.GetTile(cell) == null || biome.decorationPassable;
+        return groundPassable && decoPassable;
     }
 
     public bool CheckPassable(Vector3Int cell)
     {
-        bool outOfBounds = Math.Abs(cell.x) > biomeMap.radius || Math.Abs(cell.y) > biomeMap.radius;
-        return !outOfBounds && !biomeMap.collisions.Contains(cell);
+        Biome biome = GetBiomeConfig(cell);
+        if (biome == null) return false;
+        bool groundPassable = biome.groundPassable;
+        bool decoPassable = biomeMap.decorationTileMap.GetTile(cell) == null || biome.decorationPassable;
+        return groundPassable && decoPassable;
+    }
+
+    public void DestroyTile(Vector3Int cell)
+    {
+        biomeMap.SetVoid(cell.x, cell.y);
     }
 }

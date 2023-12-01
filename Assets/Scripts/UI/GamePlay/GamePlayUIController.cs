@@ -16,6 +16,7 @@ public class GamePlayUIController: MonoBehaviour
     
     public PauseMenuController pauseMenu;
     public GameOverController gameOver;
+    public CraftingManager crafting;
 
     private void Start()
     {
@@ -51,6 +52,10 @@ public class GamePlayUIController: MonoBehaviour
         {
             tellPlayerTimer=tellPlayerCD;
             tellPlayerOnCD=(false);
+        }
+        if (Input.GetKey(KeyCode.C))
+        {
+            crafting.ShowItemList();
         }
         if (Input.GetKey(KeyCode.Escape))
         {

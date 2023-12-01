@@ -14,7 +14,7 @@ public class Enemy : MonoBehaviour, IDamageable
     private const string AnimIsAttacking = "IsAttacking";
 
     private bool _isRunning;
-    private bool IsRunning
+    public bool IsRunning
     {
         get => _isRunning;
         set
@@ -26,7 +26,7 @@ public class Enemy : MonoBehaviour, IDamageable
     }
 
     private bool _isAttacking;
-    private bool IsAttacking
+    public bool IsAttacking
     {
         get => _isAttacking;
         set
@@ -38,7 +38,7 @@ public class Enemy : MonoBehaviour, IDamageable
     }
 
     private bool _isFlipped;
-    private bool IsFlipped
+    public bool IsFlipped
     {
         get => _isFlipped;
         set

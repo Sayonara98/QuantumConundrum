@@ -7,6 +7,7 @@ using UnityEngine.Tilemaps;
 public class BiomeMap : ScriptableObject
 {
     public List<Biome> AllBiomes;
+    public Biome VoidBiome;
     public Dictionary<string, TileData> TilesByName = new();
 
     public void Init()
@@ -24,6 +25,8 @@ public class BiomeMap : ScriptableObject
             }
         }
 
+        var voidTile = VoidBiome.baseTile;
+        TilesByName[voidTile.name] = new TileData(VoidBiome, voidTile);
     }
 }
 

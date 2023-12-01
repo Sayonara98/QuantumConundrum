@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: BiomeMap
   m_EditorClassIdentifier: 
   AllBiomes:
-  - {fileID: 11400000, guid: 08a34cc5afbe7094fb1317d0a52451d2, type: 2}
   - {fileID: 11400000, guid: bf14a75c4f7ef3d46b64c65f6d718108, type: 2}
   - {fileID: 11400000, guid: 0b8688170a535b14a8e7ec5e081af8d9, type: 2}
   - {fileID: 11400000, guid: f7da86c84101a6d4c8a7a9943483e63b, type: 2}
   - {fileID: 11400000, guid: f49aaee3f61053d4e87752f2f429c3ab, type: 2}
   - {fileID: 11400000, guid: 6c04590874b383b45b7ae8d18c33b788, type: 2}
+  VoidBiome: {fileID: 11400000, guid: 08a34cc5afbe7094fb1317d0a52451d2, type: 2}

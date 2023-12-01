@@ -16,10 +16,11 @@ MonoBehaviour:
   height: -1
   temperature: -1
   precipitation: -1
-  passable: 0
   baseTile: {fileID: 11400000, guid: 9dcf674e5f261934cb7bfba11211de0f, type: 2}
   groundRate: -1
+  groundPassable: 1
   groundTiles: []
   decorationRate: -1
+  decorationPassable: 0
   decorationTiles: []
   Items: []
