@@ -48,7 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LightningPrefab: {fileID: 191786644248590083}
   secondarySearchRange: 5
-  damage: 4
+  damage: 20
 --- !u!198 &2687205227181450284
 ParticleSystem:
   m_ObjectHideFlags: 0

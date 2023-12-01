@@ -238,7 +238,7 @@ public class Enemy : MonoBehaviour, IDamageable
         {
             IsDead = true;
             // Die
-            Destroy(gameObject);
+            Destroy(gameObject,0.1f);
         }
     }
 
