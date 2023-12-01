@@ -214,7 +214,7 @@ public class InventoryManager : MonoBehaviour
         {
             if (item.Key.ItemType == ItemType.Resouce)
             {
-                ScrapNumber.text = "Scraps: "+item.Value.ToString();
+                ScrapNumber.text =item.Value.ToString();
             }
 
             
