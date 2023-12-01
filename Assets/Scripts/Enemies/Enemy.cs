@@ -68,6 +68,21 @@ public class Enemy : MonoBehaviour, IDamageable
     [SerializeField]
     private GameObject damageIndicator;
 
+    [SerializeField]
+    private int numSpawnPerWave = 5;
+    public int NumSpawnPerWave
+    {
+        get { return numSpawnPerWave; }
+        private set { numSpawnPerWave = value; }
+    }
+    [SerializeField]
+    private float spawnCD = 5f;
+    public float SpawnCD
+    {
+        get { return spawnCD; }
+        private set { spawnCD = value; }
+    }
+
     private float scanTimer = 0.5f;
     private readonly float reScan = 0.5f;
 
