@@ -117,7 +117,7 @@ public class Player : MonoBehaviour, IDamageable
     public void TakeDamage(float Damage)
     {
         hp -= Damage;
-        //Debug.Log(hp);
+        Debug.Log(hp);
         UpdateHPUI();
         if (hp <= 0)
         {
@@ -128,6 +128,6 @@ public class Player : MonoBehaviour, IDamageable
     {
         
         float currentHPratio = hp / 100;
-        HPbar.GetComponent<RectTransform>().sizeDelta = new Vector2(currentHPratio*274, 100);
+        HPbar.GetComponent<RectTransform>().sizeDelta = new Vector2(currentHPratio*275, 100);
     }
 }
