@@ -14,6 +14,11 @@ public class LightningChain : MonoBehaviour
     [NonSerialized] public float searchRange;
     public float secondarySearchRange = 8f;
     [SerializeField] float damage = 4f;
+    public float Damage
+    {
+        get { return damage; }
+        set { damage = value; }
+    }
 
 
     private void Start()

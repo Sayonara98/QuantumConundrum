@@ -337,7 +337,9 @@ MonoBehaviour:
   Leg: {fileID: 755331157965188900}
   FireRate: 0.1
   ShootingBulletPrefab: {fileID: 0}
+  biomeEffect: {fileID: 0}
   FlameThrower: {fileID: 69805981221951195}
+  biomeEffect: {fileID: 2331870233514269907, guid: d2320512839709646b28603becbb2c6a, type: 3}
 --- !u!1 &5282445864234661535
 GameObject:
   m_ObjectHideFlags: 0

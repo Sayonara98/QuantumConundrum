@@ -56,6 +56,7 @@ MonoBehaviour:
   LightningChainPrefab: {fileID: 191786644248590083, guid: c0183cb1c5802464d83fdd95a9733721, type: 3}
   FireRate: 1
   chainAmount: 5
+  biomeEffect: {fileID: 2331870233514269907, guid: d2320512839709646b28603becbb2c6a, type: 3}
 --- !u!1 &4398810010938968696
 GameObject:
   m_ObjectHideFlags: 0

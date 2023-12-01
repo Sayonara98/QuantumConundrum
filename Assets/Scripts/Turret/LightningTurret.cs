@@ -1,4 +1,4 @@
-using System;
+ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +12,7 @@ public class LightningTurret : TurretController
     [NonSerialized] public bool CanShoot = true;
     [SerializeField] float FireRate = 1.5f;
     [SerializeField] int chainAmount;
+    [SerializeField] BiomeEffect biomeEffect;
 
     protected override void OnStart()
     {
@@ -43,7 +44,8 @@ public class LightningTurret : TurretController
         if (enemies != null)
         {
             //Enemies that are in rage
-            Enemy[] nearEnemies = Array.FindAll(enemies, x => IsTargetInRange(x));
+            float range = biomeEffect.MudBiomeBuffRange(AttackRange);
+            Enemy[] nearEnemies = Array.FindAll(enemies, x => IsTargetInRange(x, range));
             
             //Closest enemy
             if (nearEnemies != null && nearEnemies.Length > 0)
@@ -70,6 +72,9 @@ public class LightningTurret : TurretController
         if (Target && CanShoot)
         {
             LightningChain lightningChain = Instantiate(LightningChainPrefab, Barrel.transform);
+            float dmg = biomeEffect.JungleBiomeBuffDamage(lightningChain.Damage);
+            dmg = biomeEffect.PlainBiomeBuffDamage(lightningChain.Damage);
+            lightningChain.Damage = dmg;
             Destroy(lightningChain.gameObject,.9f);
             lightningChain.AmountToChain = chainAmount;
             lightningChain.searchRange = AttackRange;
@@ -80,12 +85,13 @@ public class LightningTurret : TurretController
     private IEnumerator Reload(float fireRate)
     {
         CanShoot = false;
-        yield return new WaitForSeconds(fireRate);
+        float rate = biomeEffect.MountainBiomeBuffRate(fireRate);
+        yield return new WaitForSeconds(rate);
         CanShoot = true;
     }
 
-    bool IsTargetInRange(Enemy enemy)
+    bool IsTargetInRange(Enemy enemy, float range)
     {
-        return Vector2.Distance(enemy.transform.position, transform.position) <= AttackRange;
+        return Vector2.Distance(enemy.transform.position, transform.position) <= range;
     }
 }

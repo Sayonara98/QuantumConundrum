@@ -309,6 +309,7 @@ MonoBehaviour:
   AttackRange: 3
   Damage: 5
   attkCd: 1
+  biomeEffect: {fileID: 2331870233514269907, guid: d2320512839709646b28603becbb2c6a, type: 3}
 --- !u!1 &6656955765144944673
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,7 +7,15 @@ public class ShootingBullet : MonoBehaviour
     [SerializeField]
     protected float Speed = 10.0f;
     [SerializeField]
-    protected int Damage = 2;
+    protected float Damage = 2;
+
+    public float BulletDamage
+    {
+        get { return Damage; }
+        set { Damage = value; }
+    }
+
+
     [SerializeField]
     protected Rigidbody2D rb;
     [SerializeField]

@@ -11,6 +11,8 @@ public class BladeTurret : WeaponTurret
     [SerializeField] float attkCd =1f;
     float attkTimer;
     bool attking;
+    [SerializeField]
+    private BiomeEffect biomeEffect;
 
     protected override void OnStart()
     {
@@ -43,16 +45,21 @@ public class BladeTurret : WeaponTurret
         if (attkTimer <= 0 && Target != null)
         {
             Enemy[] enemies = GameObject.FindObjectsOfType<Enemy>();
-            Enemy[] nearEnemies = Array.FindAll(enemies, x => IsTargetInRange(x));
+            float attackRange = biomeEffect.MudBiomeBuffRange(AttackRange);
+            Enemy[] nearEnemies = Array.FindAll(enemies, x => IsTargetInRange(x, attackRange));
             foreach(Enemy enemy in nearEnemies)
             {
-                enemy.TakeDamage(Damage);
+                float damge;
+                damge = biomeEffect.PlainBiomeBuffDamage(Damage);
+                damge = biomeEffect.JungleBiomeBuffDamage(Damage);
+                enemy.TakeDamage(damge);
             }
             if(!attking)
             {
-            StartCoroutine(PlayAttackAnim());
+                StartCoroutine(PlayAttackAnim());
             }
-            attkTimer = attkCd;
+            float cd = biomeEffect.MountainBiomeBuffRate(attkCd);
+            attkTimer = cd;
         }
     }
     IEnumerator PlayAttackAnim()

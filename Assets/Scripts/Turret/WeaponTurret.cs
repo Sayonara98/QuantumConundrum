@@ -17,7 +17,7 @@ public class WeaponTurret : TurretController
         Enemy[] enemies = GameObject.FindObjectsOfType<Enemy>();
         if (enemies != null)
         {
-            Enemy[] nearEnemies = Array.FindAll(enemies, x => IsTargetInRange(x));
+            Enemy[] nearEnemies = Array.FindAll(enemies, x => IsTargetInRange(x, AttackRange));
             if (nearEnemies != null && nearEnemies.Length > 0)
             {
                 Enemy enemy = nearEnemies[0];
@@ -39,8 +39,8 @@ public class WeaponTurret : TurretController
         Target = null;
     }
 
-    protected bool IsTargetInRange(Enemy enemy)
+    protected bool IsTargetInRange(Enemy enemy, float range)
     {
-        return Vector2.Distance(enemy.transform.position, transform.position) <= AttackRange;
+        return Vector2.Distance(enemy.transform.position, transform.position) <= range;
     }
 }

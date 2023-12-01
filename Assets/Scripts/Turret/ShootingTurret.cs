@@ -16,6 +16,9 @@ public class ShootingTurret : WeaponTurret
     [SerializeField]
     private ShootingBullet ShootingBulletPrefab;
 
+    [SerializeField]
+    private BiomeEffect biomeEffect;
+
     bool CanShoot = true;
 
     protected override void OnStart()
@@ -26,7 +29,8 @@ public class ShootingTurret : WeaponTurret
     protected override void OnUpdate()
     {
         base.OnUpdate();
-        if(Target && !IsTargetInRange(Target))
+        float range = biomeEffect.MudBiomeBuffRange(AttackRange);
+        if(Target && !IsTargetInRange(Target, range))
         {
             Target = null;
         }
@@ -51,9 +55,12 @@ public class ShootingTurret : WeaponTurret
             Vector2 direction = Target.transform.position - Barrel.transform.position;
             direction.Normalize();
             ShootingBullet shootingBullet = Instantiate(ShootingBulletPrefab, Barrel.transform);
+            float dmg = biomeEffect.JungleBiomeBuffDamage(shootingBullet.BulletDamage);
+            dmg = biomeEffect.PlainBiomeBuffDamage(shootingBullet.BulletDamage);
+            shootingBullet.BulletDamage = dmg;
             shootingBullet.Direction = direction;
-
-            StartCoroutine(Reload(FireRate));
+            float fireRate = biomeEffect.MountainBiomeBuffRate(FireRate);
+            StartCoroutine(Reload(fireRate));
         }
     }
 
