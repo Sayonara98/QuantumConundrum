@@ -86,6 +86,7 @@ public class Enemy : MonoBehaviour, IDamageable
     {
         rb = GetComponent<Rigidbody2D>();
         target = GameObject.FindGameObjectWithTag("Player");
+        hp *= EnemySpawnerDifficultyModifier.Instance.hpModifier;
     }
 
     private void Update()
@@ -234,7 +235,7 @@ public class Enemy : MonoBehaviour, IDamageable
                 resourceController.DelayTime = 1;
             }
             Destroy(gameObject, 0.1f);
-
+            EnemySpawnerDifficultyModifier.Instance.IncreaseEnemyDead();
         }
     }
 

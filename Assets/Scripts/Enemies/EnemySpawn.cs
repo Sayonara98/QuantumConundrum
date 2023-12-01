@@ -25,8 +25,6 @@ public class EnemySpawn : MonoBehaviour
     private float basicSpawnCD = 10f;
     [SerializeField]
     private int basicSpawnPerWave = 5;
-    [SerializeField]
-    private int maxBasicEnemies = 20;
 
     [Header("Stronk enemy")]
     [SerializeField]
@@ -128,11 +126,14 @@ public class EnemySpawn : MonoBehaviour
 
     private void SpawnEnemies(GameObject enemyPrf, int qty)
     {
-        Vector3 spawnPosition = GetSpawnPosition();
+        qty = Mathf.RoundToInt((float)qty * EnemySpawnerDifficultyModifier.Instance.spawnModifier);
+        Vector3 spawnPosition;
         for (int i = 0; i < qty; i++)
         {
             GameObject enemy = Instantiate(enemyPrf, transform.position, Quaternion.identity);
+            spawnPosition = GetSpawnPosition();
             enemy.transform.position = spawnPosition;
+            EnemySpawnerDifficultyModifier.Instance.IncreaseEnemyAlive();
         }
     }
 
