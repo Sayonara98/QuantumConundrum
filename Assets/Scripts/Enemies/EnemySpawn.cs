@@ -8,6 +8,8 @@ public class EnemySpawn : MonoBehaviour
     [SerializeField]
     private GameObject basicEnemyPrefab;
     [SerializeField]
+    private GameObject stronkEnemyPrefab;
+    [SerializeField]
     private GameObject rangeEnemyPrefab;
     [SerializeField]
     private GameObject shieldEnemyPrefab;
@@ -22,6 +24,10 @@ public class EnemySpawn : MonoBehaviour
     [SerializeField]
     private int basicSpawnPerWave = 5;
     [SerializeField]
+    private float stronkSpawnCD = 10f;
+    [SerializeField]
+    private int stronkSpawnPerWave = 3;
+    [SerializeField]
     private float rangeSpawnCD = 10f;
     [SerializeField]
     private int rangeSpawnPerWave = 3;
@@ -32,6 +38,7 @@ public class EnemySpawn : MonoBehaviour
 
 
     private bool canSpawnBasicEnemy = true;
+    private bool canSpawnStronkEnemy = true;
     private bool canSpawnRangeEnemy = true;
     private bool canSpawnShieldEnemy = true;
 
@@ -42,6 +49,7 @@ public class EnemySpawn : MonoBehaviour
         EnemySpawnerEvents.Instance.onBasicEnemySpawn += SpawnBasicEnemy;
         EnemySpawnerEvents.Instance.onRangeEnemySpawn += SpawnRangeEnemy;
         EnemySpawnerEvents.Instance.onShieldEnemySpawn += SpawnShieldEnemy;
+        EnemySpawnerEvents.Instance.onStronkEnemySpawn += SpawnStronkEnemy;
     }
 
     private void SpawnBasicEnemy()
@@ -50,6 +58,15 @@ public class EnemySpawn : MonoBehaviour
         {
             canSpawnBasicEnemy = false;
             StartCoroutine(SpawnBasicWaveEnemy(basicEnemyPrefab, basicSpawnPerWave));
+        }
+    }
+
+    private void SpawnStronkEnemy()
+    {
+        if (canSpawnStronkEnemy)
+        {
+            canSpawnStronkEnemy = false;
+            StartCoroutine(SpawnStronkWaveEnemy(stronkEnemyPrefab, stronkSpawnPerWave));
         }
     }
 
@@ -77,7 +94,14 @@ public class EnemySpawn : MonoBehaviour
         yield return new WaitForSeconds(basicSpawnCD);
         canSpawnBasicEnemy = true;
     }
-    
+
+    private IEnumerator SpawnStronkWaveEnemy(GameObject enemyPrf, int qty)
+    {
+        SpawnEnemies(enemyPrf, qty);
+        yield return new WaitForSeconds(basicSpawnCD);
+        canSpawnStronkEnemy = true;
+    }
+
     private IEnumerator SpawnRangeWaveEnemy(GameObject enemyPrf, int qty)
     {
         SpawnEnemies(enemyPrf, qty);

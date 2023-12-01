@@ -25,6 +25,8 @@ public class EnemySpawnerEvents : MonoBehaviour
     [SerializeField]
     private float startSpawnBasicEnemy = 5f;
     [SerializeField]
+    private float startSpawnStronkEnemy = 60f;
+    [SerializeField]
     private float startSpawnRangeEnemy = 120f;
     [SerializeField]
     private float startSpawnShieldEnemy = 180f;
@@ -38,12 +40,18 @@ public class EnemySpawnerEvents : MonoBehaviour
     }
 
     public event Action onBasicEnemySpawn;
+    public event Action onStronkEnemySpawn;
     public event Action onRangeEnemySpawn;
     public event Action onShieldEnemySpawn;
 
     public void BasicEnemySpawn()
     {
         onBasicEnemySpawn?.Invoke();
+    }
+
+    public void StronkEnemySpawn()
+    {
+        onStronkEnemySpawn?.Invoke();
     }
 
     public void RangeEnemySpawn()
@@ -63,6 +71,11 @@ public class EnemySpawnerEvents : MonoBehaviour
         if (timer > startSpawnBasicEnemy)
         {
             BasicEnemySpawn();
+        }
+
+        if (timer > startSpawnStronkEnemy)
+        {
+            StronkEnemySpawn();
         }
 
         if (timer > startSpawnRangeEnemy)
