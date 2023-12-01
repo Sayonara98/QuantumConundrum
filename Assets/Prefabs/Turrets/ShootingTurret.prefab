@@ -374,7 +374,7 @@ MonoBehaviour:
   AttackRange: 8
   Barrel: {fileID: 1748402505744562396}
   Leg: {fileID: 7885216162528982447}
-  FireRate: 0.25
+  FireRate: 0.5
   ShootingBulletPrefab: {fileID: 1392576823190759270, guid: e81ae42673b3b8f46b6ddbe175e9d49f, type: 3}
 --- !u!1 &7885216162528982447
 GameObject:

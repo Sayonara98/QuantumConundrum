@@ -306,8 +306,8 @@ MonoBehaviour:
   TurretData: {fileID: 0}
   EquipText: {fileID: 2537498261426697605}
   CanEquip: 0
-  AttackRange: 3
-  Damage: 5
+  AttackRange: 4
+  Damage: 15
   attkCd: 1
 --- !u!1 &6656955765144944673
 GameObject:
