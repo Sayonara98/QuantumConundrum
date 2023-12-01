@@ -13,8 +13,9 @@ public class Player : MonoBehaviour, IDamageable
     [SerializeField] private float moveSpeed = 7f;
     [SerializeField] private GameInput gameInput;
     [SerializeField] private Transform shadow;
+    [SerializeField] private GameObject HPbar;
 
-    private float hp = 5;
+    private float hp = 100;
 
     [HideInInspector]
     TurretController ClosestTurret = null;
@@ -116,9 +117,17 @@ public class Player : MonoBehaviour, IDamageable
     public void TakeDamage(float Damage)
     {
         hp -= Damage;
+        //Debug.Log(hp);
+        UpdateHPUI();
         if (hp <= 0)
         {
             GamePlayUIController.Instance.OnPlayerDeath();
         }
+    }
+    void UpdateHPUI()
+    {
+        
+        float currentHPratio = hp / 100;
+        HPbar.GetComponent<RectTransform>().sizeDelta = new Vector2(currentHPratio*274, 100);
     }
 }
