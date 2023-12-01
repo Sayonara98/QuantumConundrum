@@ -12,6 +12,7 @@ public class TutorialManager : MonoBehaviour
     public GameObject previousButton;
     public GameObject nextButton;
     public GameObject playButton;
+    public GameObject quitButton;
 
     private void Start()
     {
@@ -64,11 +65,13 @@ public class TutorialManager : MonoBehaviour
         if (page == slides.Count - 1)
         {
             nextButton.SetActive(false);
+            quitButton.SetActive(false);
             playButton.SetActive(true);
         }
         else
         {
             nextButton.SetActive(true);
+            quitButton.SetActive(true);
             playButton.SetActive(false);
         }
     }
