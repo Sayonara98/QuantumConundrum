@@ -942,6 +942,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 797048973832539827, guid: a456846e94196054c926814e21e63b85, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a456846e94196054c926814e21e63b85, type: 3}
 --- !u!1 &1210459239
@@ -1217,6 +1221,8 @@ MonoBehaviour:
   - Info: {fileID: 11400000, guid: 77d13aea1b1a6094eacfe7eff021ff0e, type: 2}
     Ammount: 1
   - Info: {fileID: 11400000, guid: 3f2aa0d00b5248f4ca109ee393f311f0, type: 2}
+    Ammount: 1
+  - Info: {fileID: 11400000, guid: c9402f5c2637d5c40905162fcf43b2aa, type: 2}
     Ammount: 1
   InventorySlotPrefab: {fileID: 701918058949410358, guid: 2af74a1e42197824a9b8a74778b49711, type: 3}
   InventoryItemPrefab: {fileID: 150554277787960844, guid: 48c9889a60981b141a0864d972da03dd, type: 3}

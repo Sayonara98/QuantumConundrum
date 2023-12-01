@@ -70,9 +70,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: 1363068863
+  m_SortingLayer: 5
+  m_SortingOrder: 1
   m_Sprite: {fileID: -24393794, guid: 23c5b5e8e1c6873449782ee409512b45, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -142,7 +142,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
-  m_SortingLayerID: 0
+  m_SortingLayerID: 1363068863
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!114 &8773448018300337278
@@ -371,10 +371,10 @@ MonoBehaviour:
   TurretData: {fileID: 0}
   EquipText: {fileID: 1453550947214967333}
   CanEquip: 0
+  AttackRange: 8
   Barrel: {fileID: 1748402505744562396}
   Leg: {fileID: 7885216162528982447}
   FireRate: 0.25
-  AttackRange: 10
   ShootingBulletPrefab: {fileID: 1392576823190759270, guid: e81ae42673b3b8f46b6ddbe175e9d49f, type: 3}
 --- !u!1 &7885216162528982447
 GameObject:
@@ -446,8 +446,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1363068863
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: -1651283365, guid: 23c5b5e8e1c6873449782ee409512b45, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

@@ -23,7 +23,7 @@ public class CraftingRequireItem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        inventoryManager = GameObject.FindObjectOfType<InventoryManager>();
+        inventoryManager = InventoryManager.Instance;
         RefreshUI();
     }
 

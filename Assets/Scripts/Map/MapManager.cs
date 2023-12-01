@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Tilemaps;
-using UnityEngine.WSA;
 
 public class MapManager : MonoBehaviour
 {
@@ -15,44 +13,52 @@ public class MapManager : MonoBehaviour
 
     [SerializeField] private BiomeMapManager biomeMap;
 
-    public BiomeType GetBiomeType(Vector3 position)
+    public Vector3Int GetCell(Vector3 position)
     {
-        Vector3Int cell = biomeMap.tilemap.WorldToCell(position);
-        return GetBiomeType(cell);
-    }
-
-    public BiomeType GetBiomeType(Vector3Int cell)
-    {
-        string tileName = biomeMap.tilemap.GetTile(cell).name;
-        BiomeType type = biomeMap.config.TilesByName[tileName]?.biome.type ?? BiomeType.NONE;
-        return type;
+        return biomeMap.groundTilemap.WorldToCell(position);
     }
 
     public Biome GetBiomeConfig(Vector3 position)
     {
-        Vector3Int cell = biomeMap.tilemap.WorldToCell(position);
+        Vector3Int cell = GetCell(position);
         return GetBiomeConfig(cell);
     }
 
     public Biome GetBiomeConfig(Vector3Int cell)
     {
-        var tile = biomeMap.tilemap.GetTile(cell);
+        var tile = biomeMap.groundTilemap.GetTile(cell);
         if (tile == null) return null;
-        return biomeMap.config.TilesByName[tile.name]?.biome;
+
+        var data = biomeMap.config.TilesByName[tile.name];
+        if (data == null) return null;
+
+        return data.biome;
     }
 
+    public BiomeType GetBiomeType(Vector3 position)
+    {
+        Vector3Int cell = GetCell(position);
+        return GetBiomeType(cell);
+    }
+
+    public BiomeType GetBiomeType(Vector3Int cell)
+    {
+        Biome biome = GetBiomeConfig(cell);
+        if (biome == null) return BiomeType.NONE;
+        
+        return biome.type;
+    }
 
     public bool CheckPassable(Vector3 position)
     {
-        var biome = GetBiomeConfig(position);
-        if (biome == null) return false;
-        return biome.passable;
+        Vector3Int cell = GetCell(position);
+        bool outOfBounds = Math.Abs(cell.x) > biomeMap.radius || Math.Abs(cell.y) > biomeMap.radius;
+        return !outOfBounds && !biomeMap.collisions.Contains(cell);
     }
 
     public bool CheckPassable(Vector3Int cell)
     {
-        var biome = GetBiomeConfig(cell);
-        if (biome == null) return false;
-        return biome.passable;
+        bool outOfBounds = Math.Abs(cell.x) > biomeMap.radius || Math.Abs(cell.y) > biomeMap.radius;
+        return !outOfBounds && !biomeMap.collisions.Contains(cell);
     }
 }

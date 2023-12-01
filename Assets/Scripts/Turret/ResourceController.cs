@@ -54,7 +54,7 @@ public class ResourceController : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            InventoryManager inventoryManager = GameObject.FindObjectOfType<InventoryManager>();
+            InventoryManager inventoryManager = InventoryManager.Instance;
             if (Data != null)
                 inventoryManager?.AddItem(Data);
             Destroy(gameObject);

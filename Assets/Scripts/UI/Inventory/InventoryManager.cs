@@ -5,6 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class InventoryManager : MonoBehaviour
 {
+    public static InventoryManager Instance;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
+
     [SerializeField]
     List<ItemData> DefaultItems;
     [SerializeField]
@@ -19,10 +26,6 @@ public class InventoryManager : MonoBehaviour
 
     public delegate void OnItemChangedDelegate(ItemData data);
     public OnItemChangedDelegate OnItemChanged;
-
-    private void Awake()
-    {
-    }
 
     private void Start()
     {
@@ -176,5 +179,17 @@ public class InventoryManager : MonoBehaviour
         {
             Items[data.Info] = Mathf.Max(0, Items[data.Info] - data.Ammount);
         }    
-    }    
+    }
+    
+    public Item GetItem(string itemName)
+    {
+        foreach(var item in Items)
+        {
+            if(item.Key.Name == itemName)
+            {
+                return item.Key;
+            }
+        }
+        return null;
+    }
 }

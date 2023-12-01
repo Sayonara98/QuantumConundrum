@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3507175163955651334
+--- !u!1 &1343591138198913745
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,8 +8,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2608962789736481251}
-  - component: {fileID: 8456068750939147780}
+  - component: {fileID: 544152476591329554}
+  - component: {fileID: 7445816354232893367}
   m_Layer: 0
   m_Name: Collider
   m_TagString: Untagged
@@ -17,13 +17,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2608962789736481251
+--- !u!4 &544152476591329554
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3507175163955651334}
+  m_GameObject: {fileID: 1343591138198913745}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.332, y: -0.46, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -32,20 +32,20 @@ Transform:
   m_Father: {fileID: 2184788634506043910}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!70 &8456068750939147780
+--- !u!70 &7445816354232893367
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3507175163955651334}
+  m_GameObject: {fileID: 1343591138198913745}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.36, y: 0.48}
+  m_Offset: {x: 0.36, y: 0.5}
   m_Size: {x: 1.02, y: 0.37}
   m_Direction: 1
 --- !u!1 &4093506774518219591
@@ -193,7 +193,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2184788634506043910}
   - component: {fileID: 4368125449156038494}
-  - component: {fileID: 8168659225588202790}
+  - component: {fileID: 790701822126935544}
+  - component: {fileID: 7133707275651611366}
   m_Layer: 0
   m_Name: BladeTurret
   m_TagString: Untagged
@@ -214,7 +215,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3526826782991779724}
-  - {fileID: 2608962789736481251}
+  - {fileID: 544152476591329554}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -256,9 +257,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: 1363068863
+  m_SortingLayer: 5
+  m_SortingOrder: 231
   m_Sprite: {fileID: 21300000, guid: df1278d5474b34344ad3e14aeda6229f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -270,7 +271,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8168659225588202790
+--- !u!95 &790701822126935544
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6062911578398885221}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a7a0e1c8213670d418e5b2ffcc5d9807, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &7133707275651611366
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -279,12 +300,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 6062911578398885221}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91d80b39f381d0d4699765de8748dc2c, type: 3}
+  m_Script: {fileID: 11500000, guid: 7c13bfe88638b554ba8b428d0681bc3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   TurretData: {fileID: 0}
   EquipText: {fileID: 2537498261426697605}
   CanEquip: 0
+  AttackRange: 3
+  Damage: 5
+  attkCd: 1
 --- !u!1 &6656955765144944673
 GameObject:
   m_ObjectHideFlags: 0
@@ -343,7 +367,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
-  m_SortingLayerID: 0
+  m_SortingLayerID: 1363068863
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!114 &3627177851141063080

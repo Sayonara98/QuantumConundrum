@@ -12,26 +12,28 @@ public class Player : MonoBehaviour, IDamageable
     [SerializeField] private SpriteRenderer sprite;
     [SerializeField] private float moveSpeed = 7f;
     [SerializeField] private GameInput gameInput;
+    [SerializeField] private Transform shadow;
 
-    private int hp = 5;
+    private float hp = 5;
 
     [HideInInspector]
     TurretController ClosestTurret = null;
 
     private Vector3 feetOffset;
-    private bool isRunning = false;
-    private bool isFlipped = false;
 
+    private bool isRunning = false;
     private bool IsRunning
     {
         get => isRunning;
         set
         {
+            if (value == isRunning) return;
             isRunning = value;
             animator.SetBool(Running, value);
         }
     }
 
+    private bool isFlipped = false;
     private bool IsFlipped
     {
         get => isFlipped;
@@ -44,7 +46,7 @@ public class Player : MonoBehaviour, IDamageable
 
     private void Awake()
     {
-        feetOffset = new Vector3(0, sprite.bounds.size.y / 2);
+        feetOffset = shadow.localPosition;
     }
 
     private void Update()
@@ -55,7 +57,7 @@ public class Player : MonoBehaviour, IDamageable
         if (moveDir.sqrMagnitude > 0f)
         {
             Vector3 moveCheck = transform.position + moveDir * (moveSpeed * Time.deltaTime);
-            if (MapManager.Instance.CheckPassable(moveCheck - feetOffset))
+            if (MapManager.Instance.CheckPassable(moveCheck + feetOffset))
             {
                 transform.position = moveCheck;
             }
@@ -67,16 +69,16 @@ public class Player : MonoBehaviour, IDamageable
                 _ => IsFlipped
             };
 
-            if (!IsRunning) IsRunning = true;
+            IsRunning = true;
         }
-        else if (IsRunning) IsRunning = false;
+        else IsRunning = false;
         
         //check turret closest to equit
         TurretController[] turretControllers = GameObject.FindObjectsOfType<TurretController>();
         if(turretControllers != null)
         {
             TurretController closestTurret = null;
-            TurretController[] turrets = Array.FindAll<TurretController>(turretControllers, x => Vector2.Distance(x.gameObject.transform.position, gameObject.transform.position) <= 5.0f);
+            TurretController[] turrets = Array.FindAll<TurretController>(turretControllers, x => Vector2.Distance(x.gameObject.transform.position, gameObject.transform.position) <= 1.0f);
             if(turrets != null && turrets.Length > 0)
             {
                 closestTurret = turrets[0];
@@ -107,9 +109,11 @@ public class Player : MonoBehaviour, IDamageable
                 ClosestTurret = null;
             }
         }
+        else
+            ClosestTurret = null;
     }
 
-    public void TakeDamage(int Damage)
+    public void TakeDamage(float Damage)
     {
         hp -= Damage;
         if (hp <= 0)
@@ -117,5 +121,4 @@ public class Player : MonoBehaviour, IDamageable
             Debug.Log("Die");
         }
     }
-
 }

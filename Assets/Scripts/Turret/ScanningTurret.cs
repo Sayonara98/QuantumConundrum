@@ -60,10 +60,16 @@ public class ScanningTurret : TurretController
                     Vector2 vector = new Vector2(gameObject.transform.position.x, gameObject.transform.position.y + 1.5f);
 
                     int index = 0;
+                    InventoryManager inventoryManager = InventoryManager.Instance;
                     foreach(ItemData data in IncommingItems)
                     {
                         if(data != null)
                         {
+                            if(data.Info.ItemType == ItemType.TurretBlueprint && inventoryManager.GetItem(data.Info.Name))
+                            {
+                                continue;
+                            }
+
                             GameObject gameObject = Instantiate(data.Info.ItemPrefab, vector, Quaternion.identity);
                             ResourceController resourceController = gameObject.GetComponent<ResourceController>();
                             if(resourceController)
