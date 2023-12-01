@@ -10,8 +10,9 @@ public class BurningEffect : MonoBehaviour
 
     public float tickTime=0.5f;
     [NonSerialized] public float tickTimer;
+    [NonSerialized]public float currentDamge;
     public float damage = 1f;
-    public float hitBonus = 1f;
+    public float hitDamage = 2f;
     Enemy _enemy;
     public bool triggering = false;
     private void Start()
@@ -28,7 +29,11 @@ public class BurningEffect : MonoBehaviour
         if (triggering)
         {
             durationTimer = duration;
-            damage += 1f;
+            currentDamge = hitDamage;
+        }
+        else
+        {
+            currentDamge = damage;
         }
 
         
@@ -42,7 +47,7 @@ public class BurningEffect : MonoBehaviour
         }
         if(tickTimer<=0)
         {
-            _enemy.TakeDamage(damage);
+            _enemy.TakeDamage(currentDamge);
             tickTimer = tickTime;
         }
 

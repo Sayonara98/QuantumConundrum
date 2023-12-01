@@ -11,17 +11,17 @@ public class FrameThrowerBullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.TryGetComponent<Enemy>(out Enemy enemy) && collision.TryGetComponent<BurningEffect>(out BurningEffect BE) == null)
+        if (collision.TryGetComponent<Enemy>(out Enemy enemy) && !collision.TryGetComponent<BurningEffect>(out BurningEffect BE))
         {
-            Instantiate(flamePref, enemy.transform);
-            BE.triggering= true;
+            BurningEffect newBE= Instantiate(flamePref, enemy.transform);
+            newBE.triggering = true;
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if(collision.TryGetComponent<BurningEffect>(out BurningEffect BE))
+        if(collision.GetComponentInChildren<BurningEffect>()!=null)
         {
-            BE.triggering = false;
+            collision.GetComponentInChildren<BurningEffect>().triggering = false;
         }
     }
 

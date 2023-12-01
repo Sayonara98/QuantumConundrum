@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -64,6 +65,8 @@ public class Enemy : MonoBehaviour, IDamageable
     private Animator animator;
     [SerializeField]
     private SpriteRenderer sprite;
+    [SerializeField]
+    private GameObject damageIndicator;
 
     private float scanTimer = 0.5f;
     private readonly float reScan = 0.5f;
@@ -211,6 +214,10 @@ public class Enemy : MonoBehaviour, IDamageable
 
     public void TakeDamage(float Damage)
     {
+
+        GameObject DI = Instantiate(damageIndicator, gameObject.transform);
+        DI.transform.SetParent(gameObject.GetComponentInChildren<Canvas>().transform);
+        DI.GetComponent<TextMeshProUGUI>().text= Damage.ToString();
         hp -= Damage;
         if (hp <= 0)
         {

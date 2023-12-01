@@ -31,7 +31,6 @@ public class BladeTurret : WeaponTurret
     {
         attkTimer = attkCd;
         anim = gameObject.GetComponent<Animator>();
-        Debug.Log(anim.GetType().ToString());
     }
     private void FixedUpdate()
     {
@@ -60,7 +59,6 @@ public class BladeTurret : WeaponTurret
     {
         attking = true;
         anim.SetBool("IsAttack", true);
-        Debug.Log("ABC");
         yield return new WaitForSeconds(.5f);
         anim.SetBool("IsAttack", false);
         attking = false;

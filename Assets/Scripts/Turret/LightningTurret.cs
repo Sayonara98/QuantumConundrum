@@ -5,18 +5,19 @@ using UnityEngine;
 
 public class LightningTurret : TurretController
 {
-    [SerializeField]
-    float AttackRange = 10.0f;
-    [SerializeField]
-    GameObject Barrel;
-    [SerializeField]
-    LightningChain LightningChainPrefab;
-    [HideInInspector]
-    Enemy Target;
-    public bool CanShoot = true;
-    [SerializeField]
-    float FireRate = 0.5f;
+    [SerializeField] float AttackRange = 10.0f;
+    [SerializeField] GameObject Barrel;
+    [SerializeField] LightningChain LightningChainPrefab;
+    [HideInInspector] Enemy Target;
+    [NonSerialized] public bool CanShoot = true;
+    [SerializeField] float FireRate = 1.5f;
+    [SerializeField] int chainAmount;
 
+    protected override void OnStart()
+    {
+        base.OnStart();
+        Target = null;
+    }
     protected override void OnUpdate()
     {
         base.OnUpdate();
@@ -30,10 +31,10 @@ public class LightningTurret : TurretController
 
     void DetectTarget()
     {
-        if (Target && !IsTargetInRange(Target))
-        {
-            return;
-        }
+        //if (Target || !IsTargetInRange(Target))
+        //{
+        //    return;
+        //}
 
         Target = null;
 
@@ -41,7 +42,10 @@ public class LightningTurret : TurretController
         Enemy[] enemies = GameObject.FindObjectsOfType<Enemy>();
         if (enemies != null)
         {
+            //Enemies that are in rage
             Enemy[] nearEnemies = Array.FindAll(enemies, x => IsTargetInRange(x));
+            
+            //Closest enemy
             if (nearEnemies != null && nearEnemies.Length > 0)
             {
                 Enemy enemy = nearEnemies[0];
@@ -66,7 +70,8 @@ public class LightningTurret : TurretController
         if (Target && CanShoot)
         {
             LightningChain lightningChain = Instantiate(LightningChainPrefab, Barrel.transform);
-            lightningChain.AmountToChain = 3;
+            Destroy(lightningChain.gameObject,.9f);
+            lightningChain.AmountToChain = chainAmount;
             lightningChain.searchRange = AttackRange;
             StartCoroutine(Reload(FireRate));
         }
