@@ -46,8 +46,8 @@ public class ScanningTurret : TurretController
     protected override void OnUpdate()
     {
         base.OnUpdate();
-        
-        if(!isScanned && scanningTime < ScanTime)
+
+        if (!isScanned && scanningTime < ScanTime)
         {
             scanningTime += Time.deltaTime;
             if (slider)
@@ -61,9 +61,9 @@ public class ScanningTurret : TurretController
 
                     int index = 0;
                     InventoryManager inventoryManager = InventoryManager.Instance;
-                    foreach(ItemData data in IncommingItems)
+                    foreach (ItemData data in IncommingItems)
                     {
-                        if(data != null)
+                        if (data != null)
                         {
                             //if(data.Info.ItemType == ItemType.TurretBlueprint)
                             //{
@@ -72,7 +72,7 @@ public class ScanningTurret : TurretController
 
                             GameObject gameObject = Instantiate(data.Info.ItemPrefab, vector, Quaternion.identity);
                             ResourceController resourceController = gameObject.GetComponent<ResourceController>();
-                            if(resourceController)
+                            if (resourceController)
                             {
                                 resourceController.Data = data;
                                 resourceController.DelayTime = index * 0.25f;
@@ -80,7 +80,13 @@ public class ScanningTurret : TurretController
                         }
                         index++;
                     }
-                    slider.gameObject.SetActive(false);
+                    isScanned = false;
+                    //slider.gameObject.SetActive(false);
+                    //slider.gameObject.SetActive(true);
+                    scanningTime = 0;
+                    slider.minValue = 0;
+                    slider.value = scanningTime;
+                    slider.maxValue = ScanTime;
                 }
             }
         }

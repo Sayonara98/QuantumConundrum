@@ -22,5 +22,5 @@ MonoBehaviour:
   Turret: {fileID: 11400000, guid: 3f2aa0d00b5248f4ca109ee393f311f0, type: 2}
   RequireItem:
   - Info: {fileID: 11400000, guid: e52579962b5c07a47b217daf30bc7508, type: 2}
-    Ammount: 20
+    Ammount: 200
   CanCraft: 0

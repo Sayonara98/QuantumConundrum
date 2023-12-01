@@ -76,7 +76,7 @@ public class InventoryManager : MonoBehaviour
         InventorySlot[] InventorySlots = ToolBar.GetComponentsInChildren<InventorySlot>();
         if (InventorySlots.Length > 7)
         {
-            GamePlayUIController.Instance.TellPlayer("Cannot hold more than 8 items!");
+            GamePlayUIController.Instance.TellPlayer("Cannot hold more than 8 items!",2f);
             return false;
         }
         UseItem(data);

@@ -56,7 +56,7 @@ public class CraftingManager : MonoBehaviour
         RefeshItemList();
         if(data.Info.ItemType == ItemType.TurretBlueprint)
         {
-            GamePlayUIController.Instance.TellPlayer("Open the craft menu to craft a turret!");
+            GamePlayUIController.Instance.TellPlayer("Craft menu ready",2f);
             NoticeIcon.gameObject.SetActive(!ItemList.gameObject.activeSelf);
         }
     }

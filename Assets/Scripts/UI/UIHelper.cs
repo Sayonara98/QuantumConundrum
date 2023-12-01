@@ -19,29 +19,29 @@ public class UIHelper : MonoBehaviour
             switch (biome.type)
             {
                 case BiomeType.MUD:
-                    BiomeName.text = "You are on MUD";
+                    BiomeName.text = "CURRENT TERRAIN: MUD";
                     BiomeBonus.text = "All Turret range x1.5";
-                    ScanResult.text = "Scan result: Sniper Blueprints";
+                    ScanResult.text = "SCAN RESULT: Sniper Blueprints";
                     break;
                 case BiomeType.JUNGLE:
-                    BiomeName.text = "You are on JUNGLE";
-                    BiomeBonus.text = "All Turret Damage x1.5, Enemy Drop x1.5";
-                    ScanResult.text = "Scan result: Blade Blueprints";
+                    BiomeName.text = "- CURRENT TERRAIN: JUNGLE";
+                    BiomeBonus.text = "- All Turret Damage x1.5, Enemy Drop x1.5";
+                    ScanResult.text = "- SCAN RESULT: Blade Blueprints";
                     break;
                 case BiomeType.PLAINS:
-                    BiomeName.text = "You are on PLAINS";
-                    BiomeBonus.text = "All Turret Damage x1.5";
-                    ScanResult.text = "Scan result: Flamethrower Blueprints";
+                    BiomeName.text = "- CURRENT TERRAIN: PLAINS";
+                    BiomeBonus.text = "- All Turret Damage x1.5";
+                    ScanResult.text = "- SCAN RESULT: Flamethrower Blueprints";
                     break;
                 case BiomeType.MOUNTAINS:
-                    BiomeName.text = "You are on MOUNTAINS";
-                    BiomeBonus.text = "All Fire rate x1.5";
-                    ScanResult.text = "Scan result: Lightning Blueprints";
+                    BiomeName.text = "- CURRENT TERRAIN: MOUNTAINS";
+                    BiomeBonus.text = "- All Fire rate x1.5";
+                    ScanResult.text = "- SCAN RESULT: Lightning Blueprints";
                     break;
                 default:
-                    BiomeName.text = "Biome Unknown";
-                    BiomeBonus.text = "N/A";
-                    ScanResult.text = "N/A";
+                    BiomeName.text = "- Biome Unknown";
+                    BiomeBonus.text = "- N/A";
+                    ScanResult.text = "- N/A";
                     break;
             }
         }
