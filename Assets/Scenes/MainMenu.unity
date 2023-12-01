@@ -684,11 +684,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2181164537970927592, guid: 975b4788336706842a0d5884d6a44aa2, type: 3}
       propertyPath: m_text
-      value: Plug in
+      value: Synchronize
       objectReference: {fileID: 0}
     - target: {fileID: 2181164537970927592, guid: 975b4788336706842a0d5884d6a44aa2, type: 3}
       propertyPath: m_fontSize
       value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 2181164537970927592, guid: 975b4788336706842a0d5884d6a44aa2, type: 3}
+      propertyPath: m_margin.w
+      value: -4.762745
+      objectReference: {fileID: 0}
+    - target: {fileID: 2181164537970927592, guid: 975b4788336706842a0d5884d6a44aa2, type: 3}
+      propertyPath: m_margin.x
+      value: -162.83746
       objectReference: {fileID: 0}
     - target: {fileID: 2181164537970927592, guid: 975b4788336706842a0d5884d6a44aa2, type: 3}
       propertyPath: m_fontSizeBase
@@ -728,7 +736,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2181164538832464633, guid: 975b4788336706842a0d5884d6a44aa2, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 300
+      value: 450
       objectReference: {fileID: 0}
     - target: {fileID: 2181164538832464633, guid: 975b4788336706842a0d5884d6a44aa2, type: 3}
       propertyPath: m_SizeDelta.y
@@ -764,7 +772,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2181164538832464633, guid: 975b4788336706842a0d5884d6a44aa2, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 350
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 2181164538832464633, guid: 975b4788336706842a0d5884d6a44aa2, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -810,6 +818,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 5610574431748037534, guid: 975b4788336706842a0d5884d6a44aa2, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: edece4267be0c2f4181da121db5b2a78, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 975b4788336706842a0d5884d6a44aa2, type: 3}
 --- !u!1001 &1176293662
@@ -821,11 +833,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2181164537970927592, guid: 975b4788336706842a0d5884d6a44aa2, type: 3}
       propertyPath: m_text
-      value: Give up
+      value: Disconnect
       objectReference: {fileID: 0}
     - target: {fileID: 2181164537970927592, guid: 975b4788336706842a0d5884d6a44aa2, type: 3}
       propertyPath: m_fontSize
       value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 2181164537970927592, guid: 975b4788336706842a0d5884d6a44aa2, type: 3}
+      propertyPath: m_margin.w
+      value: -4.762745
+      objectReference: {fileID: 0}
+    - target: {fileID: 2181164537970927592, guid: 975b4788336706842a0d5884d6a44aa2, type: 3}
+      propertyPath: m_margin.x
+      value: -180.90489
       objectReference: {fileID: 0}
     - target: {fileID: 2181164537970927592, guid: 975b4788336706842a0d5884d6a44aa2, type: 3}
       propertyPath: m_fontSizeBase
@@ -865,7 +885,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2181164538832464633, guid: 975b4788336706842a0d5884d6a44aa2, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 300
+      value: 450
       objectReference: {fileID: 0}
     - target: {fileID: 2181164538832464633, guid: 975b4788336706842a0d5884d6a44aa2, type: 3}
       propertyPath: m_SizeDelta.y
@@ -901,7 +921,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2181164538832464633, guid: 975b4788336706842a0d5884d6a44aa2, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -350
+      value: -250
       objectReference: {fileID: 0}
     - target: {fileID: 2181164538832464633, guid: 975b4788336706842a0d5884d6a44aa2, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -947,6 +967,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 5610574431748037534, guid: 975b4788336706842a0d5884d6a44aa2, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: cf7996db9ea10394182aa5574718d88f, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 975b4788336706842a0d5884d6a44aa2, type: 3}
 --- !u!1 &1431823336
