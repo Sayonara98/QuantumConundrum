@@ -65,10 +65,10 @@ public class ScanningTurret : TurretController
                     {
                         if(data != null)
                         {
-                            if(data.Info.ItemType == ItemType.TurretBlueprint && inventoryManager.GetItem(data.Info.Name))
-                            {
-                                continue;
-                            }
+                            //if(data.Info.ItemType == ItemType.TurretBlueprint)
+                            //{
+                            //    continue;
+                            //}
 
                             GameObject gameObject = Instantiate(data.Info.ItemPrefab, vector, Quaternion.identity);
                             ResourceController resourceController = gameObject.GetComponent<ResourceController>();

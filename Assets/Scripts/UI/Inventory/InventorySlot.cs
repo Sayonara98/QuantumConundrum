@@ -13,6 +13,8 @@ public class InventorySlot : MonoBehaviour, IDropHandler
     [SerializeField]
     TMP_Text SlotIndexText;
 
+    [SerializeField] GameObject DssmblBtn;
+
     int index = -1;
 
     public int Index { 
@@ -34,8 +36,8 @@ public class InventorySlot : MonoBehaviour, IDropHandler
     public void Deselect()
     {
     }
-
-    private void OnMouseOver()
+    
+    private void OnMouseEnter()
     {
         
     }
@@ -52,5 +54,13 @@ public class InventorySlot : MonoBehaviour, IDropHandler
     public InventoryItem GetItem()
     {
         return gameObject.GetComponentInChildren<InventoryItem>();
-    }    
+    }
+    public void Disassemble()
+    {
+        if(GetComponentInChildren<InventoryItem>()!= null)
+        {
+
+        Destroy(gameObject);
+        }
+    }
 }

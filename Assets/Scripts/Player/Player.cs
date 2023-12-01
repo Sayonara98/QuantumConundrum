@@ -15,7 +15,7 @@ public class Player : MonoBehaviour, IDamageable
     [SerializeField] private Transform shadow;
     [SerializeField] private GameObject HPbar;
 
-    private float hp = 15;
+    private float hp = 30;
 
     [HideInInspector]
     TurretController ClosestTurret = null;
@@ -126,7 +126,7 @@ public class Player : MonoBehaviour, IDamageable
     void UpdateHPUI()
     {
         
-        float currentHPratio = hp / 100;
-        HPbar.GetComponent<RectTransform>().sizeDelta = new Vector2(currentHPratio*275, 100);
+        float currentHPratio = hp / 30;
+        HPbar.GetComponent<RectTransform>().sizeDelta = new Vector2(currentHPratio*274, 100);
     }
 }

@@ -28,7 +28,7 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         CountText.gameObject.SetActive(Count > 1);
     }
 
-   //drag and drop
+    //drag and drop
     public void OnBeginDrag(PointerEventData eventData)
     {
         image.raycastTarget = false;
