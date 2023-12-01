@@ -49,7 +49,6 @@ public class PathFinder
             {
                 Vector2Int nearest = visited.OrderBy(kvp => kvp.Value).First().Key;
                 current = nearest;
-                Debug.Log(current);
                 break;
             }
 
