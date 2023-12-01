@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,7 +14,12 @@ public class GamePlayUIController: MonoBehaviour
     
     public PauseMenuController pauseMenu;
     public GameOverController gameOver;
-    
+
+    private void Start()
+    {
+        Time.timeScale = 1f;
+    }
+
     void Update()
     {
         if (Input.GetKey(KeyCode.Escape))

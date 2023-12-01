@@ -208,7 +208,7 @@ MonoBehaviour:
   config: {fileID: 11400000, guid: 94d37f0675d55b5418b83bf88aceb7de, type: 2}
   collisions: []
   radius: 200
-  fadeInDuration: 7
+  fadeInDuration: 3
   fadeInRadius: 15
 --- !u!1 &6683105634486894289
 GameObject:

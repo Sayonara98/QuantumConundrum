@@ -68,6 +68,8 @@ public class BiomeMapManager : MonoBehaviour
             }
             return null;
         }
+
+        StartFadeIn();
     }
     
     private void Update()
