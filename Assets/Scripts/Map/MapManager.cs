@@ -18,6 +18,12 @@ public class MapManager : MonoBehaviour
         return biomeMap.groundTilemap.WorldToCell(position);
     }
 
+    public Vector3 SnapToCell(Vector3 position)
+    {
+        var cell = biomeMap.groundTilemap.WorldToCell(position);
+        return biomeMap.groundTilemap.CellToWorld(cell);
+    }
+
     public Biome GetBiomeConfig(Vector3 position)
     {
         Vector3Int cell = GetCell(position);

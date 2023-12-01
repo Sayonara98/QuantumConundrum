@@ -63,6 +63,8 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     {
         if (MapManager.Instance.CheckPassable(position))
         {
+            position = MapManager.Instance.SnapToCell(position);
+            
             if (Item.ItemPrefab)
             {
                 GameObject game = Instantiate(Item.ItemPrefab, position, Quaternion.identity);
