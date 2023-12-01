@@ -9,10 +9,17 @@ public class BiomeMapManager : MonoBehaviour
 {
     public Tilemap groundTilemap;
     public Tilemap decorationTileMap;
-    public List<Vector3Int> collisions;
     public BiomeMap config;
 
+    [HideInInspector]
+    public List<Vector3Int> collisions;
     public int radius = 200;
+    
+    public float fadeInDuration = 7f;
+    public int fadeInRadius = 15;
+    private readonly Dictionary<Vector3Int, TileBase> tempTiles = new();
+    private float fadeInTime = 0f;
+    private bool isFadingIn = false;
 
     private void Awake()
     {
@@ -60,7 +67,50 @@ public class BiomeMapManager : MonoBehaviour
                 }
             }
             return null;
-        };
+        }
+    }
+    
+    private void Update()
+    {
+        if (!isFadingIn) return;
+
+        if (fadeInTime > fadeInDuration)
+        {
+            decorationTileMap.color = Color.white;
+            isFadingIn = false;
+            return;
+        }
+        fadeInTime += Time.deltaTime;
+
+        int range = (int)(fadeInTime / fadeInDuration * fadeInRadius);
+
+        for (int x = -range; x <= range; x++)
+        {
+            for (int y = -range; y <= range; y++)
+            {
+                if (x == -range || x == range || y == -range || y == range)
+                {
+                    var cell = new Vector3Int(x, y);
+                    groundTilemap.SetTile(cell, tempTiles[cell]);
+                }
+            }
+        }
+    }
+
+    public void StartFadeIn()
+    {
+        for (int x = -fadeInRadius; x <= fadeInRadius; x++)
+        {
+            for (int y = -fadeInRadius; y <= fadeInRadius; y++)
+            {
+                var cell = new Vector3Int(x, y);
+                tempTiles[cell] = groundTilemap.GetTile(cell);
+                groundTilemap.SetTile(cell, null);
+            }
+        }
+
+        decorationTileMap.color = new Color(1, 1, 1, 0);
+        isFadingIn = true;
     }
 
     private float AdvancedNoise(float x, float y, float frequency, float amplitude, float persistence, int octave, int seed)
