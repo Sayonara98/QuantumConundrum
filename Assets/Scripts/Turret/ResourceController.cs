@@ -5,7 +5,7 @@ using UnityEngine;
 public class ResourceController : MonoBehaviour
 {
     [SerializeField]
-    float speed = 3.5f;
+    float speed = 1f;
     [SerializeField]
     Rigidbody2D rb;
 
