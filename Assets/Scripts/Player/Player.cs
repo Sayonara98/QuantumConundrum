@@ -15,7 +15,7 @@ public class Player : MonoBehaviour, IDamageable
     [SerializeField] private Transform shadow;
     [SerializeField] private GameObject HPbar;
 
-    private float hp = 100;
+    private float hp = 15;
 
     [HideInInspector]
     TurretController ClosestTurret = null;
@@ -117,7 +117,6 @@ public class Player : MonoBehaviour, IDamageable
     public void TakeDamage(float Damage)
     {
         hp -= Damage;
-        Debug.Log(hp);
         UpdateHPUI();
         if (hp <= 0)
         {

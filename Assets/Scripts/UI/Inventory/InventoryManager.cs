@@ -67,7 +67,7 @@ public class InventoryManager : MonoBehaviour
                 break;
             }
             key++;
-        }    
+        }
     }
 
     public bool CraftTurret(ItemData data)
@@ -117,6 +117,7 @@ public class InventoryManager : MonoBehaviour
         return isResult;
     }
 
+
     private bool AddTurret(ItemData data)
     {
         InventorySlot[] InventorySlots = ToolBar.GetComponentsInChildren<InventorySlot>();
@@ -130,6 +131,7 @@ public class InventoryManager : MonoBehaviour
                 itemInSlot.Count < data.Info.MaxItems)
             {
                 itemInSlot.Count++;
+                Debug.Log(itemInSlot.Count);
                 itemInSlot.RefreshCount();
                 return true;
             }
@@ -165,6 +167,10 @@ public class InventoryManager : MonoBehaviour
         {
             slot.Index = NumberOfInventorySlots;
         }
+    }
+    void RemoveTurret()
+    {
+
     }
 
     void ClearToolBar()
