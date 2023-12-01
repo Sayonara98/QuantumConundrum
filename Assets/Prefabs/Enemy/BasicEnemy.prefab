@@ -202,7 +202,7 @@ GameObject:
   - component: {fileID: 2139324229592513175}
   - component: {fileID: 4930346810633143888}
   m_Layer: 6
-  m_Name: Enemy
+  m_Name: BasicEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -246,6 +246,8 @@ MonoBehaviour:
   animator: {fileID: 5450877768399857740}
   sprite: {fileID: 8125391205097967381}
   damageIndicator: {fileID: 7086331587215119984, guid: 56860c0e977e60544b8d91cf24e9aac9, type: 3}
+  numSpawnPerWave: 5
+  spawnCD: 10
   IsDead: 0
 --- !u!61 &2139324229592513175
 BoxCollider2D:

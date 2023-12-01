@@ -12,6 +12,20 @@ public class EnemySpawn : MonoBehaviour
     [SerializeField]
     private GameObject shieldEnemyPrefab;
 
+    [SerializeField]
+    private float basicSpawnCD = 10f;
+    [SerializeField]
+    private int basicSpawnPerWave = 5;
+    [SerializeField]
+    private float rangeSpawnCD = 10f;
+    [SerializeField]
+    private int rangeSpawnPerWave = 3;
+    [SerializeField]
+    private float shieldSpawnCD = 10f;
+    [SerializeField]
+    private int shieldSpawnPerWave = 2;
+
+
     private bool canSpawnBasicEnemy = true;
     private bool canSpawnRangeEnemy = true;
     private bool canSpawnShieldEnemy = true;
@@ -27,30 +41,16 @@ public class EnemySpawn : MonoBehaviour
     {
         if (canSpawnBasicEnemy)
         {
-            StartCoroutine(SpawnWaveEnemy(basicEnemyPrefab));
+            canSpawnBasicEnemy = false;
+            StartCoroutine(SpawnBasicWaveEnemy(basicEnemyPrefab, basicSpawnPerWave));
         }
     }
-
-    private IEnumerator SpawnWaveEnemy(GameObject enemyPrf)
-    {
-        Debug.Log("Enemy spawn");
-        canSpawnBasicEnemy = false;
-        GameObject enemy = Instantiate(enemyPrf, transform.position, Quaternion.identity);
-        int numPerWave = enemy.GetComponent<Enemy>().NumSpawnPerWave;
-        float spawnCD = enemy.GetComponent<Enemy>().SpawnCD;
-        for (int i = 0; i < numPerWave; i++)
-        {
-            enemy = Instantiate(enemyPrf, transform.position, Quaternion.identity);
-        }
-        yield return new WaitForSeconds(spawnCD);
-        canSpawnBasicEnemy = true;
-    }
-
     private void SpawnRangeEnemy()
     {
         if (canSpawnRangeEnemy)
         {
-            StartCoroutine(SpawnWaveEnemy(rangeEnemyPrefab));
+            canSpawnRangeEnemy = false;
+            StartCoroutine(SpawnRangeWaveEnemy(rangeEnemyPrefab, rangeSpawnPerWave));
         }
     }
 
@@ -58,8 +58,48 @@ public class EnemySpawn : MonoBehaviour
     {
         if (canSpawnShieldEnemy)
         {
-            StartCoroutine(SpawnWaveEnemy(shieldEnemyPrefab));
+            canSpawnShieldEnemy = false;
+            StartCoroutine(SpawnShieldWaveEnemy(shieldEnemyPrefab, shieldSpawnPerWave));
         }
+    }
+
+    private IEnumerator SpawnBasicWaveEnemy(GameObject enemyPrf, int qty)
+    {
+        Debug.Log("Enemy basic spawn");
+        SpawnEnemies(enemyPrf, qty);
+        yield return new WaitForSeconds(basicSpawnCD);
+        canSpawnBasicEnemy = true;
+    }
+    
+    private IEnumerator SpawnRangeWaveEnemy(GameObject enemyPrf, int qty)
+    {
+        Debug.Log("Enemy basic spawn");
+        SpawnEnemies(enemyPrf, qty);
+        yield return new WaitForSeconds(rangeSpawnCD);
+        canSpawnRangeEnemy = true;
+    }
+
+    private IEnumerator SpawnShieldWaveEnemy(GameObject enemyPrf, int qty)
+    {
+        Debug.Log("Enemy basic spawn");
+        SpawnEnemies(enemyPrf, qty);
+        yield return new WaitForSeconds(shieldSpawnCD);
+        canSpawnShieldEnemy = true;
+    }
+
+    private void SpawnEnemies(GameObject enemyPrf, int qty)
+    {
+        for (int i = 0; i < qty; i++)
+        {
+            GameObject enemy = Instantiate(enemyPrf, transform.position, Quaternion.identity);
+        }
+    }
+
+    private void OnDestroy()
+    {
+        EnemySpawnerEvents.Instance.onBasicEnemySpawn -= SpawnBasicEnemy;
+        EnemySpawnerEvents.Instance.onRangeEnemySpawn -= SpawnRangeEnemy;
+        EnemySpawnerEvents.Instance.onShieldEnemySpawn -= SpawnShieldEnemy;
     }
 
 }
