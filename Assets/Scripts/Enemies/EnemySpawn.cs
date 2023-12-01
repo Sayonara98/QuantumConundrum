@@ -14,23 +14,33 @@ public class EnemySpawn : MonoBehaviour
     [SerializeField]
     private GameObject shieldEnemyPrefab;
 
+    [Header("Spawn distance from player")]
     [SerializeField]
     private float SpawnMin = 8;
     [SerializeField]
     private float SpawnMax = 12;
 
+    [Header("Basic enemy")]
     [SerializeField]
     private float basicSpawnCD = 10f;
     [SerializeField]
     private int basicSpawnPerWave = 5;
     [SerializeField]
+    private int maxBasicEnemies = 20;
+
+    [Header("Stronk enemy")]
+    [SerializeField]
     private float stronkSpawnCD = 10f;
     [SerializeField]
     private int stronkSpawnPerWave = 3;
+
+    [Header("Range enemy")]
     [SerializeField]
     private float rangeSpawnCD = 10f;
     [SerializeField]
     private int rangeSpawnPerWave = 3;
+
+    [Header("Shield enemy")]
     [SerializeField]
     private float shieldSpawnCD = 10f;
     [SerializeField]
