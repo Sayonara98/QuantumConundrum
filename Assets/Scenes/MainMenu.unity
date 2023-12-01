@@ -684,7 +684,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2181164537970927592, guid: 975b4788336706842a0d5884d6a44aa2, type: 3}
       propertyPath: m_text
-      value: Synchronize
+      value: Play
       objectReference: {fileID: 0}
     - target: {fileID: 2181164537970927592, guid: 975b4788336706842a0d5884d6a44aa2, type: 3}
       propertyPath: m_fontSize
@@ -696,11 +696,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2181164537970927592, guid: 975b4788336706842a0d5884d6a44aa2, type: 3}
       propertyPath: m_margin.x
-      value: -177.09485
+      value: -157.63898
       objectReference: {fileID: 0}
     - target: {fileID: 2181164537970927592, guid: 975b4788336706842a0d5884d6a44aa2, type: 3}
       propertyPath: m_fontSizeBase
       value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 2181164537970927599, guid: 975b4788336706842a0d5884d6a44aa2, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 2181164538832464632, guid: 975b4788336706842a0d5884d6a44aa2, type: 3}
       propertyPath: m_Name
@@ -736,7 +740,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2181164538832464633, guid: 975b4788336706842a0d5884d6a44aa2, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 450
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 2181164538832464633, guid: 975b4788336706842a0d5884d6a44aa2, type: 3}
       propertyPath: m_SizeDelta.y
