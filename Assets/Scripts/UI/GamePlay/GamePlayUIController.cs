@@ -4,7 +4,15 @@ using UnityEngine;
 
 public class GamePlayUIController: MonoBehaviour
 {
+    public static GamePlayUIController Instance;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
+    
     public PauseMenuController pauseMenu;
+    public GameOverController gameOver;
     
     void Update()
     {
@@ -14,6 +22,11 @@ public class GamePlayUIController: MonoBehaviour
         }
     }
 
+    public void OnPlayerDeath()
+    {
+        gameOver.OnDeath();
+    }
+    
     public void OnOpenMainInventory()
     {
     }

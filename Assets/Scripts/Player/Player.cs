@@ -118,7 +118,7 @@ public class Player : MonoBehaviour, IDamageable
         hp -= Damage;
         if (hp <= 0)
         {
-            Debug.Log("Die");
+            GamePlayUIController.Instance.OnPlayerDeath();
         }
     }
 }
