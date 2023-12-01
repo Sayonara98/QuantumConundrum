@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 using TMPro;
 using UnityEngine.UIElements;
 using UnityEngine.UI;
+using System.Linq;
 
 public class InventoryManager : MonoBehaviour
 {
@@ -72,6 +73,12 @@ public class InventoryManager : MonoBehaviour
 
     public bool CraftTurret(ItemData data)
     {
+        InventorySlot[] InventorySlots = ToolBar.GetComponentsInChildren<InventorySlot>();
+        if (InventorySlots.Length > 7)
+        {
+            GamePlayUIController.Instance.TellPlayer("Cannot hold more than 8 items!");
+            return false;
+        }
         UseItem(data);
         BlueprintItem blueprintItem = (BlueprintItem)data.Info;
         foreach (ItemData item in blueprintItem.RequireItem)
@@ -168,10 +175,7 @@ public class InventoryManager : MonoBehaviour
             slot.Index = NumberOfInventorySlots;
         }
     }
-    void RemoveTurret()
-    {
 
-    }
 
     void ClearToolBar()
     {

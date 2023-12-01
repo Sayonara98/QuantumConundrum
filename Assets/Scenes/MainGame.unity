@@ -2699,7 +2699,7 @@ RectTransform:
   - {fileID: 1462766009}
   - {fileID: 548679527}
   m_Father: {fileID: 1705730030}
-  m_RootOrder: 13
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5069,6 +5069,8 @@ MonoBehaviour:
     Blueprint: {fileID: 11400000, guid: 49f40d06e172ce6429b7dcb5ae2064f9, type: 2}
   - Icon: {fileID: 21300000, guid: 26b1aed5f4366354f9d12feb343b09db, type: 3}
     Blueprint: {fileID: 11400000, guid: f745a6471e0bb1e45a0d0033ab62309a, type: 2}
+  - Icon: {fileID: 21300000, guid: ec853f226e106c849bcbd7a20e1d5e9a, type: 3}
+    Blueprint: {fileID: 11400000, guid: 3a9b63f5c39a207498e964c854780e60, type: 2}
   NoticeIcon: {fileID: 76395184}
   ItemList: {fileID: 1320604232}
   CraftingItemPrefab: {fileID: 2641779693768241177, guid: 719cb8d4eb2e80c43bbe22f2afb65579, type: 3}
@@ -6361,9 +6363,9 @@ RectTransform:
   - {fileID: 1421089142}
   - {fileID: 250416816}
   - {fileID: 1483611104}
+  - {fileID: 732530644}
   - {fileID: 1645820654}
   - {fileID: 1442163562}
-  - {fileID: 732530644}
   - {fileID: 509711949}
   m_Father: {fileID: 0}
   m_RootOrder: 5

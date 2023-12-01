@@ -217,7 +217,7 @@ MonoBehaviour:
   EquipText: {fileID: 1187546773423950786}
   CanEquip: 0
   slider: {fileID: 3572016662207591113}
-  ScanTime: 10
+  ScanTime: 1
 --- !u!212 &1258093818926164440
 SpriteRenderer:
   m_ObjectHideFlags: 0

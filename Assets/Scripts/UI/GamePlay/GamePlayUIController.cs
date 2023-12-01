@@ -1,12 +1,13 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GamePlayUIController: MonoBehaviour
 {
     public static GamePlayUIController Instance;
-
+    [SerializeField] TextMeshProUGUI PlayerMessage;
     private void Awake()
     {
         Instance = this;
@@ -18,6 +19,13 @@ public class GamePlayUIController: MonoBehaviour
     private void Start()
     {
         Time.timeScale = 1f;
+    }
+
+    public void TellPlayer(string mes)
+    {
+        TextMeshProUGUI pm = Instantiate(PlayerMessage,transform);
+        pm.text= mes;
+        Destroy(pm.gameObject,2f);
     }
 
     void Update()
