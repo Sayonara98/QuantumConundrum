@@ -102,7 +102,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4344866233286152688, guid: 87c1dcd4eec86bc409bf88a2979ce73b, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4344866233286152688, guid: 87c1dcd4eec86bc409bf88a2979ce73b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -126,7 +126,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5039095010379706139, guid: 87c1dcd4eec86bc409bf88a2979ce73b, type: 3}
       propertyPath: m_Name
-      value: EnemyShield
+      value: ShieldEnemy
       objectReference: {fileID: 0}
     - target: {fileID: 5450877768399857740, guid: 87c1dcd4eec86bc409bf88a2979ce73b, type: 3}
       propertyPath: m_Controller
@@ -198,11 +198,11 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 0393c126d2753a245a9dc50e5eb7ad74, type: 3}
     - target: {fileID: 8125391205097967381, guid: 87c1dcd4eec86bc409bf88a2979ce73b, type: 3}
       propertyPath: m_Color.b
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8125391205097967381, guid: 87c1dcd4eec86bc409bf88a2979ce73b, type: 3}
       propertyPath: m_Color.g
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8125391205097967381, guid: 87c1dcd4eec86bc409bf88a2979ce73b, type: 3}
       propertyPath: m_Color.r
