@@ -13,6 +13,11 @@ public class EnemySpawn : MonoBehaviour
     private GameObject shieldEnemyPrefab;
 
     [SerializeField]
+    private float SpawnMin = 8;
+    [SerializeField]
+    private float SpawnMax = 12;
+
+    [SerializeField]
     private float basicSpawnCD = 10f;
     [SerializeField]
     private int basicSpawnPerWave = 5;
@@ -30,6 +35,8 @@ public class EnemySpawn : MonoBehaviour
     private bool canSpawnRangeEnemy = true;
     private bool canSpawnShieldEnemy = true;
 
+    private Vector3 spawnPosition;
+
     private void Start()
     {
         EnemySpawnerEvents.Instance.onBasicEnemySpawn += SpawnBasicEnemy;
@@ -45,6 +52,7 @@ public class EnemySpawn : MonoBehaviour
             StartCoroutine(SpawnBasicWaveEnemy(basicEnemyPrefab, basicSpawnPerWave));
         }
     }
+
     private void SpawnRangeEnemy()
     {
         if (canSpawnRangeEnemy)
@@ -65,7 +73,6 @@ public class EnemySpawn : MonoBehaviour
 
     private IEnumerator SpawnBasicWaveEnemy(GameObject enemyPrf, int qty)
     {
-        Debug.Log("Enemy basic spawn");
         SpawnEnemies(enemyPrf, qty);
         yield return new WaitForSeconds(basicSpawnCD);
         canSpawnBasicEnemy = true;
@@ -73,7 +80,6 @@ public class EnemySpawn : MonoBehaviour
     
     private IEnumerator SpawnRangeWaveEnemy(GameObject enemyPrf, int qty)
     {
-        Debug.Log("Enemy basic spawn");
         SpawnEnemies(enemyPrf, qty);
         yield return new WaitForSeconds(rangeSpawnCD);
         canSpawnRangeEnemy = true;
@@ -81,7 +87,6 @@ public class EnemySpawn : MonoBehaviour
 
     private IEnumerator SpawnShieldWaveEnemy(GameObject enemyPrf, int qty)
     {
-        Debug.Log("Enemy basic spawn");
         SpawnEnemies(enemyPrf, qty);
         yield return new WaitForSeconds(shieldSpawnCD);
         canSpawnShieldEnemy = true;
@@ -89,10 +94,27 @@ public class EnemySpawn : MonoBehaviour
 
     private void SpawnEnemies(GameObject enemyPrf, int qty)
     {
+        Vector3 spawnPosition = GetSpawnPosition();
         for (int i = 0; i < qty; i++)
         {
             GameObject enemy = Instantiate(enemyPrf, transform.position, Quaternion.identity);
+            enemy.transform.position = spawnPosition;
         }
+    }
+
+    public Vector3 GetSpawnPosition()
+    {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        float x = Random.Range(SpawnMin, SpawnMax);
+        float y = Random.Range(SpawnMin, SpawnMax);
+        float modifyX = Random.Range(0, 100) > 50 ? -1 : 1;
+        float modifyY = Random.Range(0, 100) > 50 ? -1 : 1;
+        x *= modifyX;
+        y *= modifyY;
+        spawnPosition = new Vector3(player.transform.position.x + x, player.transform.position.y + y, 0);
+        Debug.Log("Player position " + player.transform.position);
+        Debug.Log("Spawn position " + spawnPosition);
+        return spawnPosition;
     }
 
     private void OnDestroy()
