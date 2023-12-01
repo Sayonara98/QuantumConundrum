@@ -3151,53 +3151,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a456846e94196054c926814e21e63b85, type: 3}
---- !u!1 &1009842430
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1009842432}
-  - component: {fileID: 1009842431}
-  m_Layer: 0
-  m_Name: BasicEnemySpawn
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1009842431
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1009842430}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 836e49468d1bb364196648e0dd37b9c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  basicEnemyPrefab: {fileID: 5039095010379706139, guid: 87c1dcd4eec86bc409bf88a2979ce73b, type: 3}
-  rangeEnemyPrefab: {fileID: 2199301529109550363, guid: 143b3d48372b6f241be72f3b01579089, type: 3}
-  shieldEnemyPrefab: {fileID: 2067732543416469990, guid: 0c6e367632fb4fa44ad646baf3eaef77, type: 3}
---- !u!4 &1009842432
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1009842430}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &1032153927 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2341222987133254104, guid: 2af74a1e42197824a9b8a74778b49711, type: 3}
@@ -5398,17 +5351,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2af74a1e42197824a9b8a74778b49711, type: 3}
---- !u!114 &1914935136 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 701918058949410358, guid: 2af74a1e42197824a9b8a74778b49711, type: 3}
-  m_PrefabInstance: {fileID: 554784884}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54d7d7f884f2dba4dbe0fac925893619, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1947305596
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5762,6 +5704,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1009842431, guid: bd11177055c7a974e84b30ae956e3d5c, type: 3}
+      propertyPath: SpawnMax
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1009842431, guid: bd11177055c7a974e84b30ae956e3d5c, type: 3}
+      propertyPath: SpawnMin
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 2902175251306376936, guid: bd11177055c7a974e84b30ae956e3d5c, type: 3}
       propertyPath: m_Name
       value: EnemySpawner
