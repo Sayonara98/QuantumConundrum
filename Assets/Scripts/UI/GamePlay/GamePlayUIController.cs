@@ -36,8 +36,13 @@ public class GamePlayUIController: MonoBehaviour
     }
     IEnumerator SecondTut()
     {
-        yield return new WaitForSeconds(12f);
-        TellPlayer("Each Terrain will give a different bonus and turret blueprint",5f);
+        yield return new WaitForSeconds(7f);
+        TellPlayer("The Scanning turret gives resources based on the terrain",5f);
+    }
+    IEnumerator ThirdTut()
+    {
+        yield return new WaitForSeconds(14f);
+        TellPlayer("Each Terrain gives a different bonus and turret blueprint", 5f);
     }
     void Update()
     {
