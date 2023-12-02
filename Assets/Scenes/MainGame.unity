@@ -5607,7 +5607,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbf22ef71c6559a4aa42b38933c15cc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerMessage: {fileID: 732530643}
+  PlayerMessage: {fileID: 5987960227760652259, guid: e1094e09c151f40469ba31b7926bad37, type: 3}
   pauseMenu: {fileID: 1645820653}
   gameOver: {fileID: 1442163561}
   crafting: {fileID: 1421089144}
